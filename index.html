@@ -106,28 +106,24 @@
                 border-radius: 2px;
             }
 
-            /* Modifiche qui: Rimuovi le proprietà che nascondono il contenuto */
+            /* Contenuto scorrevole per mobile */
             #sidebar-scrollable-content {
-                flex-grow: 1;
-                overflow-y: auto; /* Permette lo scroll del contenuto subito */
+                flex-grow: 1; /* Permette alla sezione di crescere e occupare lo spazio disponibile */
+                overflow-y: auto; /* Abilita lo scroll per questa sezione */
                 padding: 0 15px 15px 15px; /* Applica padding al contenuto scorrevole per mobile */
-                /* Rimuovi queste linee per rendere il contenuto visibile e scorrevole fin dall'inizio del trascinamento */
-                /* opacity: 0; */
-                /* visibility: hidden; */
-                /* max-height: 0; */
-                /* transition: opacity 0.3s ease-out, visibility 0.3s ease-out, max-height 0.3s ease-out; */
-                transition: transform 0.3s ease-out; /* Mantiene la transizione se necessaria per altre proprietà */
             }
 
-            /* Rimuovi completamente questa regola, non è più necessaria.
-               Il contenuto sarà visibile e scorrevole non appena il menu si apre
-               grazie alle modifiche sopra. */
-            /* #sidebar.is-open #sidebar-scrollable-content {
-                overflow-y: auto;
-                opacity: 1;
-                visibility: visible;
-                max-height: 100vh;
-            } */
+            /* Sezione delle azioni (bottoni) fissa in fondo per mobile */
+            #sidebar-actions {
+                flex-shrink: 0; /* Impedisce alla sezione azioni di restringersi */
+                padding: 15px; /* Padding per i bottoni */
+                background: #f8f9fa; /* Assicurati che abbia lo stesso sfondo della sidebar */
+                box-shadow: 0 -2px 5px rgba(0,0,0,0.05); /* Leggera ombra sopra per separare */
+                border-radius: 0 0 12px 12px; /* Angoli arrotondati in basso */
+                position: sticky; /* Rende la sezione "appiccicosa" */
+                bottom: 0; /* La attacca al fondo del suo contenitore */
+                z-index: 1002; /* Assicurati che sia sopra il contenuto scorrevole */
+            }
         }
         
         ::-webkit-scrollbar {
@@ -151,6 +147,12 @@
                 overflow-y: auto; /* Abilita scrollbar per desktop */
                 padding: 0; /* Reset padding specifico per mobile dal contenuto su desktop */
             }
+            #sidebar-actions {
+                position: static; /* Rimuovi sticky positioning su desktop */
+                box-shadow: none; /* Rimuovi ombra su desktop */
+                border-radius: 0; /* Rimuovi angoli arrotondati su desktop */
+                padding: 0; /* Il padding generale della sidebar gestirà questo */
+            }
         }
 
         /* Stili per nascondere temporaneamente i controlli Mapbox */
@@ -164,19 +166,25 @@
     <!-- Handle per mobile (visibile solo su mobile) -->
     <div id="mobile-sidebar-handle"></div>
 
-    <!-- Il contenuto della sidebar è ora avvolto in un div scorrevole.
-         Le classi flex-col e space-y-6 vengono applicate qui per il layout interno
-         che deve essere flessibile sia su mobile che su desktop. -->
-    <div id="sidebar-scrollable-content" class="flex flex-col space-y-6">
-        <div>
+    <!-- Wrapper per il contenuto principale della sidebar -->
+    <div class="flex flex-col flex-grow">
+        <!-- Sezione informativa iniziale -->
+        <div class="p-4 md:p-0"> <!-- Aggiungi padding su mobile, resetta per desktop con md:p-0 se sidebar ha già padding -->
             <h1 class="text-2xl font-bold text-gray-800">Mappa Cestini</h1>
             <p class="text-sm text-gray-600">Filtra e interagisci con i punti sulla mappa.</p>
         </div>
-        <div id="filter-container" class="flex-grow">
-            <h2 class="text-lg font-semibold text-gray-700 mb-3 border-b pb-2">Filtra per tipo</h2>
-            <div id="filters" class="space-y-2"><div class="text-center text-gray-500 p-4"><p>Caricamento filtri...</p></div></div>
+
+        <!-- Il contenuto della sidebar ora è diviso in sezioni -->
+        <!-- Questa è la sezione scorrevole per i filtri -->
+        <div id="sidebar-scrollable-content" class="flex-grow md:p-0">
+            <div id="filter-container">
+                <h2 class="text-lg font-semibold text-gray-700 mb-3 border-b pb-2">Filtra per tipo</h2>
+                <div id="filters" class="space-y-2"><div class="text-center text-gray-500 p-4"><p>Caricamento filtri...</p></div></div>
+            </div>
         </div>
-        <div class="space-y-3">
+
+        <!-- Questa è la sezione per i bottoni, che rimarrà fissa in fondo su mobile -->
+        <div id="sidebar-actions" class="space-y-3">
             <h2 class="text-lg font-semibold text-gray-700 mb-3 border-b pb-2">Azioni</h2>
             <button id="center-button" class="w-full bg-blue-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-700 transition duration-300 shadow-md">Centra sui punti visibili</button>
             <button id="screenshot-button" class="w-full bg-green-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-700 transition duration-300 shadow-md">Cattura Screenshot</button>
@@ -298,8 +306,9 @@ function updateFilters() {
 }
 
 document.getElementById('center-button').addEventListener('click', () => {
+    // Questo pulsante continua a centrare sui punti VISIBILI renderizzati
     const features = map.queryRenderedFeatures({ layers: [layerId] });
-    if (!features.length) { return; } // Non mostra più un messaggio
+    if (!features.length) { return; }
     const bounds = new mapboxgl.LngLatBounds();
     features.forEach(f => bounds.extend(f.geometry.coordinates));
     map.fitBounds(bounds, { padding: 80, maxZoom: 16 });
@@ -326,72 +335,34 @@ function showMapControls() {
 }
 
 document.getElementById('screenshot-button').addEventListener('click', async () => {
-    if (!fullGeojsonData) {
-        return; // Non mostra più un messaggio
-    }
+    // Non è necessario controllare fullGeojsonData o filtrare featuresToScreenshot,
+    // perché vogliamo fare lo screenshot della VISTA ATTUALE della mappa.
 
-    // Salva lo stato attuale della mappa
-    lastMapState = { center: map.getCenter(), zoom: map.getZoom() };
+    // Non modificare la vista della mappa (fitBounds, flyTo) prima dello screenshot.
+    // L'utente vuole esattamente ciò che sta vedendo.
 
-    let featuresToScreenshot = [];
-    const activeFilter = map.getFilter(layerId); // Ottieni il filtro attualmente applicato
+    hideMapControls(); // Nascondi i controlli prima dello screenshot
 
-    if (activeFilter) {
-        if (activeFilter[0] === 'in' && activeFilter[1] === 'type') {
-            const allowedTypes = new Set(activeFilter.slice(2));
-            featuresToScreenshot = fullGeojsonData.features.filter(f => allowedTypes.has(f.properties?.type));
-        } else if (activeFilter[0] === '==' && activeFilter[1] === 'type' && activeFilter[2] === '') {
-            featuresToScreenshot = []; // Esplicitamente filtrato per non mostrare nulla
-        } else {
-             featuresToScreenshot = [];
-        }
-    } else {
-        featuresToScreenshot = fullGeojsonData.features;
-    }
+    // Aggiungi un piccolo ritardo per assicurare che i controlli siano nascosti prima di html2canvas
+    setTimeout(() => {
+        html2canvas(document.getElementById('map'), {
+            useCORS: true,
+            allowTaint: true,
+            backgroundColor: null // Mantiene lo sfondo trasparente se non c'è colore Mapbox
+        }).then(canvas => {
+            const link = document.createElement('a');
+            link.download = 'mappa-cestini-screenshot.png'; // Nome file più generico
+            link.href = canvas.toDataURL('image/png');
+            link.click();
 
-    if (!featuresToScreenshot.length) {
-        map.flyTo({ center: lastMapState.center, zoom: lastMapState.zoom, duration: 0 });
-        return;
-    }
-
-    const bounds = new mapboxgl.LngLatBounds();
-    featuresToScreenshot.forEach(f => {
-        if (f.geometry && f.geometry.coordinates && Array.isArray(f.geometry.coordinates) && f.geometry.coordinates.length >= 2) {
-            bounds.extend(f.geometry.coordinates);
-        }
-    });
-
-    if (bounds.isEmpty()) {
-        map.flyTo({ center: lastMapState.center, zoom: lastMapState.zoom, duration: 0 });
-        return;
-    }
-
-    map.fitBounds(bounds, { padding: 80, maxZoom: 16 });
-
-    map.once('idle', () => {
-        hideMapControls();
-
-        setTimeout(() => {
-            html2canvas(document.getElementById('map'), {
-                useCORS: true,
-                allowTaint: true,
-                backgroundColor: null
-            }).then(canvas => {
-                const link = document.createElement('a');
-                link.download = 'mappa-cestini-filtrata.png';
-                link.href = canvas.toDataURL('image/png');
-                link.click();
-
-                showMapControls();
-                map.flyTo({ center: lastMapState.center, zoom: lastMapState.zoom, duration: 0 });
-            }).catch(error => {
-                console.error('Errore durante la cattura dello screenshot:', error);
-                showMapControls();
-                map.flyTo({ center: lastMapState.center, zoom: lastMapState.zoom, duration: 0 });
-            });
-        }, 100); // Breve ritardo
-    });
+            showMapControls(); // Ripristina i controlli dopo lo screenshot
+        }).catch(error => {
+            console.error('Errore durante la cattura dello screenshot:', error);
+            showMapControls(); // Assicurati di ripristinare i controlli anche in caso di errore
+        });
+    }, 100); // Breve ritardo per la renderizzazione del DOM dopo aver nascosto i controlli
 });
+
 
 // Logica per il menu mobile: apertura/chiusura con un tap/drag sul handle e click fuori
 const sidebar = document.getElementById('sidebar');
