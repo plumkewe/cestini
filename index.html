@@ -10,29 +10,157 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
     <style>
-        body { margin:0; padding:0; font-family:'Inter',sans-serif; display:flex; height:100vh; overflow:hidden; }
-        #map { flex-grow:1; height:100%; }
-        #sidebar { width:320px; flex-shrink:0; background:#f8f9fa; padding:20px; overflow-y:auto; box-shadow:-2px 0 5px rgba(0,0,0,0.1); z-index:10; }
-        .mapboxgl-popup { max-width:250px; }
-        .mapboxgl-popup-content { text-align:left; font-size:14px; padding:15px; border-radius:8px; box-shadow:0 2px 10px rgba(0,0,0,0.15); }
-        .mapboxgl-popup-content h3 { margin:0 0 5px 0; font-size:16px; color:#333; }
-        .mapboxgl-popup-content p { margin:0; }
+        /* Stili Desktop (default) */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+            display: flex; /* La sidebar è a destra della mappa */
+            height: 100vh;
+            overflow: hidden; /* Evita lo scroll indesiderato */
+            -webkit-user-select: none; /* Chrome, Safari, Opera */
+            -moz-user-select: none;    /* Firefox */
+            -ms-user-select: none;     /* Internet Explorer / Edge legacy */
+            user-select: none;         /* Standard */
+        }
+        #map {
+            flex-grow: 1; /* La mappa occupa tutto lo spazio disponibile */
+            height: 100%;
+            width: 100%; /* Inizialmente occupa tutta la larghezza rimanente */
+        }
+        #sidebar {
+            width: 320px; /* Larghezza fissa per desktop */
+            flex-shrink: 0; /* Impedisce che la sidebar si restringa */
+            background: #f8f9fa;
+            padding: 20px; /* Padding originale per desktop */
+            overflow-y: auto; /* Permette lo scroll del contenuto se in eccesso */
+            box-shadow: -2px 0 5px rgba(0,0,0,0.1); /* Ombra a sinistra */
+            z-index: 10;
+            border-radius: 12px 0 0 12px; /* Angoli arrotondati in alto a destra per desktop */
+            transition: all 0.3s ease-out; /* Transizione per proprietà che potrebbero cambiare */
+            display: flex; /* Per layout interno della sidebar */
+            flex-direction: column;
+            /* Le classi space-y-6 e flex-col sono ora applicate al contenuto interno della sidebar per coerenza */
+        }
+
+        /* Stili Popup Mapbox (rimangono uguali) */
+        .mapboxgl-popup { max-width: 250px; }
+        .mapboxgl-popup-content { text-align: left; font-size: 14px; padding: 15px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.15); }
+        .mapboxgl-popup-content h3 { margin: 0 0 5px 0; font-size: 16px; color: #333; }
+        .mapboxgl-popup-content p { margin: 0; }
+
+        /* Overrides specifici per Mobile */
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column; /* Impila mappa e sidebar verticalmente */
+                position: relative; /* Per posizionamento fisso della sidebar */
+            }
+
+            #map {
+                /* Altezza iniziale della mappa per lasciare spazio al handle del menu (60px) */
+                height: calc(100vh - 60px);
+            }
+
+            #sidebar {
+                position: fixed; /* Posizione fissa in basso */
+                bottom: 0;
+                left: 0;
+                width: 100%; /* Larghezza piena per mobile */
+                height: 80vh; /* Altezza massima quando completamente aperto (80% del viewport) */
+                max-height: 80vh; /* Assicura che non superi questa altezza */
+                transform: translateY(calc(80vh - 60px)); /* Nascondi inizialmente la maggior parte, lascia 60px visibili */
+                box-shadow: 0 -2px 10px rgba(0,0,0,0.15); /* Ombra in alto per separare dalla mappa */
+                border-radius: 12px 12px 0 0; /* Angoli arrotondati in alto per mobile */
+                padding: 0; /* Padding gestito internamente per mobile */
+                z-index: 1000; /* Assicura che sia sopra gli altri elementi */
+                overflow: hidden; /* Nasconde lo scrollbar quando è collassato */
+            }
+
+            #sidebar.is-open {
+                transform: translateY(0); /* Completamente aperto */
+                box-shadow: 0 -2px 10px rgba(0,0,0,0.25); /* Ombra leggermente più pronunciata quando aperto */
+            }
+
+            #mobile-sidebar-handle {
+                width: 100%;
+                height: 60px; /* Altezza visibile del handle quando il menu è chiuso */
+                background-color: #f8f9fa;
+                border-radius: 12px 12px 0 0;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                flex-shrink: 0; /* Impedisce che si riduca */
+                position: relative;
+                z-index: 1001; /* Assicurati che sia sopra il contenuto scorrevole */
+            }
+
+            #mobile-sidebar-handle::before {
+                content: '';
+                width: 40px;
+                height: 4px;
+                background-color: #ccc;
+                border-radius: 2px;
+            }
+
+            /* Nasconde il contenuto scorrevole quando la sidebar non è aperta */
+            #sidebar-scrollable-content {
+                flex-grow: 1;
+                overflow-y: hidden; /* Nasconde lo scrollbar quando chiuso */
+                padding: 0 15px 15px 15px; /* Applica padding al contenuto scorrevole per mobile */
+                opacity: 0;
+                visibility: hidden;
+                max-height: 0; /* Collassa il contenuto */
+                transition: opacity 0.3s ease-out, visibility 0.3s ease-out, max-height 0.3s ease-out;
+            }
+
+            /* Mostra e abilita lo scroll del contenuto quando la sidebar è aperta */
+            #sidebar.is-open #sidebar-scrollable-content {
+                overflow-y: auto; /* Abilita lo scrollbar quando aperto */
+                opacity: 1;
+                visibility: visible;
+                max-height: 100%; /* Permette al contenuto di assumere l'altezza naturale */
+            }
+        }
+
+        /* Nasconde il handle e assicura visibilità del contenuto su desktop */
+        @media (min-width: 769px) {
+            #mobile-sidebar-handle {
+                display: none; /* Nasconde il handle su desktop */
+            }
+            #sidebar-scrollable-content {
+                opacity: 1;
+                visibility: visible;
+                max-height: none; /* Reset per desktop */
+                overflow-y: auto; /* Abilita scrollbar per desktop */
+                padding: 0; /* Reset padding specifico per mobile dal contenuto su desktop */
+                /* Il padding della sidebar principale (20px) si applica direttamente */
+            }
+        }
     </style>
 </head>
 <body>
-<div id="sidebar" class="flex flex-col space-y-6">
-    <div>
-        <h1 class="text-2xl font-bold text-gray-800">Mappa Cestini</h1>
-        <p class="text-sm text-gray-600">Filtra e interagisci con i punti sulla mappa.</p>
-    </div>
-    <div id="filter-container" class="flex-grow">
-        <h2 class="text-lg font-semibold text-gray-700 mb-3 border-b pb-2">Filtra per tipo</h2>
-        <div id="filters" class="space-y-2"><div class="text-center text-gray-500 p-4"><p>Caricamento filtri...</p></div></div>
-    </div>
-    <div class="space-y-3">
-        <h2 class="text-lg font-semibold text-gray-700 mb-3 border-b pb-2">Azioni</h2>
-        <button id="center-button" class="w-full bg-blue-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-700 transition duration-300 shadow-md">Centra sui punti visibili</button>
-        <button id="screenshot-button" class="w-full bg-green-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-700 transition duration-300 shadow-md">Cattura Screenshot</button>
+<div id="sidebar">
+    <!-- Handle per mobile (visibile solo su mobile) -->
+    <div id="mobile-sidebar-handle"></div>
+
+    <!-- Il contenuto della sidebar è ora avvolto in un div scorrevole.
+         Le classi flex-col e space-y-6 vengono applicate qui per il layout interno
+         che deve essere flessibile sia su mobile che su desktop. -->
+    <div id="sidebar-scrollable-content" class="flex flex-col space-y-6">
+        <div>
+            <h1 class="text-2xl font-bold text-gray-800">Mappa Cestini</h1>
+            <p class="text-sm text-gray-600">Filtra e interagisci con i punti sulla mappa.</p>
+        </div>
+        <div id="filter-container" class="flex-grow">
+            <h2 class="text-lg font-semibold text-gray-700 mb-3 border-b pb-2">Filtra per tipo</h2>
+            <div id="filters" class="space-y-2"><div class="text-center text-gray-500 p-4"><p>Caricamento filtri...</p></div></div>
+        </div>
+        <div class="space-y-3">
+            <h2 class="text-lg font-semibold text-gray-700 mb-3 border-b pb-2">Azioni</h2>
+            <button id="center-button" class="w-full bg-blue-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-700 transition duration-300 shadow-md">Centra sui punti visibili</button>
+            <button id="screenshot-button" class="w-full bg-green-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-700 transition duration-300 shadow-md">Cattura Screenshot</button>
+        </div>
     </div>
 </div>
 <div id="map"></div>
@@ -50,10 +178,50 @@ map.addControl(new mapboxgl.NavigationControl());
 
 const layerId = 'cestini-layer';
 
+// Variabile globale per memorizzare i dati GeoJSON completi
+let fullGeojsonData = null;
+let currentMessageBox = null; // Per tenere traccia della finestra di messaggio corrente
+let lastMapState = { center: map.getCenter(), zoom: map.getZoom() }; // Per memorizzare l'ultimo stato della mappa
+
+// Funzione per la finestra di messaggio personalizzata (invece di alert)
+function showMessage(message, duration = 3000) {
+    // Cancella qualsiasi messaggio esistente
+    if (currentMessageBox) {
+        currentMessageBox.remove();
+        currentMessageBox = null;
+    }
+
+    const messageBox = document.createElement('div');
+    messageBox.className = 'fixed bottom-4 left-1/2 -translate-x-1/2 bg-gray-800 text-white p-3 rounded-lg shadow-lg z-[9999] opacity-0 transition-opacity duration-300 ease-in-out';
+    messageBox.textContent = message;
+    document.body.appendChild(messageBox);
+    currentMessageBox = messageBox;
+
+    // Appare
+    setTimeout(() => {
+        messageBox.style.opacity = '1';
+    }, 10);
+
+    // Scompare e rimuovi dopo la durata, a meno che la durata non sia molto lunga (es. per il caricamento)
+    if (duration !== 99999) { // Usa un valore sentinella per la visualizzazione indefinita
+        setTimeout(() => {
+            messageBox.style.opacity = '0';
+            messageBox.addEventListener('transitionend', () => {
+                if (messageBox === currentMessageBox) { // Rimuovi solo se è quello corrente
+                    messageBox.remove();
+                    currentMessageBox = null;
+                }
+            });
+        }, duration);
+    }
+}
+
+
 // Carica il GeoJSON
 fetch('cestini.geojson')
     .then(res => res.json())
     .then(data => {
+        fullGeojsonData = data; // Memorizza i dati completi globalmente
         map.on('load', () => {
             map.addSource(layerId, { type: 'geojson', data });
 
@@ -72,13 +240,14 @@ fetch('cestini.geojson')
                 }
             });
 
-
             // Popup su click
             map.on('click', layerId, (e) => {
                 const coords = e.features[0].geometry.coordinates.slice();
                 const props = e.features[0].properties;
                 let html = `<h3 class="font-bold capitalize">${props.type || 'Dettagli'}</h3><div class="mt-2 space-y-1">`;
                 for (const k in props) {
+                    // Salta la proprietà 'colour' e i valori booleani, se non necessari nel popup
+                    if (k === 'colour' || typeof props[k] === 'boolean') continue;
                     html += `<p><strong>${k.charAt(0).toUpperCase() + k.slice(1)}:</strong> ${props[k]}</p>`;
                 }
                 html += '</div>';
@@ -98,7 +267,8 @@ fetch('cestini.geojson')
 
 function generateFilters(data) {
     const features = data.features;
-    const types = new Set(features.map(f => f.properties?.type).filter(Boolean));
+    // Filtra i tipi non definiti o null prima di creare il Set
+    const types = new Set(features.map(f => f.properties?.type).filter(type => type != null));
     const container = document.getElementById('filters');
     container.innerHTML = '';
     if (!types.size) {
@@ -134,27 +304,181 @@ function updateFilters() {
         .filter(cb => cb.checked)
         .map(cb => cb.value);
     if (!checked.length) {
+        // Se nessun filtro è selezionato, nascondi tutti i punti impostando un filtro che non corrisponde a nulla
         map.setFilter(layerId, ['==', 'type', '']);
         return;
     }
+    // Imposta il filtro per mostrare solo i tipi selezionati
     map.setFilter(layerId, ['in', 'type', ...checked]);
 }
 
 document.getElementById('center-button').addEventListener('click', () => {
     const features = map.queryRenderedFeatures({ layers: [layerId] });
-    if (!features.length) { alert('Nessun punto visibile da centrare'); return; }
+    // Usa un messaggio personalizzato invece di alert()
+    if (!features.length) { showMessage('Nessun punto visibile da centrare sulla mappa.'); return; }
     const bounds = new mapboxgl.LngLatBounds();
     features.forEach(f => bounds.extend(f.geometry.coordinates));
     map.fitBounds(bounds, { padding: 80, maxZoom: 16 });
 });
 
-document.getElementById('screenshot-button').addEventListener('click', () => {
-    html2canvas(document.getElementById('map'), { useCORS: true, allowTaint: true }).then(canvas => {
-        const link = document.createElement('a');
-        link.download = 'mappa-cestini.png';
-        link.href = canvas.toDataURL('image/png');
-        link.click();
+document.getElementById('screenshot-button').addEventListener('click', async () => {
+    if (!fullGeojsonData) {
+        showMessage('Dati mappa non caricati completamente. Riprova tra un attimo.');
+        return;
+    }
+
+    // Mostra l'indicatore di caricamento
+    showMessage('Generazione screenshot in corso...', 99999); // Durata lunga per il caricamento
+
+    // Salva lo stato attuale della mappa
+    lastMapState = { center: map.getCenter(), zoom: map.getZoom() };
+
+    let featuresToScreenshot = [];
+    const activeFilter = map.getFilter(layerId); // Ottieni il filtro attualmente applicato
+
+    if (activeFilter) {
+        // Replica semplice della logica del filtro per 'in' e '==' sul 'type'
+        if (activeFilter[0] === 'in' && activeFilter[1] === 'type') {
+            const allowedTypes = new Set(activeFilter.slice(2));
+            featuresToScreenshot = fullGeojsonData.features.filter(f => allowedTypes.has(f.properties?.type));
+        } else if (activeFilter[0] === '==' && activeFilter[1] === 'type' && activeFilter[2] === '') {
+            featuresToScreenshot = []; // Esplicitamente filtrato per non mostrare nulla
+        } else {
+             // Gestione di altri filtri se ce ne fossero in futuro (non presenti in questo codice)
+             // Per ora, se il filtro è complesso e non riconosciuto, non includiamo punti nel screenshot
+             featuresToScreenshot = [];
+        }
+    } else {
+        // Nessun filtro applicato, considera tutte le features
+        featuresToScreenshot = fullGeojsonData.features;
+    }
+
+    if (!featuresToScreenshot.length) {
+        showMessage('Nessun punto selezionato per lo screenshot.', 3000);
+        // Ripristina la visualizzazione originale della mappa anche se non ci sono punti
+        map.flyTo({ center: lastMapState.center, zoom: lastMapState.zoom, duration: 0 });
+        return;
+    }
+
+    const bounds = new mapboxgl.LngLatBounds();
+    featuresToScreenshot.forEach(f => {
+        // Assicurati che le coordinate siano un array valido
+        if (f.geometry && f.geometry.coordinates && Array.isArray(f.geometry.coordinates) && f.geometry.coordinates.length >= 2) {
+            bounds.extend(f.geometry.coordinates);
+        }
     });
+
+    if (bounds.isEmpty()) {
+        showMessage('Impossibile calcolare i confini per lo screenshot. Nessun punto valido trovato.', 3000);
+        // Ripristina la visualizzazione originale della mappa anche in caso di errore
+        map.flyTo({ center: lastMapState.center, zoom: lastMapState.zoom, duration: 0 });
+        return;
+    }
+
+    // Adatta i confini per mostrare tutte le features selezionate
+    map.fitBounds(bounds, { padding: 80, maxZoom: 16 });
+
+    // Attendi che la mappa abbia finito di renderizzare dopo aver adattato i confini
+    map.once('idle', () => {
+        html2canvas(document.getElementById('map'), {
+            useCORS: true,
+            allowTaint: true,
+            backgroundColor: null // Sfondo trasparente se la mappa ne ha uno
+        }).then(canvas => {
+            const link = document.createElement('a');
+            link.download = 'mappa-cestini-filtrata.png';
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+
+            // Ripristina la visualizzazione originale della mappa
+            map.flyTo({ center: lastMapState.center, zoom: lastMapState.zoom, duration: 0 });
+            showMessage('Screenshot generato e scaricato!', 3000);
+        }).catch(error => {
+            console.error('Errore durante la cattura dello screenshot:', error);
+            showMessage('Impossibile catturare lo screenshot. Riprova più tardi.', 3000);
+            // Ripristina sempre la visualizzazione della mappa anche in caso di errore
+            map.flyTo({ center: lastMapState.center, zoom: lastMapState.zoom, duration: 0 });
+        });
+    });
+});
+
+// Logica per il menu mobile: apertura/chiusura con un tap sul handle e click fuori
+const sidebar = document.getElementById('sidebar');
+const mobileSidebarHandle = document.getElementById('mobile-sidebar-handle');
+const mapContainer = document.getElementById('map'); // Riferimento al div della mappa
+
+const MOBILE_BREAKPOINT = 768; // Deve corrispondere al breakpoint della media query CSS
+const COLLAPSED_HEIGHT_PX = 60; // Altezza del handle visibile quando collassato
+
+function isMobileView() {
+    return window.innerWidth <= MOBILE_BREAKPOINT;
+}
+
+let clickOutsideListener = null; // Per tenere traccia del listener di click fuori
+
+// Funzione per impostare lo stato del menu (aperto/chiuso) e regolare l'altezza della mappa
+function setMobileSidebarState(isOpen) {
+    if (isOpen) {
+        sidebar.classList.add('is-open');
+        // Regola l'altezza della mappa per fare spazio al menu aperto (80vh per il menu)
+        mapContainer.style.height = `calc(100vh - 80vh)`; // La mappa occupa 20vh
+        // Aggiungi il listener per il click fuori solo quando il menu è aperto e su mobile
+        if (isMobileView() && !clickOutsideListener) {
+            clickOutsideListener = (event) => {
+                // Chiudi il menu solo se il click non è avvenuto sulla sidebar o sul handle
+                if (!sidebar.contains(event.target) && event.target !== mobileSidebarHandle) {
+                    setMobileSidebarState(false);
+                }
+            };
+            document.addEventListener('click', clickOutsideListener);
+        }
+    } else {
+        sidebar.classList.remove('is-open');
+        // Ripristina l'altezza della mappa quando il menu è chiuso
+        mapContainer.style.height = `calc(100vh - ${COLLAPSED_HEIGHT_PX}px)`;
+        // Rimuovi il listener per il click fuori quando il menu è chiuso
+        if (clickOutsideListener) {
+            document.removeEventListener('click', clickOutsideListener);
+            clickOutsideListener = null;
+        }
+    }
+    // Assicura che Mapbox renderizzi di nuovo con le nuove dimensioni del contenitore
+    map.resize();
+}
+
+// Gestore del click sul handle del menu mobile
+if (mobileSidebarHandle) {
+    mobileSidebarHandle.addEventListener('click', (event) => {
+        if (!isMobileView()) return; // Solo per mobile
+        event.stopPropagation(); // Impedisce la propagazione del click per non attivare il listener di "click outside"
+        const isOpen = sidebar.classList.contains('is-open');
+        setMobileSidebarState(!isOpen);
+    });
+}
+
+// Inizializza lo stato del menu mobile al caricamento della pagina se siamo su mobile
+window.addEventListener('load', () => {
+    if (isMobileView()) {
+        setMobileSidebarState(false); // Assicurati che parta chiuso su mobile
+    }
+});
+
+// Listener per il ridimensionamento della finestra per adattare il layout
+window.addEventListener('resize', () => {
+    if (!isMobileView()) {
+        // Quando si ridimensiona in modalità desktop
+        sidebar.classList.remove('is-open'); // Rimuovi la classe open del mobile
+        sidebar.style.transform = ''; // Reset della trasformazione mobile
+        mapContainer.style.height = '100%'; // Ripristina l'altezza completa della mappa
+        if (clickOutsideListener) { // Rimuovi il listener se si passa a desktop
+            document.removeEventListener('click', clickOutsideListener);
+            clickOutsideListener = null;
+        }
+        map.resize(); // Ridimensiona la mappa dopo il cambio di layout
+    } else {
+        // Quando si ridimensiona in modalità mobile
+        setMobileSidebarState(false); // Collassa il menu e regola l'altezza della mappa
+    }
 });
 </script>
 </body>
