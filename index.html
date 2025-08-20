@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mappa Interattiva Cestini</title>
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js"></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+    <style>
+        body { margin:0; padding:0; font-family:'Inter',sans-serif; display:flex; height:100vh; overflow:hidden; }
+        #map { flex-grow:1; height:100%; }
+        #sidebar { width:320px; flex-shrink:0; background:#f8f9fa; padding:20px; overflow-y:auto; box-shadow:-2px 0 5px rgba(0,0,0,0.1); z-index:10; }
+        .mapboxgl-popup { max-width:250px; }
+        .mapboxgl-popup-content { text-align:left; font-size:14px; padding:15px; border-radius:8px; box-shadow:0 2px 10px rgba(0,0,0,0.15); }
+        .mapboxgl-popup-content h3 { margin:0 0 5px 0; font-size:16px; color:#333; }
+        .mapboxgl-popup-content p { margin:0; }
+    </style>
+</head>
+<body>
+<div id="sidebar" class="flex flex-col space-y-6">
+    <div>
+        <h1 class="text-2xl font-bold text-gray-800">Mappa Cestini</h1>
+        <p class="text-sm text-gray-600">Filtra e interagisci con i punti sulla mappa.</p>
+    </div>
+    <div id="filter-container" class="flex-grow">
+        <h2 class="text-lg font-semibold text-gray-700 mb-3 border-b pb-2">Filtra per tipo</h2>
+        <div id="filters" class="space-y-2"><div class="text-center text-gray-500 p-4"><p>Caricamento filtri...</p></div></div>
+    </div>
+    <div class="space-y-3">
+        <h2 class="text-lg font-semibold text-gray-700 mb-3 border-b pb-2">Azioni</h2>
+        <button id="center-button" class="w-full bg-blue-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-700 transition duration-300 shadow-md">Centra sui punti visibili</button>
+        <button id="screenshot-button" class="w-full bg-green-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-700 transition duration-300 shadow-md">Cattura Screenshot</button>
+    </div>
+</div>
+<div id="map"></div>
+
+<script>
+mapboxgl.accessToken = 'pk.eyJ1IjoicXdhbWR5IiwiYSI6ImNtZWNpajBvNTFqMGQybHF2d3NtemprNGUifQ.YVS-mtfbzisMPLhTO_dtAw';
+const map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/streets-v12',
+    center: [10.5274, 42.92511],
+    zoom: 13.89,
+    preserveDrawingBuffer: true
+});
+map.addControl(new mapboxgl.NavigationControl());
+
+const layerId = 'cestini-layer';
+
+// Carica il GeoJSON
+fetch('cestini.geojson')
+    .then(res => res.json())
+    .then(data => {
+        map.on('load', () => {
+            map.addSource(layerId, { type: 'geojson', data });
+
+            map.addLayer({
+                id: layerId,
+                type: 'circle',
+                source: layerId,
+                paint: {
+                    'circle-radius': 5, // punti più piccoli
+                    'circle-color': [
+                        'to-color',
+                        ['get', 'colour'] // prende il valore dalla proprietà "colour"
+                    ],
+                    'circle-stroke-width': 1,
+                    'circle-stroke-color': '#333'
+                }
+            });
+
+
+            // Popup su click
+            map.on('click', layerId, (e) => {
+                const coords = e.features[0].geometry.coordinates.slice();
+                const props = e.features[0].properties;
+                let html = `<h3 class="font-bold capitalize">${props.type || 'Dettagli'}</h3><div class="mt-2 space-y-1">`;
+                for (const k in props) {
+                    html += `<p><strong>${k.charAt(0).toUpperCase() + k.slice(1)}:</strong> ${props[k]}</p>`;
+                }
+                html += '</div>';
+                new mapboxgl.Popup().setLngLat(coords).setHTML(html).addTo(map);
+            });
+
+            map.on('mouseenter', layerId, () => { map.getCanvas().style.cursor = 'pointer'; });
+            map.on('mouseleave', layerId, () => { map.getCanvas().style.cursor = ''; });
+
+            generateFilters(data);
+        });
+    })
+    .catch(err => {
+        console.error('Errore caricamento GeoJSON:', err);
+        document.getElementById('filters').innerHTML = '<p class="text-red-500">Errore caricamento dati.</p>';
+    });
+
+function generateFilters(data) {
+    const features = data.features;
+    const types = new Set(features.map(f => f.properties?.type).filter(Boolean));
+    const container = document.getElementById('filters');
+    container.innerHTML = '';
+    if (!types.size) {
+        container.innerHTML = '<p class="text-gray-500">Nessun attributo "type" trovato.</p>';
+        return;
+    }
+    Array.from(types).sort().forEach(type => {
+        const id = `filter-${type.replace(/\s+/g, '-')}`;
+        const label = document.createElement('label');
+        label.htmlFor = id;
+        label.className = 'flex items-center space-x-3 p-2 rounded-md hover:bg-gray-200 cursor-pointer';
+
+        const cb = document.createElement('input');
+        cb.type = 'checkbox';
+        cb.id = id;
+        cb.value = type;
+        cb.checked = true;
+        cb.className = 'h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500';
+        cb.addEventListener('change', updateFilters);
+
+        const span = document.createElement('span');
+        span.textContent = type.charAt(0).toUpperCase() + type.slice(1);
+        span.className = 'text-gray-700';
+
+        label.appendChild(cb);
+        label.appendChild(span);
+        container.appendChild(label);
+    });
+}
+
+function updateFilters() {
+    const checked = Array.from(document.querySelectorAll('#filters input[type="checkbox"]'))
+        .filter(cb => cb.checked)
+        .map(cb => cb.value);
+    if (!checked.length) {
+        map.setFilter(layerId, ['==', 'type', '']);
+        return;
+    }
+    map.setFilter(layerId, ['in', 'type', ...checked]);
+}
+
+document.getElementById('center-button').addEventListener('click', () => {
+    const features = map.queryRenderedFeatures({ layers: [layerId] });
+    if (!features.length) { alert('Nessun punto visibile da centrare'); return; }
+    const bounds = new mapboxgl.LngLatBounds();
+    features.forEach(f => bounds.extend(f.geometry.coordinates));
+    map.fitBounds(bounds, { padding: 80, maxZoom: 16 });
+});
+
+document.getElementById('screenshot-button').addEventListener('click', () => {
+    html2canvas(document.getElementById('map'), { useCORS: true, allowTaint: true }).then(canvas => {
+        const link = document.createElement('a');
+        link.download = 'mappa-cestini.png';
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+    });
+});
+</script>
+</body>
+</html>

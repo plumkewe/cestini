@@ -1,0 +1,4685 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.52283650762667,
+                    42.92546109446996
+                ]
+            },
+            "properties": {
+                "id": 1,
+                "modifiedAt": "2023-09-15T10:22:57Z",
+                "type": "Nuovo",
+                "title": "Cestino 1",
+                "createdAt": "2023-09-15T10:22:56Z",
+                "colour": "#B8D14B"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.52255,
+                    42.92528
+                ]
+            },
+            "properties": {
+                "id": 2,
+                "modifiedAt": "2023-09-15T10:28:17Z",
+                "type": "Nuovo",
+                "title": "Cestino 2",
+                "createdAt": "2023-09-15T10:23:54Z",
+                "colour": "#B8D14B"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.521458974117898,
+                    42.92537746023659
+                ]
+            },
+            "properties": {
+                "id": 3,
+                "modifiedAt": "2023-09-15T10:25:17Z",
+                "type": "Nuovo",
+                "title": "Cestino 3",
+                "createdAt": "2023-09-15T10:25:16Z",
+                "colour": "#B8D14B"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.522325550209585,
+                    42.9251238041957
+                ]
+            },
+            "properties": {
+                "id": 4,
+                "modifiedAt": "2023-09-15T11:07:55Z",
+                "type": "Nuovo",
+                "title": "Cestino 4",
+                "createdAt": "2023-09-15T11:07:54Z",
+                "colour": "#B8D14B"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.522734448323513,
+                    42.924918718676224
+                ]
+            },
+            "properties": {
+                "id": 5,
+                "modifiedAt": "2023-09-15T11:11:41Z",
+                "type": "Nuovo",
+                "title": "Cestino 5",
+                "createdAt": "2023-09-15T11:11:40Z",
+                "colour": "#B8D14B"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.522450134167935,
+                    42.9235715791985
+                ]
+            },
+            "properties": {
+                "id": 6,
+                "modifiedAt": "2023-09-15T11:13:55Z",
+                "type": "Nuovo",
+                "title": "Cestino 6",
+                "createdAt": "2023-09-15T11:13:54Z",
+                "colour": "#B8D14B"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.52226581611719,
+                    42.92360288560663
+                ]
+            },
+            "properties": {
+                "id": 7,
+                "modifiedAt": "2023-09-15T11:14:29Z",
+                "type": "Nuovo",
+                "title": "Cestino 7",
+                "createdAt": "2023-09-15T11:14:28Z",
+                "colour": "#B8D14B"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.522250393415357,
+                    42.92308383625295
+                ]
+            },
+            "properties": {
+                "id": 8,
+                "modifiedAt": "2023-09-15T11:15:31Z",
+                "type": "Nuovo",
+                "title": "Cestino 8",
+                "createdAt": "2023-09-15T11:15:30Z",
+                "colour": "#B8D14B"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.523234596485759,
+                    42.92270363312487
+                ]
+            },
+            "properties": {
+                "id": 9,
+                "modifiedAt": "2023-09-15T11:17:22Z",
+                "type": "Intero",
+                "title": "Cestino 9",
+                "createdAt": "2023-09-15T11:17:17Z",
+                "colour": "#FFC545"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.52353428453473,
+                    42.922697467918006
+                ]
+            },
+            "properties": {
+                "id": 10,
+                "modifiedAt": "2023-09-15T11:17:55Z",
+                "type": "Intero",
+                "title": "Cestino 10",
+                "createdAt": "2023-09-15T11:17:53Z",
+                "colour": "#FFC545"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.52344887598182,
+                    42.92298509212905
+                ]
+            },
+            "properties": {
+                "id": 11,
+                "modifiedAt": "2023-09-15T11:18:55Z",
+                "type": "Intero",
+                "title": "Cestino 11",
+                "createdAt": "2023-09-15T11:18:54Z",
+                "colour": "#FFC545"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.5231132177518,
+                    42.92298565407108
+                ]
+            },
+            "properties": {
+                "id": 12,
+                "modifiedAt": "2023-09-15T11:19:35Z",
+                "type": "Nuovo",
+                "title": "Cestino 12",
+                "createdAt": "2023-09-15T11:19:33Z",
+                "colour": "#B8D14B"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.52368,
+                    42.92349
+                ]
+            },
+            "properties": {
+                "id": 13,
+                "modifiedAt": "2023-09-15T17:14:34Z",
+                "type": "Piccolo",
+                "title": "Cestino 13",
+                "createdAt": "2023-09-15T11:21:05Z",
+                "colour": "#FF7037"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.52435,
+                    42.92349
+                ]
+            },
+            "properties": {
+                "id": 14,
+                "modifiedAt": "2023-09-15T17:14:54Z",
+                "type": "Piccolo",
+                "title": "Cestino 14",
+                "createdAt": "2023-09-15T11:21:59Z",
+                "colour": "#FF7037"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.525580358991398,
+                    42.92399431812056
+                ]
+            },
+            "properties": {
+                "id": 15,
+                "modifiedAt": "2023-09-19T12:03:37Z",
+                "type": "Intero",
+                "title": "Cestino 15",
+                "createdAt": "2023-09-15T11:26:55Z",
+                "colour": "#FFC545"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.523530649294514,
+                    42.92459768214812
+                ]
+            },
+            "properties": {
+                "id": 16,
+                "modifiedAt": "2023-09-15T11:30:20Z",
+                "type": "Piccolo",
+                "title": "Cestino 16",
+                "createdAt": "2023-09-15T11:30:18Z",
+                "colour": "#FF7037"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.525234204982562,
+                    42.92443261199955
+                ]
+            },
+            "properties": {
+                "id": 17,
+                "modifiedAt": "2023-09-15T11:33:22Z",
+                "type": "Piccolo",
+                "title": "Cestino 17",
+                "createdAt": "2023-09-15T11:33:20Z",
+                "colour": "#FF7037"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.52312,
+                    42.92568
+                ]
+            },
+            "properties": {
+                "id": 18,
+                "modifiedAt": "2023-09-15T17:10:31Z",
+                "type": "Piccolo",
+                "title": "Cestino 18",
+                "createdAt": "2023-09-15T11:38:07Z",
+                "colour": "#FF7037"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.52299,
+                    42.92568
+                ]
+            },
+            "properties": {
+                "id": 19,
+                "modifiedAt": "2023-09-15T17:10:46Z",
+                "type": "Piccolo",
+                "title": "Cestino 19",
+                "createdAt": "2023-09-15T11:55:06Z",
+                "colour": "#FF7037"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.520982792918206,
+                    42.92341621421147
+                ]
+            },
+            "properties": {
+                "id": 20,
+                "modifiedAt": "2023-09-15T12:03:56Z",
+                "type": "Nuovo",
+                "title": "Cestino 20",
+                "createdAt": "2023-09-15T12:03:53Z",
+                "colour": "#B8D14B"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.521520770849142,
+                    42.92539564852961
+                ]
+            },
+            "properties": {
+                "id": 21,
+                "modifiedAt": "2023-09-15T12:19:11Z",
+                "type": "Nuovo",
+                "title": "Cestino 21",
+                "createdAt": "2023-09-15T12:19:08Z",
+                "colour": "#B8D14B"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.520882847109728,
+                    42.925523842221736
+                ]
+            },
+            "properties": {
+                "id": 22,
+                "modifiedAt": "2023-09-15T12:20:05Z",
+                "type": "Nuovo",
+                "title": "Cestino 22",
+                "createdAt": "2023-09-15T12:20:03Z",
+                "colour": "#B8D14B"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.520880681639955,
+                    42.92552786299472
+                ]
+            },
+            "properties": {
+                "id": 23,
+                "modifiedAt": "2023-09-15T12:20:18Z",
+                "type": "Nuovo",
+                "title": "Cestino 23",
+                "createdAt": "2023-09-15T12:20:16Z",
+                "colour": "#B8D14B"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.52105,
+                    42.92612
+                ]
+            },
+            "properties": {
+                "id": 24,
+                "modifiedAt": "2023-09-15T17:09:55Z",
+                "type": "Mezzo",
+                "title": "Cestino 24",
+                "createdAt": "2023-09-15T12:32:01Z",
+                "colour": "#A3306F"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.5217,
+                    42.92637
+                ]
+            },
+            "properties": {
+                "id": 25,
+                "modifiedAt": "2023-09-15T13:10:43Z",
+                "type": "Mezzo",
+                "title": "Cestino 25",
+                "createdAt": "2023-09-15T12:33:09Z",
+                "colour": "#A3306F"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.52208,
+                    42.92658
+                ]
+            },
+            "properties": {
+                "id": 26,
+                "modifiedAt": "2023-09-15T13:15:37Z",
+                "type": "Mezzo",
+                "title": "Cestino 26",
+                "createdAt": "2023-09-15T12:37:03Z",
+                "colour": "#A3306F"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.5226,
+                    42.92665
+                ]
+            },
+            "properties": {
+                "id": 27,
+                "modifiedAt": "2023-09-15T13:14:25Z",
+                "type": "Mezzo",
+                "title": "Cestino 27",
+                "createdAt": "2023-09-15T12:37:58Z",
+                "colour": "#A3306F"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.52319,
+                    42.9267
+                ]
+            },
+            "properties": {
+                "id": 28,
+                "modifiedAt": "2023-09-15T13:27:01Z",
+                "type": "Mezzo",
+                "title": "Cestino 28",
+                "createdAt": "2023-09-15T12:39:51Z",
+                "colour": "#A3306F"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.52391,
+                    42.9268
+                ]
+            },
+            "properties": {
+                "id": 29,
+                "modifiedAt": "2023-09-15T13:26:41Z",
+                "type": "Mezzo",
+                "title": "Cestino 29",
+                "createdAt": "2023-09-15T12:40:33Z",
+                "colour": "#A3306F"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.52505,
+                    42.92688
+                ]
+            },
+            "properties": {
+                "id": 30,
+                "modifiedAt": "2023-09-15T13:16:37Z",
+                "type": "Mezzo",
+                "title": "Cestino 30",
+                "createdAt": "2023-09-15T12:41:45Z",
+                "colour": "#A3306F"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.525615573296074,
+                    42.92690443578604
+                ]
+            },
+            "properties": {
+                "id": 31,
+                "modifiedAt": "2023-09-15T12:42:54Z",
+                "type": "Mezzo",
+                "title": "Cestino 31",
+                "createdAt": "2023-09-15T12:42:52Z",
+                "colour": "#A3306F"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.5238,
+                    42.92659
+                ]
+            },
+            "properties": {
+                "id": 32,
+                "modifiedAt": "2023-09-15T13:28:04Z",
+                "type": "Mezzo",
+                "title": "Cestino 32",
+                "createdAt": "2023-09-15T12:47:06Z",
+                "colour": "#A3306F"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.52319,
+                    42.92652
+                ]
+            },
+            "properties": {
+                "id": 33,
+                "modifiedAt": "2023-09-15T13:27:41Z",
+                "type": "Mezzo",
+                "title": "Cestino 33",
+                "createdAt": "2023-09-15T12:48:05Z",
+                "colour": "#A3306F"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.52229,
+                    42.92641
+                ]
+            },
+            "properties": {
+                "id": 34,
+                "modifiedAt": "2023-09-15T13:20:47Z",
+                "type": "Mezzo",
+                "title": "Cestino 34",
+                "createdAt": "2023-09-15T12:49:50Z",
+                "colour": "#A3306F"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.521927199838407,
+                    42.92563110163441
+                ]
+            },
+            "properties": {
+                "id": 35,
+                "modifiedAt": "2023-09-15T12:52:00Z",
+                "type": "Nuovo",
+                "title": "Cestino 35",
+                "createdAt": "2023-09-15T12:51:58Z",
+                "colour": "#B8D14B"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.52045,
+                    42.92597
+                ]
+            },
+            "properties": {
+                "id": 36,
+                "modifiedAt": "2023-09-15T17:11:35Z",
+                "type": "Piccolo",
+                "title": "Cestino 36",
+                "createdAt": "2023-09-15T12:54:16Z",
+                "colour": "#FF7037"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.52043,
+                    42.92629
+                ]
+            },
+            "properties": {
+                "id": 37,
+                "modifiedAt": "2023-09-15T17:09:22Z",
+                "type": "Mezzo",
+                "title": "Cestino 37",
+                "createdAt": "2023-09-15T12:55:13Z",
+                "colour": "#A3306F"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.52025,
+                    42.92651
+                ]
+            },
+            "properties": {
+                "id": 38,
+                "modifiedAt": "2023-09-15T17:08:49Z",
+                "type": "Mezzo",
+                "title": "Cestino 38",
+                "createdAt": "2023-09-15T12:55:56Z",
+                "colour": "#A3306F"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.52005,
+                    42.92686
+                ]
+            },
+            "properties": {
+                "id": 39,
+                "modifiedAt": "2023-09-15T17:06:13Z",
+                "type": "Mezzo",
+                "title": "Cestino 39",
+                "createdAt": "2023-09-15T12:56:35Z",
+                "colour": "#A3306F"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.52013,
+                    42.92693
+                ]
+            },
+            "properties": {
+                "id": 40,
+                "modifiedAt": "2023-09-15T17:07:52Z",
+                "type": "Mezzo",
+                "title": "Cestino 40",
+                "createdAt": "2023-09-15T12:57:28Z",
+                "colour": "#A3306F"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.520364751403855,
+                    42.92679477849814
+                ]
+            },
+            "properties": {
+                "id": 41,
+                "modifiedAt": "2023-09-15T12:58:01Z",
+                "type": "Piccolo",
+                "title": "Cestino 41",
+                "createdAt": "2023-09-15T12:57:59Z",
+                "colour": "#FF7037"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.520603347687373,
+                    42.926506827190416
+                ]
+            },
+            "properties": {
+                "id": 42,
+                "modifiedAt": "2023-09-15T12:58:38Z",
+                "type": "Piccolo",
+                "title": "Cestino 42",
+                "createdAt": "2023-09-15T12:58:36Z",
+                "colour": "#FF7037"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.520753279696589,
+                    42.9262714513755
+                ]
+            },
+            "properties": {
+                "id": 43,
+                "modifiedAt": "2023-09-15T12:59:11Z",
+                "type": "Mezzo",
+                "title": "Cestino 43",
+                "createdAt": "2023-09-15T12:59:09Z",
+                "colour": "#A3306F"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.521317224835046,
+                    42.92645055976811
+                ]
+            },
+            "properties": {
+                "id": 44,
+                "modifiedAt": "2023-09-15T13:00:03Z",
+                "type": "Mezzo",
+                "title": "Cestino 44",
+                "createdAt": "2023-09-15T13:00:01Z",
+                "colour": "#A3306F"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.521087824294737,
+                    42.92672522078167
+                ]
+            },
+            "properties": {
+                "id": 45,
+                "modifiedAt": "2023-09-15T13:00:41Z",
+                "type": "Piccolo",
+                "title": "Cestino 45",
+                "createdAt": "2023-09-15T13:00:39Z",
+                "colour": "#FF7037"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.52073072074281,
+                    42.92714091621894
+                ]
+            },
+            "properties": {
+                "id": 46,
+                "modifiedAt": "2023-09-15T13:01:31Z",
+                "type": "Mezzo",
+                "title": "Cestino 46",
+                "createdAt": "2023-09-15T13:01:29Z",
+                "colour": "#A3306F"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.520453588468058,
+                    42.927105607517205
+                ]
+            },
+            "properties": {
+                "id": 47,
+                "modifiedAt": "2023-09-15T13:02:07Z",
+                "type": "Piccolo",
+                "title": "Cestino 47",
+                "createdAt": "2023-09-15T13:02:06Z",
+                "colour": "#FF7037"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.52021506986896,
+                    42.92706485326844
+                ]
+            },
+            "properties": {
+                "id": 48,
+                "modifiedAt": "2023-09-15T13:04:17Z",
+                "type": "Mezzo",
+                "title": "Cestino 48",
+                "createdAt": "2023-09-15T13:04:15Z",
+                "colour": "#A3306F"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.520601256943191,
+                    42.927223451708315
+                ]
+            },
+            "properties": {
+                "id": 49,
+                "modifiedAt": "2023-09-15T13:04:55Z",
+                "type": "Mezzo",
+                "title": "Cestino 49",
+                "createdAt": "2023-09-15T13:04:54Z",
+                "colour": "#A3306F"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.520973132425897,
+                    42.92720816482574
+                ]
+            },
+            "properties": {
+                "id": 50,
+                "modifiedAt": "2023-09-15T13:06:13Z",
+                "type": "Mezzo",
+                "title": "Cestino 50",
+                "createdAt": "2023-09-15T13:06:11Z",
+                "colour": "#A3306F"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.5212,
+                    42.92685
+                ]
+            },
+            "properties": {
+                "id": 51,
+                "modifiedAt": "2023-09-15T17:12:06Z",
+                "type": "Piccolo",
+                "title": "Cestino 51",
+                "createdAt": "2023-09-15T13:07:30Z",
+                "colour": "#FF7037"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.52145017138898,
+                    42.92678679387588
+                ]
+            },
+            "properties": {
+                "id": 52,
+                "modifiedAt": "2023-09-15T13:07:59Z",
+                "type": "Mezzo",
+                "title": "Cestino 52",
+                "createdAt": "2023-09-15T13:07:58Z",
+                "colour": "#A3306F"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.521758194182754,
+                    42.92733711742803
+                ]
+            },
+            "properties": {
+                "id": 53,
+                "modifiedAt": "2023-09-16T10:21:08Z",
+                "type": "Piccolo",
+                "title": "Cestino 53",
+                "createdAt": "2023-09-16T10:21:04Z",
+                "colour": "#FF7037"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.520352230834359,
+                    42.927859645824846
+                ]
+            },
+            "properties": {
+                "id": 54,
+                "modifiedAt": "2023-09-16T10:24:57Z",
+                "type": "Piccolo",
+                "title": "Cestino 54",
+                "createdAt": "2023-09-16T10:24:55Z",
+                "colour": "#FF7037"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.52072409729164,
+                    42.92868965823203
+                ]
+            },
+            "properties": {
+                "id": 55,
+                "modifiedAt": "2023-09-16T10:28:12Z",
+                "type": "Piccolo",
+                "title": "Cestino 55",
+                "createdAt": "2023-09-16T10:28:10Z",
+                "colour": "#FF7037"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.522851033569204,
+                    42.927701098035925
+                ]
+            },
+            "properties": {
+                "id": 56,
+                "modifiedAt": "2023-09-16T10:34:47Z",
+                "type": "Piccolo",
+                "title": "Cestino 56",
+                "createdAt": "2023-09-16T10:34:45Z",
+                "colour": "#FF7037"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.52405596334902,
+                    42.92825710669467
+                ]
+            },
+            "properties": {
+                "id": 57,
+                "modifiedAt": "2023-09-16T10:49:20Z",
+                "type": "Piccolo",
+                "title": "Cestino 57",
+                "createdAt": "2023-09-16T10:49:18Z",
+                "colour": "#FF7037"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.51963325048372,
+                    42.92877658517206
+                ]
+            },
+            "properties": {
+                "id": 58,
+                "modifiedAt": "2023-09-16T11:00:56Z",
+                "type": "Piccolo",
+                "title": "Cestino 58",
+                "createdAt": "2023-09-16T11:00:54Z",
+                "colour": "#FF7037"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.518787745325422,
+                    42.92710547812339
+                ]
+            },
+            "properties": {
+                "id": 59,
+                "modifiedAt": "2023-09-16T11:15:04Z",
+                "type": "Nuovo",
+                "title": "Cestino 59",
+                "createdAt": "2023-09-16T11:15:02Z",
+                "colour": "#B8D14B"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.519286524190887,
+                    42.926537378172306
+                ]
+            },
+            "properties": {
+                "id": 60,
+                "modifiedAt": "2023-09-16T11:17:58Z",
+                "type": "Nuovo",
+                "title": "Cestino 60",
+                "createdAt": "2023-09-16T11:17:56Z",
+                "colour": "#B8D14B"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.519293113133243,
+                    42.92573701659552
+                ]
+            },
+            "properties": {
+                "id": 61,
+                "modifiedAt": "2023-09-16T11:21:51Z",
+                "type": "Struttura-B",
+                "title": "Cestino 61",
+                "createdAt": "2023-09-16T11:21:49Z",
+                "colour": "#FFF04C"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.51919307895861,
+                    42.92581954671535
+                ]
+            },
+            "properties": {
+                "id": 62,
+                "modifiedAt": "2023-09-16T11:22:11Z",
+                "type": "Struttura-B",
+                "title": "Cestino 62",
+                "createdAt": "2023-09-16T11:22:09Z",
+                "colour": "#FFF04C"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.518913672724317,
+                    42.9259599375665
+                ]
+            },
+            "properties": {
+                "id": 63,
+                "modifiedAt": "2023-09-16T11:22:42Z",
+                "type": "Struttura-B",
+                "title": "Cestino 63",
+                "createdAt": "2023-09-16T11:22:40Z",
+                "colour": "#FFF04C"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.519130590867288,
+                    42.92621127691988
+                ]
+            },
+            "properties": {
+                "id": 64,
+                "modifiedAt": "2023-09-16T11:23:22Z",
+                "type": "Struttura-B",
+                "title": "Cestino 64",
+                "createdAt": "2023-09-16T11:23:20Z",
+                "colour": "#FFF04C"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.518999594542988,
+                    42.92619758792257
+                ]
+            },
+            "properties": {
+                "id": 65,
+                "modifiedAt": "2023-09-16T11:23:43Z",
+                "type": "Nuovo",
+                "title": "Cestino 65",
+                "createdAt": "2023-09-16T11:23:41Z",
+                "colour": "#B8D14B"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.518938342258792,
+                    42.9263007962851
+                ]
+            },
+            "properties": {
+                "id": 66,
+                "modifiedAt": "2023-09-16T11:24:02Z",
+                "type": "Nuovo",
+                "title": "Cestino 66",
+                "createdAt": "2023-09-16T11:24:00Z",
+                "colour": "#B8D14B"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.518817267730842,
+                    42.92619491490117
+                ]
+            },
+            "properties": {
+                "id": 67,
+                "modifiedAt": "2023-09-16T11:24:29Z",
+                "type": "Struttura-B",
+                "title": "Cestino 67",
+                "createdAt": "2023-09-16T11:24:27Z",
+                "colour": "#FFF04C"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.518990840450233,
+                    42.926560594506576
+                ]
+            },
+            "properties": {
+                "id": 68,
+                "modifiedAt": "2023-09-16T11:25:38Z",
+                "type": "Struttura-M",
+                "title": "Cestino 68",
+                "createdAt": "2023-09-16T11:25:36Z",
+                "colour": "#75108B"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.518383755141768,
+                    42.92728087004544
+                ]
+            },
+            "properties": {
+                "id": 69,
+                "modifiedAt": "2023-09-16T11:26:57Z",
+                "type": "Struttura-M",
+                "title": "Cestino 69",
+                "createdAt": "2023-09-16T11:26:55Z",
+                "colour": "#75108B"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.51802637024615,
+                    42.927759923408594
+                ]
+            },
+            "properties": {
+                "id": 70,
+                "modifiedAt": "2023-09-16T11:27:52Z",
+                "type": "Struttura-M",
+                "title": "Cestino 70",
+                "createdAt": "2023-09-16T11:27:50Z",
+                "colour": "#75108B"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.521300058865913,
+                    42.92544065010185
+                ]
+            },
+            "properties": {
+                "id": 71,
+                "modifiedAt": "2023-09-16T11:38:44Z",
+                "type": "Nuovo",
+                "title": "Cestino 71",
+                "createdAt": "2023-09-16T11:38:42Z",
+                "colour": "#B8D14B"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.521327480641354,
+                    42.92543986817231
+                ]
+            },
+            "properties": {
+                "id": 72,
+                "modifiedAt": "2023-09-16T11:38:55Z",
+                "type": "Nuovo",
+                "title": "Cestino 72",
+                "createdAt": "2023-09-16T11:38:53Z",
+                "colour": "#B8D14B"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.520971276514057,
+                    42.92634840952527
+                ]
+            },
+            "properties": {
+                "id": 73,
+                "modifiedAt": "2023-09-16T11:43:13Z",
+                "type": "Piccolo",
+                "title": "Cestino 73",
+                "createdAt": "2023-09-16T11:43:10Z",
+                "colour": "#FF7037"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.520743853518136,
+                    42.92635244050014
+                ]
+            },
+            "properties": {
+                "id": 74,
+                "modifiedAt": "2023-09-16T11:43:36Z",
+                "type": "Piccolo",
+                "title": "Cestino 74",
+                "createdAt": "2023-09-16T11:43:34Z",
+                "colour": "#FF7037"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.5208443614658,
+                    42.92655856352846
+                ]
+            },
+            "properties": {
+                "id": 75,
+                "modifiedAt": "2023-09-16T11:44:05Z",
+                "type": "Struttura-B",
+                "title": "Cestino 75",
+                "createdAt": "2023-09-16T11:44:03Z",
+                "colour": "#FFF04C"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.520702192018401,
+                    42.92659769784614
+                ]
+            },
+            "properties": {
+                "id": 76,
+                "modifiedAt": "2023-09-16T11:44:23Z",
+                "type": "Piccolo",
+                "title": "Cestino 76",
+                "createdAt": "2023-09-16T11:44:21Z",
+                "colour": "#FF7037"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.520622004833811,
+                    42.92662385708467
+                ]
+            },
+            "properties": {
+                "id": 77,
+                "modifiedAt": "2023-09-16T11:44:36Z",
+                "type": "Struttura-B",
+                "title": "Cestino 77",
+                "createdAt": "2023-09-16T11:44:34Z",
+                "colour": "#FFF04C"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.520538587440505,
+                    42.92661808464014
+                ]
+            },
+            "properties": {
+                "id": 78,
+                "modifiedAt": "2023-09-16T11:44:51Z",
+                "type": "Piccolo",
+                "title": "Cestino 78",
+                "createdAt": "2023-09-16T11:44:49Z",
+                "colour": "#FF7037"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.520559720566048,
+                    42.92678633572571
+                ]
+            },
+            "properties": {
+                "id": 79,
+                "modifiedAt": "2023-09-16T11:45:14Z",
+                "type": "Piccolo",
+                "title": "Cestino 79",
+                "createdAt": "2023-09-16T11:45:12Z",
+                "colour": "#FF7037"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.520431244660292,
+                    42.92693165763047
+                ]
+            },
+            "properties": {
+                "id": 80,
+                "modifiedAt": "2023-09-16T11:45:37Z",
+                "type": "Piccolo",
+                "title": "Cestino 80",
+                "createdAt": "2023-09-16T11:45:35Z",
+                "colour": "#FF7037"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.520596502729495,
+                    42.927021334200376
+                ]
+            },
+            "properties": {
+                "id": 81,
+                "modifiedAt": "2023-09-16T11:45:58Z",
+                "type": "Piccolo",
+                "title": "Cestino 81",
+                "createdAt": "2023-09-16T11:45:56Z",
+                "colour": "#FF7037"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.520689824770733,
+                    42.92691102933448
+                ]
+            },
+            "properties": {
+                "id": 82,
+                "modifiedAt": "2023-09-16T11:46:16Z",
+                "type": "Piccolo",
+                "title": "Cestino 82",
+                "createdAt": "2023-09-16T11:46:14Z",
+                "colour": "#FF7037"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.520797937382708,
+                    42.926801293947015
+                ]
+            },
+            "properties": {
+                "id": 83,
+                "modifiedAt": "2023-09-16T11:46:36Z",
+                "type": "Piccolo",
+                "title": "Cestino 83",
+                "createdAt": "2023-09-16T11:46:34Z",
+                "colour": "#FF7037"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.520930013403552,
+                    42.92681993434116
+                ]
+            },
+            "properties": {
+                "id": 84,
+                "modifiedAt": "2023-09-16T11:47:00Z",
+                "type": "Piccolo",
+                "title": "Cestino 84",
+                "createdAt": "2023-09-16T11:46:58Z",
+                "colour": "#FF7037"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.52344248152973,
+                    42.92750846537681
+                ]
+            },
+            "properties": {
+                "id": 85,
+                "modifiedAt": "2023-09-16T11:54:53Z",
+                "type": "Piccolo",
+                "title": "Cestino 85",
+                "createdAt": "2023-09-16T11:54:51Z",
+                "colour": "#FF7037"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.52999,
+                    42.92753
+                ]
+            },
+            "properties": {
+                "id": 86,
+                "modifiedAt": "2023-09-18T13:10:41Z",
+                "type": "Piccolo",
+                "title": "Cestino 86",
+                "createdAt": "2023-09-18T11:39:36Z",
+                "colour": "#FF7037"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.52979,
+                    42.92715
+                ]
+            },
+            "properties": {
+                "id": 87,
+                "modifiedAt": "2023-09-18T13:11:19Z",
+                "type": "Piccolo",
+                "title": "Cestino 87",
+                "createdAt": "2023-09-18T11:40:21Z",
+                "colour": "#FF7037"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.52968,
+                    42.92698
+                ]
+            },
+            "properties": {
+                "id": 88,
+                "modifiedAt": "2023-09-18T13:11:37Z",
+                "type": "Piccolo",
+                "title": "Cestino 88",
+                "createdAt": "2023-09-18T11:40:44Z",
+                "colour": "#FF7037"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.52958,
+                    42.92677
+                ]
+            },
+            "properties": {
+                "id": 89,
+                "modifiedAt": "2023-09-18T13:12:20Z",
+                "type": "Piccolo",
+                "title": "Cestino 89",
+                "createdAt": "2023-09-18T11:41:15Z",
+                "colour": "#FF7037"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.529173089838487,
+                    42.927391849940925
+                ]
+            },
+            "properties": {
+                "id": 90,
+                "modifiedAt": "2023-09-18T11:48:57Z",
+                "type": "Piccolo",
+                "title": "Cestino 90",
+                "createdAt": "2023-09-18T11:48:55Z",
+                "colour": "#FF7037"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.529204886493629,
+                    42.927407000561246
+                ]
+            },
+            "properties": {
+                "id": 91,
+                "modifiedAt": "2023-09-18T11:49:05Z",
+                "type": "Piccolo",
+                "title": "Cestino 91",
+                "createdAt": "2023-09-18T11:49:03Z",
+                "colour": "#FF7037"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.528468275740869,
+                    42.92616524970846
+                ]
+            },
+            "properties": {
+                "id": 92,
+                "modifiedAt": "2023-09-18T11:51:19Z",
+                "type": "Intero",
+                "title": "Cestino 92",
+                "createdAt": "2023-09-18T11:51:17Z",
+                "colour": "#FFC545"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.527159450071581,
+                    42.92872005395068
+                ]
+            },
+            "properties": {
+                "id": 93,
+                "modifiedAt": "2023-09-18T12:01:01Z",
+                "type": "Piccolo",
+                "title": "Cestino 93",
+                "createdAt": "2023-09-18T12:00:59Z",
+                "colour": "#FF7037"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.526547622372949,
+                    42.92674384028081
+                ]
+            },
+            "properties": {
+                "id": 94,
+                "modifiedAt": "2023-09-18T12:09:06Z",
+                "type": "Intero",
+                "title": "Cestino 94",
+                "createdAt": "2023-09-18T12:09:04Z",
+                "colour": "#FFC545"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.52841,
+                    42.92608
+                ]
+            },
+            "properties": {
+                "id": 95,
+                "modifiedAt": "2023-09-18T13:17:41Z",
+                "type": "Intero",
+                "title": "Cestino 95",
+                "createdAt": "2023-09-18T12:12:10Z",
+                "colour": "#FFC545"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.52801,
+                    42.9262
+                ]
+            },
+            "properties": {
+                "id": 96,
+                "modifiedAt": "2023-09-18T13:19:12Z",
+                "type": "Intero",
+                "title": "Cestino 96",
+                "createdAt": "2023-09-18T12:12:44Z",
+                "colour": "#FFC545"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.52754,
+                    42.92633
+                ]
+            },
+            "properties": {
+                "id": 97,
+                "modifiedAt": "2023-09-18T13:19:47Z",
+                "type": "Piccolo",
+                "title": "Cestino 97",
+                "createdAt": "2023-09-18T12:13:29Z",
+                "colour": "#FF7037"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.52633,
+                    42.92669
+                ]
+            },
+            "properties": {
+                "id": 98,
+                "modifiedAt": "2023-09-18T13:20:13Z",
+                "type": "Intero",
+                "title": "Cestino 98",
+                "createdAt": "2023-09-18T12:15:06Z",
+                "colour": "#FFC545"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.525937767809866,
+                    42.9268618184926
+                ]
+            },
+            "properties": {
+                "id": 99,
+                "modifiedAt": "2023-09-18T12:15:41Z",
+                "type": "Piccolo",
+                "title": "Cestino 99",
+                "createdAt": "2023-09-18T12:15:39Z",
+                "colour": "#FF7037"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.525808365055642,
+                    42.92672752386363
+                ]
+            },
+            "properties": {
+                "id": 100,
+                "modifiedAt": "2023-09-18T12:16:04Z",
+                "type": "Piccolo",
+                "title": "Cestino 100",
+                "createdAt": "2023-09-18T12:16:02Z",
+                "colour": "#FF7037"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.52592,
+                    42.92601
+                ]
+            },
+            "properties": {
+                "id": 101,
+                "modifiedAt": "2023-09-18T13:48:02Z",
+                "type": "Intero",
+                "title": "Cestino 101",
+                "createdAt": "2023-09-18T12:17:08Z",
+                "colour": "#FFC545"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.52606,
+                    42.92562
+                ]
+            },
+            "properties": {
+                "id": 102,
+                "modifiedAt": "2023-09-18T13:48:24Z",
+                "type": "Mezzo",
+                "title": "Cestino 102",
+                "createdAt": "2023-09-18T12:17:57Z",
+                "colour": "#A3306F"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.52691,
+                    42.92617
+                ]
+            },
+            "properties": {
+                "id": 103,
+                "modifiedAt": "2023-09-18T14:11:34Z",
+                "type": "Piccolo",
+                "title": "Cestino 103",
+                "createdAt": "2023-09-18T12:20:22Z",
+                "colour": "#FF7037"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.52667,
+                    42.92575
+                ]
+            },
+            "properties": {
+                "id": 104,
+                "modifiedAt": "2023-09-18T14:11:17Z",
+                "type": "Piccolo",
+                "title": "Cestino 104",
+                "createdAt": "2023-09-18T12:21:12Z",
+                "colour": "#FF7037"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.5269,
+                    42.92536
+                ]
+            },
+            "properties": {
+                "id": 105,
+                "modifiedAt": "2023-09-18T13:49:13Z",
+                "type": "Mezzo",
+                "title": "Cestino 105",
+                "createdAt": "2023-09-18T12:22:01Z",
+                "colour": "#A3306F"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.527364140062447,
+                    42.92527037397885
+                ]
+            },
+            "properties": {
+                "id": 106,
+                "modifiedAt": "2023-09-18T12:25:34Z",
+                "type": "Intero",
+                "title": "Cestino 106",
+                "createdAt": "2023-09-18T12:25:32Z",
+                "colour": "#FFC545"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.528525975984149,
+                    42.92501858146279
+                ]
+            },
+            "properties": {
+                "id": 107,
+                "modifiedAt": "2023-09-18T12:29:51Z",
+                "type": "Struttura-M2",
+                "title": "Cestino 107",
+                "createdAt": "2023-09-18T12:29:49Z",
+                "colour": "#35E95F"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.5288,
+                    42.92554
+                ]
+            },
+            "properties": {
+                "id": 108,
+                "modifiedAt": "2023-09-18T13:08:01Z",
+                "type": "Struttura-M2",
+                "title": "Cestino 108",
+                "createdAt": "2023-09-18T12:31:43Z",
+                "colour": "#35E95F"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.52899,
+                    42.92577
+                ]
+            },
+            "properties": {
+                "id": 109,
+                "modifiedAt": "2023-09-18T13:08:18Z",
+                "type": "Struttura-M2",
+                "title": "Cestino 109",
+                "createdAt": "2023-09-18T12:32:25Z",
+                "colour": "#35E95F"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.52906,
+                    42.92573
+                ]
+            },
+            "properties": {
+                "id": 110,
+                "modifiedAt": "2023-09-18T13:08:33Z",
+                "type": "Struttura-M2",
+                "title": "Cestino 110",
+                "createdAt": "2023-09-18T12:32:41Z",
+                "colour": "#35E95F"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.52883,
+                    42.92537
+                ]
+            },
+            "properties": {
+                "id": 111,
+                "modifiedAt": "2023-09-18T13:07:39Z",
+                "type": "Struttura-M2",
+                "title": "Cestino 111",
+                "createdAt": "2023-09-18T12:33:31Z",
+                "colour": "#35E95F"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.52873,
+                    42.92517
+                ]
+            },
+            "properties": {
+                "id": 112,
+                "modifiedAt": "2023-09-18T13:06:51Z",
+                "type": "Struttura-M2",
+                "title": "Cestino 112",
+                "createdAt": "2023-09-18T12:34:04Z",
+                "colour": "#35E95F"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.52966,
+                    42.92674
+                ]
+            },
+            "properties": {
+                "id": 113,
+                "modifiedAt": "2023-09-18T13:12:36Z",
+                "type": "Piccolo",
+                "title": "Cestino 113",
+                "createdAt": "2023-09-18T12:37:04Z",
+                "colour": "#FF7037"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.52983,
+                    42.927
+                ]
+            },
+            "properties": {
+                "id": 114,
+                "modifiedAt": "2023-09-18T13:11:53Z",
+                "type": "Piccolo",
+                "title": "Cestino 114",
+                "createdAt": "2023-09-18T12:37:39Z",
+                "colour": "#FF7037"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.53024,
+                    42.92773
+                ]
+            },
+            "properties": {
+                "id": 115,
+                "modifiedAt": "2023-09-18T13:10:23Z",
+                "type": "Piccolo",
+                "title": "Cestino 115",
+                "createdAt": "2023-09-18T12:41:57Z",
+                "colour": "#FF7037"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.528652658695847,
+                    42.925107479135434
+                ]
+            },
+            "properties": {
+                "id": 116,
+                "modifiedAt": "2023-09-19T12:42:55Z",
+                "type": "Struttura-M2",
+                "title": "Cestino 116",
+                "createdAt": "2023-09-19T05:42:38Z",
+                "colour": "#35E95F"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.52576,
+                    42.92644
+                ]
+            },
+            "properties": {
+                "id": 117,
+                "modifiedAt": "2023-09-19T12:09:33Z",
+                "type": "Piccolo",
+                "title": "Cestino 117",
+                "createdAt": "2023-09-19T11:31:32Z",
+                "colour": "#FF7037"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.5258,
+                    42.92617
+                ]
+            },
+            "properties": {
+                "id": 118,
+                "modifiedAt": "2023-09-19T12:08:40Z",
+                "type": "Intero",
+                "title": "Cestino 118",
+                "createdAt": "2023-09-19T11:32:12Z",
+                "colour": "#FFC545"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.52587,
+                    42.92575
+                ]
+            },
+            "properties": {
+                "id": 119,
+                "modifiedAt": "2023-09-19T12:07:34Z",
+                "type": "Intero",
+                "title": "Cestino 119",
+                "createdAt": "2023-09-19T11:32:57Z",
+                "colour": "#FFC545"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.525978328669932,
+                    42.925395020323734
+                ]
+            },
+            "properties": {
+                "id": 120,
+                "modifiedAt": "2023-09-19T12:06:32Z",
+                "type": "Intero",
+                "title": "Cestino 120",
+                "createdAt": "2023-09-19T11:33:37Z",
+                "colour": "#FFC545"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.525749837989476,
+                    42.92458801068638
+                ]
+            },
+            "properties": {
+                "id": 121,
+                "modifiedAt": "2023-09-19T12:05:14Z",
+                "type": "Piccolo",
+                "title": "Cestino 121",
+                "createdAt": "2023-09-19T11:34:54Z",
+                "colour": "#FF7037"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.525929043079284,
+                    42.92444065682862
+                ]
+            },
+            "properties": {
+                "id": 122,
+                "modifiedAt": "2023-09-19T12:04:43Z",
+                "type": "Piccolo",
+                "title": "Cestino 122",
+                "createdAt": "2023-09-19T11:38:25Z",
+                "colour": "#FF7037"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.52596,
+                    42.92492
+                ]
+            },
+            "properties": {
+                "id": 123,
+                "modifiedAt": "2023-09-19T12:13:04Z",
+                "type": "Piccolo",
+                "title": "Cestino 123",
+                "createdAt": "2023-09-19T11:39:18Z",
+                "colour": "#FF7037"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.5262,
+                    42.92523
+                ]
+            },
+            "properties": {
+                "id": 124,
+                "modifiedAt": "2023-09-19T12:14:17Z",
+                "type": "Intero",
+                "title": "Cestino 124",
+                "createdAt": "2023-09-19T11:40:45Z",
+                "colour": "#FFC545"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.52702,
+                    42.92478
+                ]
+            },
+            "properties": {
+                "id": 125,
+                "modifiedAt": "2023-09-19T12:16:16Z",
+                "type": "Intero",
+                "title": "Cestino 125",
+                "createdAt": "2023-09-19T11:41:54Z",
+                "colour": "#FFC545"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.5274,
+                    42.92425
+                ]
+            },
+            "properties": {
+                "id": 126,
+                "modifiedAt": "2023-09-19T12:18:00Z",
+                "type": "Intero",
+                "title": "Cestino 126",
+                "createdAt": "2023-09-19T11:45:56Z",
+                "colour": "#FFC545"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.5260384491741,
+                    42.923570444661905
+                ]
+            },
+            "properties": {
+                "id": 127,
+                "modifiedAt": "2023-09-19T11:53:10Z",
+                "type": "Struttura-M4",
+                "title": "Cestino 127",
+                "createdAt": "2023-09-19T11:53:08Z",
+                "colour": "#D15053"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.52635133674211,
+                    42.92356537595072
+                ]
+            },
+            "properties": {
+                "id": 128,
+                "modifiedAt": "2023-09-19T11:53:33Z",
+                "type": "Struttura-M4",
+                "title": "Cestino 128",
+                "createdAt": "2023-09-19T11:53:32Z",
+                "colour": "#D15053"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.527168316990021,
+                    42.924270045398664
+                ]
+            },
+            "properties": {
+                "id": 129,
+                "modifiedAt": "2023-09-19T11:55:10Z",
+                "type": "Piccolo",
+                "title": "Cestino 129",
+                "createdAt": "2023-09-19T11:55:08Z",
+                "colour": "#FF7037"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.527183813821706,
+                    42.92426563964999
+                ]
+            },
+            "properties": {
+                "id": 130,
+                "modifiedAt": "2023-09-19T11:55:16Z",
+                "type": "Piccolo",
+                "title": "Cestino 130",
+                "createdAt": "2023-09-19T11:55:15Z",
+                "colour": "#FF7037"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.527594346535153,
+                    42.92410149384906
+                ]
+            },
+            "properties": {
+                "id": 131,
+                "modifiedAt": "2023-09-19T11:56:09Z",
+                "type": "Struttura-M2",
+                "title": "Cestino 131",
+                "createdAt": "2023-09-19T11:56:08Z",
+                "colour": "#35E95F"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.527470533474002,
+                    42.923822889411746
+                ]
+            },
+            "properties": {
+                "id": 132,
+                "modifiedAt": "2023-09-19T11:56:35Z",
+                "type": "Struttura-M2",
+                "title": "Cestino 132",
+                "createdAt": "2023-09-19T11:56:33Z",
+                "colour": "#35E95F"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.526918891657068,
+                    42.92383133345069
+                ]
+            },
+            "properties": {
+                "id": 133,
+                "modifiedAt": "2023-09-19T11:57:15Z",
+                "type": "Intero",
+                "title": "Cestino 133",
+                "createdAt": "2023-09-19T11:57:14Z",
+                "colour": "#FFC545"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.526856745342887,
+                    42.92362451304953
+                ]
+            },
+            "properties": {
+                "id": 134,
+                "modifiedAt": "2023-09-19T11:57:41Z",
+                "type": "Intero",
+                "title": "Cestino 134",
+                "createdAt": "2023-09-19T11:57:40Z",
+                "colour": "#FFC545"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.527138148393316,
+                    42.92372812532737
+                ]
+            },
+            "properties": {
+                "id": 135,
+                "modifiedAt": "2023-09-19T11:58:08Z",
+                "type": "Intero",
+                "title": "Cestino 135",
+                "createdAt": "2023-09-19T11:58:07Z",
+                "colour": "#FFC545"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.525108308410774,
+                    42.92346247081474
+                ]
+            },
+            "properties": {
+                "id": 136,
+                "modifiedAt": "2023-09-19T12:00:56Z",
+                "type": "Piccolo",
+                "title": "Cestino 136",
+                "createdAt": "2023-09-19T12:00:55Z",
+                "colour": "#FF7037"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.52753,
+                    42.92425
+                ]
+            },
+            "properties": {
+                "id": 137,
+                "modifiedAt": "2023-09-19T12:20:23Z",
+                "type": "Intero",
+                "title": "Cestino 137",
+                "createdAt": "2023-09-19T12:19:55Z",
+                "colour": "#FFC545"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.52649,
+                    42.92516
+                ]
+            },
+            "properties": {
+                "id": 138,
+                "modifiedAt": "2023-09-19T12:23:57Z",
+                "type": "Intero",
+                "title": "Cestino 138",
+                "createdAt": "2023-09-19T12:22:07Z",
+                "colour": "#FFC545"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.52636,
+                    42.92544
+                ]
+            },
+            "properties": {
+                "id": 139,
+                "modifiedAt": "2023-09-19T12:24:17Z",
+                "type": "Intero",
+                "title": "Cestino 139",
+                "createdAt": "2023-09-19T12:23:52Z",
+                "colour": "#FFC545"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.52781,
+                    42.92499
+                ]
+            },
+            "properties": {
+                "id": 141,
+                "modifiedAt": "2023-09-19T12:26:44Z",
+                "type": "Mezzo",
+                "title": "Cestino 141",
+                "createdAt": "2023-09-19T12:26:25Z",
+                "colour": "#A3306F"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.5277,
+                    42.92469
+                ]
+            },
+            "properties": {
+                "id": 142,
+                "modifiedAt": "2023-09-19T12:27:34Z",
+                "type": "Piccolo",
+                "title": "Cestino 142",
+                "createdAt": "2023-09-19T12:27:14Z",
+                "colour": "#FF7037"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.52824,
+                    42.92488
+                ]
+            },
+            "properties": {
+                "id": 143,
+                "modifiedAt": "2023-09-19T12:30:23Z",
+                "type": "Mezzo",
+                "title": "Cestino 143",
+                "createdAt": "2023-09-19T12:29:51Z",
+                "colour": "#A3306F"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.52838,
+                    42.9247
+                ]
+            },
+            "properties": {
+                "id": 144,
+                "modifiedAt": "2023-09-19T12:31:46Z",
+                "type": "Struttura-M2",
+                "title": "Cestino 144",
+                "createdAt": "2023-09-19T12:31:18Z",
+                "colour": "#35E95F"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.52828,
+                    42.92453
+                ]
+            },
+            "properties": {
+                "id": 145,
+                "modifiedAt": "2023-09-19T12:33:19Z",
+                "type": "Struttura-M2",
+                "title": "Cestino 145",
+                "createdAt": "2023-09-19T12:32:15Z",
+                "colour": "#35E95F"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.52803,
+                    42.92414
+                ]
+            },
+            "properties": {
+                "id": 146,
+                "modifiedAt": "2023-09-19T12:34:40Z",
+                "type": "Struttura-M2",
+                "title": "Cestino 146",
+                "createdAt": "2023-09-19T12:34:22Z",
+                "colour": "#35E95F"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.52787,
+                    42.92385
+                ]
+            },
+            "properties": {
+                "id": 147,
+                "modifiedAt": "2023-09-19T12:35:46Z",
+                "type": "Struttura-M2",
+                "title": "Cestino 147",
+                "createdAt": "2023-09-19T12:35:22Z",
+                "colour": "#35E95F"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.52796,
+                    42.92388
+                ]
+            },
+            "properties": {
+                "id": 148,
+                "modifiedAt": "2023-09-19T12:36:51Z",
+                "type": "Struttura-M2",
+                "title": "Cestino 148",
+                "createdAt": "2023-09-19T12:36:29Z",
+                "colour": "#35E95F"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.52813,
+                    42.92415
+                ]
+            },
+            "properties": {
+                "id": 149,
+                "modifiedAt": "2023-09-19T12:37:48Z",
+                "type": "Struttura-M2",
+                "title": "Cestino 149",
+                "createdAt": "2023-09-19T12:37:30Z",
+                "colour": "#35E95F"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.52831,
+                    42.92445
+                ]
+            },
+            "properties": {
+                "id": 150,
+                "modifiedAt": "2023-09-19T12:38:37Z",
+                "type": "Struttura-M2",
+                "title": "Cestino 150",
+                "createdAt": "2023-09-19T12:38:23Z",
+                "colour": "#35E95F"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.52852,
+                    42.92458
+                ]
+            },
+            "properties": {
+                "id": 151,
+                "modifiedAt": "2023-09-19T12:39:21Z",
+                "type": "Struttura-M2",
+                "title": "Cestino 151",
+                "createdAt": "2023-09-19T12:39:00Z",
+                "colour": "#35E95F"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.5287,
+                    42.92463
+                ]
+            },
+            "properties": {
+                "id": 152,
+                "modifiedAt": "2023-09-19T12:40:16Z",
+                "type": "Struttura-M2",
+                "title": "Cestino 152",
+                "createdAt": "2023-09-19T12:40:00Z",
+                "colour": "#35E95F"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.52905,
+                    42.92466
+                ]
+            },
+            "properties": {
+                "id": 153,
+                "modifiedAt": "2023-09-19T12:41:16Z",
+                "type": "Struttura-M2",
+                "title": "Cestino 153",
+                "createdAt": "2023-09-19T12:41:03Z",
+                "colour": "#35E95F"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.529873166703016,
+                    42.92587690520173
+                ]
+            },
+            "properties": {
+                "id": 154,
+                "modifiedAt": "2023-09-19T12:45:33Z",
+                "type": "Piccolo",
+                "title": "Cestino 154",
+                "createdAt": "2023-09-19T12:45:32Z",
+                "colour": "#FF7037"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.531089082325114,
+                    42.92697579079449
+                ]
+            },
+            "properties": {
+                "id": 156,
+                "modifiedAt": "2023-09-19T12:49:36Z",
+                "type": "Piccolo",
+                "title": "Cestino 156",
+                "createdAt": "2023-09-19T12:49:34Z",
+                "colour": "#FF7037"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.531402508720353,
+                    42.92729850434063
+                ]
+            },
+            "properties": {
+                "id": 157,
+                "modifiedAt": "2023-09-19T12:50:33Z",
+                "type": "Piccolo",
+                "title": "Cestino 157",
+                "createdAt": "2023-09-19T12:50:32Z",
+                "colour": "#FF7037"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.531763276131484,
+                    42.92754765971985
+                ]
+            },
+            "properties": {
+                "id": 158,
+                "modifiedAt": "2023-09-19T12:54:30Z",
+                "type": "Piccolo",
+                "title": "Cestino 158",
+                "createdAt": "2023-09-19T12:54:29Z",
+                "colour": "#FF7037"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.5314,
+                    42.92711
+                ]
+            },
+            "properties": {
+                "id": 159,
+                "modifiedAt": "2023-09-19T12:55:50Z",
+                "type": "Piccolo",
+                "title": "Cestino 159",
+                "createdAt": "2023-09-19T12:55:33Z",
+                "colour": "#FF7037"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.53082,
+                    42.92652
+                ]
+            },
+            "properties": {
+                "id": 160,
+                "modifiedAt": "2023-09-19T12:57:57Z",
+                "type": "Piccolo",
+                "title": "Cestino 160",
+                "createdAt": "2023-09-19T12:57:41Z",
+                "colour": "#FF7037"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.52991,
+                    42.92576
+                ]
+            },
+            "properties": {
+                "id": 161,
+                "modifiedAt": "2023-09-19T13:00:24Z",
+                "type": "Piccolo",
+                "title": "Cestino 161",
+                "createdAt": "2023-09-19T13:00:10Z",
+                "colour": "#FF7037"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.529,
+                    42.92498
+                ]
+            },
+            "properties": {
+                "id": 162,
+                "modifiedAt": "2023-09-19T13:02:29Z",
+                "type": "Mezzo",
+                "title": "Cestino 162",
+                "createdAt": "2023-09-19T13:02:14Z",
+                "colour": "#A3306F"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.52906,
+                    42.92492
+                ]
+            },
+            "properties": {
+                "id": 163,
+                "modifiedAt": "2023-09-19T13:03:10Z",
+                "type": "Mezzo",
+                "title": "Cestino 163",
+                "createdAt": "2023-09-19T13:02:56Z",
+                "colour": "#A3306F"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.531584733124513,
+                    42.92604065690059
+                ]
+            },
+            "properties": {
+                "id": 164,
+                "modifiedAt": "2023-09-19T13:10:24Z",
+                "type": "Piccolo",
+                "title": "Cestino 164",
+                "createdAt": "2023-09-19T13:10:23Z",
+                "colour": "#FF7037"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.531580233173184,
+                    42.926053597322806
+                ]
+            },
+            "properties": {
+                "id": 165,
+                "modifiedAt": "2023-09-19T13:10:43Z",
+                "type": "Piccolo",
+                "title": "Cestino 165",
+                "createdAt": "2023-09-19T13:10:41Z",
+                "colour": "#FF7037"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.53118694206426,
+                    42.9256858076691
+                ]
+            },
+            "properties": {
+                "id": 166,
+                "modifiedAt": "2023-09-19T13:11:53Z",
+                "type": "Piccolo",
+                "title": "Cestino 166",
+                "createdAt": "2023-09-19T13:11:52Z",
+                "colour": "#FF7037"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.531177591669323,
+                    42.92568557739065
+                ]
+            },
+            "properties": {
+                "id": 167,
+                "modifiedAt": "2023-09-19T13:12:10Z",
+                "type": "Piccolo",
+                "title": "Cestino 167",
+                "createdAt": "2023-09-19T13:12:09Z",
+                "colour": "#FF7037"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.530831015726259,
+                    42.92534308518021
+                ]
+            },
+            "properties": {
+                "id": 168,
+                "modifiedAt": "2023-09-19T13:16:20Z",
+                "type": "Piccolo",
+                "title": "Cestino 168",
+                "createdAt": "2023-09-19T13:16:18Z",
+                "colour": "#FF7037"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.530922608626804,
+                    42.92465216523755
+                ]
+            },
+            "properties": {
+                "id": 169,
+                "modifiedAt": "2023-09-20T12:19:08Z",
+                "type": "Piccolo",
+                "title": "Cestino 169",
+                "createdAt": "2023-09-20T12:19:06Z",
+                "colour": "#FF7037"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.533253985486391,
+                    42.92406195406395
+                ]
+            },
+            "properties": {
+                "id": 170,
+                "modifiedAt": "2023-09-20T12:23:51Z",
+                "type": "Piccolo",
+                "title": "Cestino 170",
+                "createdAt": "2023-09-20T12:23:49Z",
+                "colour": "#FF7037"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.530573933921952,
+                    42.924523503123055
+                ]
+            },
+            "properties": {
+                "id": 171,
+                "modifiedAt": "2023-09-20T14:56:44Z",
+                "type": "Intero",
+                "title": "Cestino 171",
+                "createdAt": "2023-09-20T12:28:26Z",
+                "colour": "#FFC545"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.53166,
+                    42.92367
+                ]
+            },
+            "properties": {
+                "id": 172,
+                "modifiedAt": "2023-09-20T12:37:19Z",
+                "type": "Piccolo",
+                "title": "Cestino 172",
+                "createdAt": "2023-09-20T12:36:46Z",
+                "colour": "#FF7037"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.53372654345191,
+                    42.92267491448848
+                ]
+            },
+            "properties": {
+                "id": 173,
+                "modifiedAt": "2023-09-20T12:41:45Z",
+                "type": "Struttura-M2",
+                "title": "Cestino 173",
+                "createdAt": "2023-09-20T12:41:43Z",
+                "colour": "#35E95F"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.534462567893966,
+                    42.922611457294295
+                ]
+            },
+            "properties": {
+                "id": 174,
+                "modifiedAt": "2023-09-20T12:43:22Z",
+                "type": "Piccolo",
+                "title": "Cestino 174",
+                "createdAt": "2023-09-20T12:43:20Z",
+                "colour": "#FF7037"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.534545994100766,
+                    42.92237777159957
+                ]
+            },
+            "properties": {
+                "id": 175,
+                "modifiedAt": "2023-09-20T12:44:08Z",
+                "type": "Piccolo",
+                "title": "Cestino 175",
+                "createdAt": "2023-09-20T12:44:06Z",
+                "colour": "#FF7037"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.533872700986993,
+                    42.92123706116139
+                ]
+            },
+            "properties": {
+                "id": 176,
+                "modifiedAt": "2023-09-20T12:46:30Z",
+                "type": "Piccolo",
+                "title": "Cestino 176",
+                "createdAt": "2023-09-20T12:46:29Z",
+                "colour": "#FF7037"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.53322991173241,
+                    42.92119206900511
+                ]
+            },
+            "properties": {
+                "id": 177,
+                "modifiedAt": "2023-09-20T12:47:52Z",
+                "type": "Piccolo",
+                "title": "Cestino 177",
+                "createdAt": "2023-09-20T12:47:51Z",
+                "colour": "#FF7037"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.532004828746432,
+                    42.92174377410013
+                ]
+            },
+            "properties": {
+                "id": 178,
+                "modifiedAt": "2023-09-20T12:49:28Z",
+                "type": "Piccolo",
+                "title": "Cestino 178",
+                "createdAt": "2023-09-20T12:49:26Z",
+                "colour": "#FF7037"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.533114491754837,
+                    42.92233045027457
+                ]
+            },
+            "properties": {
+                "id": 179,
+                "modifiedAt": "2023-09-20T12:52:18Z",
+                "type": "Piccolo",
+                "title": "Cestino 179",
+                "createdAt": "2023-09-20T12:52:16Z",
+                "colour": "#FF7037"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.532370555880739,
+                    42.922967372464264
+                ]
+            },
+            "properties": {
+                "id": 180,
+                "modifiedAt": "2023-09-20T12:53:49Z",
+                "type": "Piccolo",
+                "title": "Cestino 180",
+                "createdAt": "2023-09-20T12:53:48Z",
+                "colour": "#FF7037"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.532641348784505,
+                    42.92313209183949
+                ]
+            },
+            "properties": {
+                "id": 181,
+                "modifiedAt": "2023-09-20T12:55:37Z",
+                "type": "Piccolo",
+                "title": "Cestino 181",
+                "createdAt": "2023-09-20T12:55:36Z",
+                "colour": "#FF7037"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.531656634403015,
+                    42.922929592325964
+                ]
+            },
+            "properties": {
+                "id": 182,
+                "modifiedAt": "2023-09-20T12:57:04Z",
+                "type": "Piccolo",
+                "title": "Cestino 182",
+                "createdAt": "2023-09-20T12:57:02Z",
+                "colour": "#FF7037"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.531640895606857,
+                    42.92293110578804
+                ]
+            },
+            "properties": {
+                "id": 183,
+                "modifiedAt": "2023-09-20T12:57:11Z",
+                "type": "Piccolo",
+                "title": "Cestino 183",
+                "createdAt": "2023-09-20T12:57:10Z",
+                "colour": "#FF7037"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.52882,
+                    42.92396
+                ]
+            },
+            "properties": {
+                "id": 184,
+                "modifiedAt": "2023-09-20T13:02:51Z",
+                "type": "Piccolo",
+                "title": "Cestino 184",
+                "createdAt": "2023-09-20T13:02:40Z",
+                "colour": "#FF7037"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.530794045089037,
+                    42.92281748988353
+                ]
+            },
+            "properties": {
+                "id": 185,
+                "modifiedAt": "2023-09-20T13:07:31Z",
+                "type": "Piccolo",
+                "title": "Cestino 185",
+                "createdAt": "2023-09-20T13:07:30Z",
+                "colour": "#FF7037"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.531316791692987,
+                    42.92261156326628
+                ]
+            },
+            "properties": {
+                "id": 186,
+                "modifiedAt": "2023-09-20T13:08:43Z",
+                "type": "Mezzo",
+                "title": "Cestino 186",
+                "createdAt": "2023-09-20T13:08:41Z",
+                "colour": "#A3306F"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.531777226375876,
+                    42.922423209855815
+                ]
+            },
+            "properties": {
+                "id": 187,
+                "modifiedAt": "2023-09-20T13:10:26Z",
+                "type": "Piccolo",
+                "title": "Cestino 187",
+                "createdAt": "2023-09-20T13:10:25Z",
+                "colour": "#FF7037"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.531627282148602,
+                    42.92250298315591
+                ]
+            },
+            "properties": {
+                "id": 188,
+                "modifiedAt": "2023-09-20T13:10:48Z",
+                "type": "Piccolo",
+                "title": "Cestino 188",
+                "createdAt": "2023-09-20T13:10:47Z",
+                "colour": "#FF7037"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.531535559611541,
+                    42.92256403351513
+                ]
+            },
+            "properties": {
+                "id": 189,
+                "modifiedAt": "2023-09-20T13:11:13Z",
+                "type": "Mezzo",
+                "title": "Cestino 189",
+                "createdAt": "2023-09-20T13:11:12Z",
+                "colour": "#A3306F"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.53134,
+                    42.92189
+                ]
+            },
+            "properties": {
+                "id": 190,
+                "modifiedAt": "2023-09-20T13:19:05Z",
+                "type": "Piccolo",
+                "title": "Cestino 190",
+                "createdAt": "2023-09-20T13:18:38Z",
+                "colour": "#FF7037"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.52848,
+                    42.92316
+                ]
+            },
+            "properties": {
+                "id": 191,
+                "modifiedAt": "2023-09-20T13:22:55Z",
+                "type": "Piccolo",
+                "title": "Cestino 191",
+                "createdAt": "2023-09-20T13:22:44Z",
+                "colour": "#FF7037"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.52812,
+                    42.92332
+                ]
+            },
+            "properties": {
+                "id": 192,
+                "modifiedAt": "2023-09-20T13:23:52Z",
+                "type": "Piccolo",
+                "title": "Cestino 192",
+                "createdAt": "2023-09-20T13:23:40Z",
+                "colour": "#FF7037"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.52782,
+                    42.92357
+                ]
+            },
+            "properties": {
+                "id": 193,
+                "modifiedAt": "2023-09-20T13:27:00Z",
+                "type": "Struttura-M2",
+                "title": "Cestino 193",
+                "createdAt": "2023-09-20T13:24:52Z",
+                "colour": "#35E95F"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.528577799877262,
+                    42.9239558331761
+                ]
+            },
+            "properties": {
+                "id": 194,
+                "modifiedAt": "2023-09-20T13:27:40Z",
+                "type": "Struttura-M2",
+                "title": "Cestino 194",
+                "createdAt": "2023-09-20T13:27:39Z",
+                "colour": "#35E95F"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.52903,
+                    42.92445
+                ]
+            },
+            "properties": {
+                "id": 195,
+                "modifiedAt": "2023-09-20T13:29:47Z",
+                "type": "Piccolo",
+                "title": "Cestino 195",
+                "createdAt": "2023-09-20T13:29:05Z",
+                "colour": "#FF7037"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.52912,
+                    42.92445
+                ]
+            },
+            "properties": {
+                "id": 196,
+                "modifiedAt": "2023-09-20T13:30:28Z",
+                "type": "Piccolo",
+                "title": "Cestino 196",
+                "createdAt": "2023-09-20T13:30:01Z",
+                "colour": "#FF7037"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.52912,
+                    42.92445
+                ]
+            },
+            "properties": {
+                "id": 197,
+                "modifiedAt": "2023-09-20T13:30:21Z",
+                "type": "Piccolo",
+                "title": "Cestino 197",
+                "createdAt": "2023-09-20T13:30:07Z",
+                "colour": "#FF7037"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.532905140292558,
+                    42.92693821811919
+                ]
+            },
+            "properties": {
+                "id": 198,
+                "modifiedAt": "2023-09-20T13:56:50Z",
+                "type": "Piccolo",
+                "title": "Cestino 198",
+                "createdAt": "2023-09-20T13:56:49Z",
+                "colour": "#FF7037"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.532866533860696,
+                    42.926846039874825
+                ]
+            },
+            "properties": {
+                "id": 199,
+                "modifiedAt": "2023-09-20T13:57:08Z",
+                "type": "Piccolo",
+                "title": "Cestino 199",
+                "createdAt": "2023-09-20T13:57:06Z",
+                "colour": "#FF7037"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.53395,
+                    42.92591
+                ]
+            },
+            "properties": {
+                "id": 200,
+                "modifiedAt": "2023-09-20T14:00:48Z",
+                "type": "Piccolo",
+                "title": "Cestino 200",
+                "createdAt": "2023-09-20T14:00:24Z",
+                "colour": "#FF7037"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.531820486213832,
+                    42.921068114143786
+                ]
+            },
+            "properties": {
+                "id": 201,
+                "modifiedAt": "2023-09-21T11:40:51Z",
+                "type": "Intero",
+                "title": "Cestino 201",
+                "createdAt": "2023-09-21T11:40:48Z",
+                "colour": "#FFC545"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.532172098718245,
+                    42.921185727589965
+                ]
+            },
+            "properties": {
+                "id": 202,
+                "modifiedAt": "2023-09-21T11:41:22Z",
+                "type": "Intero",
+                "title": "Cestino 202",
+                "createdAt": "2023-09-21T11:41:20Z",
+                "colour": "#FFC545"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.529574063446951,
+                    42.92111205948606
+                ]
+            },
+            "properties": {
+                "id": 203,
+                "modifiedAt": "2023-09-21T11:44:47Z",
+                "type": "Piccolo",
+                "title": "Cestino 203",
+                "createdAt": "2023-09-21T11:44:46Z",
+                "colour": "#FF7037"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.528709143894087,
+                    42.92126793576005
+                ]
+            },
+            "properties": {
+                "id": 204,
+                "modifiedAt": "2023-09-21T11:46:12Z",
+                "type": "Piccolo",
+                "title": "Cestino 204",
+                "createdAt": "2023-09-21T11:46:10Z",
+                "colour": "#FF7037"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.527936156285772,
+                    42.92134737796505
+                ]
+            },
+            "properties": {
+                "id": 205,
+                "modifiedAt": "2023-09-21T11:47:22Z",
+                "type": "Intero",
+                "title": "Cestino 205",
+                "createdAt": "2023-09-21T11:47:20Z",
+                "colour": "#FFC545"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.5266,
+                    42.92143
+                ]
+            },
+            "properties": {
+                "id": 206,
+                "modifiedAt": "2023-09-21T11:49:20Z",
+                "type": "Intero",
+                "title": "Cestino 206",
+                "createdAt": "2023-09-21T11:48:59Z",
+                "colour": "#FFC545"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.52646789543271,
+                    42.92137920193212
+                ]
+            },
+            "properties": {
+                "id": 207,
+                "modifiedAt": "2023-09-21T11:49:36Z",
+                "type": "Struttura-M3",
+                "title": "Cestino 207",
+                "createdAt": "2023-09-21T11:49:35Z",
+                "colour": "#FF9B3E"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.526177051795633,
+                    42.921118063462096
+                ]
+            },
+            "properties": {
+                "id": 208,
+                "modifiedAt": "2023-09-21T11:50:12Z",
+                "type": "Struttura-M3",
+                "title": "Cestino 208",
+                "createdAt": "2023-09-21T11:50:11Z",
+                "colour": "#FF9B3E"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.526101342131144,
+                    42.92105794551484
+                ]
+            },
+            "properties": {
+                "id": 209,
+                "modifiedAt": "2023-09-21T11:50:31Z",
+                "type": "Struttura-M3",
+                "title": "Cestino 209",
+                "createdAt": "2023-09-21T11:50:30Z",
+                "colour": "#FF9B3E"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.526006080872294,
+                    42.92095072387701
+                ]
+            },
+            "properties": {
+                "id": 210,
+                "modifiedAt": "2023-09-21T11:50:52Z",
+                "type": "Struttura-M3",
+                "title": "Cestino 210",
+                "createdAt": "2023-09-21T11:50:51Z",
+                "colour": "#FF9B3E"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.52555538115974,
+                    42.92107575529296
+                ]
+            },
+            "properties": {
+                "id": 211,
+                "modifiedAt": "2023-09-21T11:51:42Z",
+                "type": "Struttura-M3",
+                "title": "Cestino 211",
+                "createdAt": "2023-09-21T11:51:41Z",
+                "colour": "#FF9B3E"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.525546273540064,
+                    42.9209308925732
+                ]
+            },
+            "properties": {
+                "id": 212,
+                "modifiedAt": "2023-09-21T11:52:00Z",
+                "type": "Struttura-M3",
+                "title": "Cestino 212",
+                "createdAt": "2023-09-21T11:51:59Z",
+                "colour": "#FF9B3E"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.52553498198573,
+                    42.92075047435588
+                ]
+            },
+            "properties": {
+                "id": 213,
+                "modifiedAt": "2023-09-21T11:52:21Z",
+                "type": "Struttura-M3",
+                "title": "Cestino 213",
+                "createdAt": "2023-09-21T11:52:20Z",
+                "colour": "#FF9B3E"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.525554089470933,
+                    42.92055812411708
+                ]
+            },
+            "properties": {
+                "id": 214,
+                "modifiedAt": "2023-09-21T11:52:45Z",
+                "type": "Struttura-M3",
+                "title": "Cestino 214",
+                "createdAt": "2023-09-21T11:52:43Z",
+                "colour": "#FF9B3E"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.525547697011737,
+                    42.92032804770947
+                ]
+            },
+            "properties": {
+                "id": 215,
+                "modifiedAt": "2023-09-21T11:53:09Z",
+                "type": "Struttura-M3",
+                "title": "Cestino 215",
+                "createdAt": "2023-09-21T11:53:08Z",
+                "colour": "#FF9B3E"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.525620628735902,
+                    42.91999386530073
+                ]
+            },
+            "properties": {
+                "id": 216,
+                "modifiedAt": "2023-09-21T11:54:30Z",
+                "type": "Struttura-M3",
+                "title": "Cestino 216",
+                "createdAt": "2023-09-21T11:54:29Z",
+                "colour": "#FF9B3E"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.525710964912319,
+                    42.92018317226295
+                ]
+            },
+            "properties": {
+                "id": 217,
+                "modifiedAt": "2023-09-21T11:54:54Z",
+                "type": "Struttura-M3",
+                "title": "Cestino 217",
+                "createdAt": "2023-09-21T11:54:53Z",
+                "colour": "#FF9B3E"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.525804164322132,
+                    42.92053624106604
+                ]
+            },
+            "properties": {
+                "id": 218,
+                "modifiedAt": "2023-09-21T11:55:30Z",
+                "type": "Struttura-M3",
+                "title": "Cestino 218",
+                "createdAt": "2023-09-21T11:55:29Z",
+                "colour": "#FF9B3E"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.525902731840178,
+                    42.9207494674417
+                ]
+            },
+            "properties": {
+                "id": 219,
+                "modifiedAt": "2023-09-21T11:55:59Z",
+                "type": "Struttura-M3",
+                "title": "Cestino 219",
+                "createdAt": "2023-09-21T11:55:58Z",
+                "colour": "#FF9B3E"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.52636,
+                    42.9213
+                ]
+            },
+            "properties": {
+                "id": 220,
+                "modifiedAt": "2023-09-21T11:58:36Z",
+                "type": "Struttura-M3",
+                "title": "Cestino 220",
+                "createdAt": "2023-09-21T11:58:36Z",
+                "colour": "#FF9B3E"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.526382773166475,
+                    42.92158673813832
+                ]
+            },
+            "properties": {
+                "id": 221,
+                "modifiedAt": "2023-09-21T11:59:14Z",
+                "type": "Intero",
+                "title": "Cestino 221",
+                "createdAt": "2023-09-21T11:59:12Z",
+                "colour": "#FFC545"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.52548684562137,
+                    42.921198227897136
+                ]
+            },
+            "properties": {
+                "id": 222,
+                "modifiedAt": "2023-09-21T12:01:13Z",
+                "type": null,
+                "title": "Cestino 222",
+                "createdAt": "2023-09-21T12:01:11Z",
+                "colour": "#E0E0E0"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.523814337151803,
+                    42.922293779050186
+                ]
+            },
+            "properties": {
+                "id": 223,
+                "modifiedAt": "2023-09-21T12:04:51Z",
+                "type": "Intero",
+                "title": "Cestino 223",
+                "createdAt": "2023-09-21T12:04:49Z",
+                "colour": "#FFC545"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.525510789162302,
+                    42.92247418402052
+                ]
+            },
+            "properties": {
+                "id": 224,
+                "modifiedAt": "2023-09-21T12:14:37Z",
+                "type": "Intero",
+                "title": "Cestino 224",
+                "createdAt": "2023-09-21T12:14:35Z",
+                "colour": "#FFC545"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.525830612686978,
+                    42.922642198001455
+                ]
+            },
+            "properties": {
+                "id": 225,
+                "modifiedAt": "2023-09-21T12:15:33Z",
+                "type": "Piccolo",
+                "title": "Cestino 225",
+                "createdAt": "2023-09-21T12:15:32Z",
+                "colour": "#FF7037"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.525426738322363,
+                    42.92205509261139
+                ]
+            },
+            "properties": {
+                "id": 226,
+                "modifiedAt": "2023-09-21T12:18:55Z",
+                "type": "Intero",
+                "title": "Cestino 226",
+                "createdAt": "2023-09-21T12:18:54Z",
+                "colour": "#FFC545"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.529482198593916,
+                    42.92139125054269
+                ]
+            },
+            "properties": {
+                "id": 227,
+                "modifiedAt": "2023-09-21T14:07:17Z",
+                "type": "Piccolo",
+                "title": "Cestino 227",
+                "createdAt": "2023-09-21T12:24:19Z",
+                "colour": "#FF7037"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.530150380394113,
+                    42.92122479902921
+                ]
+            },
+            "properties": {
+                "id": 228,
+                "modifiedAt": "2023-09-21T12:25:12Z",
+                "type": "Nuovo",
+                "title": "Cestino 228",
+                "createdAt": "2023-09-21T12:25:11Z",
+                "colour": "#B8D14B"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.530283174397102,
+                    42.92121836958109
+                ]
+            },
+            "properties": {
+                "id": 229,
+                "modifiedAt": "2023-09-21T12:25:27Z",
+                "type": "Nuovo",
+                "title": "Cestino 229",
+                "createdAt": "2023-09-21T12:25:26Z",
+                "colour": "#B8D14B"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.530449596115242,
+                    42.92117391272198
+                ]
+            },
+            "properties": {
+                "id": 230,
+                "modifiedAt": "2023-09-21T12:25:46Z",
+                "type": "Nuovo",
+                "title": "Cestino 230",
+                "createdAt": "2023-09-21T12:25:45Z",
+                "colour": "#B8D14B"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.529583888921826,
+                    42.92142203345792
+                ]
+            },
+            "properties": {
+                "id": 231,
+                "modifiedAt": "2023-09-21T12:27:35Z",
+                "type": "Intero",
+                "title": "Cestino 231",
+                "createdAt": "2023-09-21T12:27:34Z",
+                "colour": "#FFC545"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.528515639642057,
+                    42.92145431786057
+                ]
+            },
+            "properties": {
+                "id": 232,
+                "modifiedAt": "2023-09-21T12:29:22Z",
+                "type": "Intero",
+                "title": "Cestino 232",
+                "createdAt": "2023-09-21T12:29:21Z",
+                "colour": "#FFC545"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.52801968258859,
+                    42.92148896043904
+                ]
+            },
+            "properties": {
+                "id": 233,
+                "modifiedAt": "2023-09-21T12:30:02Z",
+                "type": "Intero",
+                "title": "Cestino 233",
+                "createdAt": "2023-09-21T12:30:01Z",
+                "colour": "#FFC545"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.527299874679446,
+                    42.921624541466585
+                ]
+            },
+            "properties": {
+                "id": 234,
+                "modifiedAt": "2023-09-21T12:31:38Z",
+                "type": "Intero",
+                "title": "Cestino 234",
+                "createdAt": "2023-09-21T12:31:37Z",
+                "colour": "#FFC545"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.52803030216979,
+                    42.92165217495262
+                ]
+            },
+            "properties": {
+                "id": 235,
+                "modifiedAt": "2023-09-21T12:34:01Z",
+                "type": "Intero",
+                "title": "Cestino 235",
+                "createdAt": "2023-09-21T12:33:59Z",
+                "colour": "#FFC545"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.527565137393077,
+                    42.92231709133927
+                ]
+            },
+            "properties": {
+                "id": 236,
+                "modifiedAt": "2023-09-21T12:40:49Z",
+                "type": "Mezzo",
+                "title": "Cestino 236",
+                "createdAt": "2023-09-21T12:40:48Z",
+                "colour": "#A3306F"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.52853,
+                    42.92284
+                ]
+            },
+            "properties": {
+                "id": 237,
+                "modifiedAt": "2023-09-21T12:48:35Z",
+                "type": "Piccolo",
+                "title": "Cestino 237",
+                "createdAt": "2023-09-21T12:47:51Z",
+                "colour": "#FF7037"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.52734627780689,
+                    42.92325383827944
+                ]
+            },
+            "properties": {
+                "id": 238,
+                "modifiedAt": "2023-09-21T12:54:14Z",
+                "type": "Struttura-M2",
+                "title": "Cestino 238",
+                "createdAt": "2023-09-21T12:54:13Z",
+                "colour": "#35E95F"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.527086090995283,
+                    42.922954260526346
+                ]
+            },
+            "properties": {
+                "id": 239,
+                "modifiedAt": "2023-09-21T12:54:59Z",
+                "type": "Struttura-M2",
+                "title": "Cestino 239",
+                "createdAt": "2023-09-21T12:54:57Z",
+                "colour": "#35E95F"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.52646247331618,
+                    42.923034450329936
+                ]
+            },
+            "properties": {
+                "id": 240,
+                "modifiedAt": "2023-09-21T12:55:50Z",
+                "type": "Mezzo",
+                "title": "Cestino 240",
+                "createdAt": "2023-09-21T12:55:49Z",
+                "colour": "#A3306F"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.5249,
+                    42.92294
+                ]
+            },
+            "properties": {
+                "id": 241,
+                "modifiedAt": "2023-09-21T12:58:38Z",
+                "type": "Mezzo",
+                "title": "Cestino 241",
+                "createdAt": "2023-09-21T12:58:20Z",
+                "colour": "#A3306F"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.526587718290644,
+                    42.92263112905971
+                ]
+            },
+            "properties": {
+                "id": 242,
+                "modifiedAt": "2023-09-21T13:03:53Z",
+                "type": "Mezzo",
+                "title": "Cestino 242",
+                "createdAt": "2023-09-21T13:03:46Z",
+                "colour": "#A3306F"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.5268012975434,
+                    42.922070439053485
+                ]
+            },
+            "properties": {
+                "id": 243,
+                "modifiedAt": "2023-09-21T13:05:24Z",
+                "type": "Struttura-M2",
+                "title": "Cestino 243",
+                "createdAt": "2023-09-21T13:05:22Z",
+                "colour": "#35E95F"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.5266,
+                    42.92195
+                ]
+            },
+            "properties": {
+                "id": 244,
+                "modifiedAt": "2023-09-21T13:08:39Z",
+                "type": "Struttura-M2",
+                "title": "Cestino 244",
+                "createdAt": "2023-09-21T13:08:10Z",
+                "colour": "#35E95F"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.52647,
+                    42.92166
+                ]
+            },
+            "properties": {
+                "id": 245,
+                "modifiedAt": "2023-09-21T13:09:40Z",
+                "type": "Struttura-M2",
+                "title": "Cestino 245",
+                "createdAt": "2023-09-21T13:09:26Z",
+                "colour": "#35E95F"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.526792493693684,
+                    42.92175308046117
+                ]
+            },
+            "properties": {
+                "id": 246,
+                "modifiedAt": "2023-09-21T13:10:44Z",
+                "type": "Struttura-M2",
+                "title": "Cestino 246",
+                "createdAt": "2023-09-21T13:10:42Z",
+                "colour": "#35E95F"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.52693387658301,
+                    42.922093699042335
+                ]
+            },
+            "properties": {
+                "id": 247,
+                "modifiedAt": "2023-09-21T13:12:12Z",
+                "type": "Struttura-M2",
+                "title": "Cestino 247",
+                "createdAt": "2023-09-21T13:12:11Z",
+                "colour": "#35E95F"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.52692512616727,
+                    42.922388686851676
+                ]
+            },
+            "properties": {
+                "id": 248,
+                "modifiedAt": "2023-09-21T13:12:49Z",
+                "type": "Struttura-M2",
+                "title": "Cestino 248",
+                "createdAt": "2023-09-21T13:12:48Z",
+                "colour": "#35E95F"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.526954359770963,
+                    42.92265458286897
+                ]
+            },
+            "properties": {
+                "id": 249,
+                "modifiedAt": "2023-09-21T13:13:39Z",
+                "type": "Struttura-M2",
+                "title": "Cestino 249",
+                "createdAt": "2023-09-21T13:13:38Z",
+                "colour": "#35E95F"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.526524013954154,
+                    42.92282958656517
+                ]
+            },
+            "properties": {
+                "id": 250,
+                "modifiedAt": "2023-09-21T13:15:07Z",
+                "type": "Mezzo",
+                "title": "Cestino 250",
+                "createdAt": "2023-09-21T13:15:05Z",
+                "colour": "#A3306F"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.527393941414852,
+                    42.92285067502613
+                ]
+            },
+            "properties": {
+                "id": 251,
+                "modifiedAt": "2023-09-21T13:17:54Z",
+                "type": "Mezzo",
+                "title": "Cestino 251",
+                "createdAt": "2023-09-21T13:17:52Z",
+                "colour": "#A3306F"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.527652781466513,
+                    42.92317578573052
+                ]
+            },
+            "properties": {
+                "id": 252,
+                "modifiedAt": "2023-09-29T17:50:06Z",
+                "type": "Struttura-M2",
+                "title": "Cestino 252",
+                "createdAt": "2023-09-28T18:49:42Z",
+                "colour": "#35E95F"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.52823,
+                    42.92303
+                ]
+            },
+            "properties": {
+                "id": 253,
+                "modifiedAt": "2023-09-29T17:50:52Z",
+                "type": "Piccolo",
+                "title": "Cestino 253",
+                "createdAt": "2023-09-29T17:50:52Z",
+                "colour": "#FF7037"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.51869,
+                    42.92617
+                ]
+            },
+            "properties": {
+                "id": 254,
+                "modifiedAt": "2023-10-06T16:44:51Z",
+                "type": "Struttura-B",
+                "title": "Cestino 254",
+                "createdAt": "2023-09-29T17:51:30Z",
+                "colour": "#FFF04C"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.52553,
+                    42.92809
+                ]
+            },
+            "properties": {
+                "id": 255,
+                "modifiedAt": "2023-10-05T20:13:14Z",
+                "type": "Piccolo",
+                "title": "Cestino 255",
+                "createdAt": "2023-09-29T19:26:56Z",
+                "colour": "#FF7037"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.533277876684938,
+                    42.923945286351184
+                ]
+            },
+            "properties": {
+                "id": 256,
+                "modifiedAt": "2023-10-12T16:59:45Z",
+                "type": "Piccolo",
+                "title": "Cestino 256",
+                "createdAt": "2023-10-12T16:59:41Z",
+                "colour": "#FF7037"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.53323739209262,
+                    42.92391435712848
+                ]
+            },
+            "properties": {
+                "id": 257,
+                "modifiedAt": "2023-10-12T17:00:05Z",
+                "type": "Piccolo",
+                "title": "Cestino 257",
+                "createdAt": "2023-10-12T17:00:01Z",
+                "colour": "#FF7037"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.535152712876329,
+                    42.92462066006907
+                ]
+            },
+            "properties": {
+                "id": 258,
+                "modifiedAt": "2024-02-16T17:33:09Z",
+                "type": "Piccolo",
+                "title": "Cestino 258",
+                "createdAt": "2024-02-16T17:33:07Z",
+                "colour": "#FF7037"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.53517212456554,
+                    42.924613784606215
+                ]
+            },
+            "properties": {
+                "id": 258,
+                "modifiedAt": "2024-02-16T17:33:36Z",
+                "type": "Piccolo",
+                "title": "Cestino 258",
+                "createdAt": "2024-02-16T17:33:35Z",
+                "colour": "#FF7037"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.536113698206702,
+                    42.92459418432783
+                ]
+            },
+            "properties": {
+                "id": 259,
+                "modifiedAt": "2024-02-16T17:34:47Z",
+                "type": "Piccolo",
+                "title": "Cestino 259",
+                "createdAt": "2024-02-16T17:34:45Z",
+                "colour": "#FF7037"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.535053734777373,
+                    42.92445115018827
+                ]
+            },
+            "properties": {
+                "id": 260,
+                "modifiedAt": "2024-02-16T17:35:55Z",
+                "type": "Piccolo",
+                "title": "Cestino 260",
+                "createdAt": "2024-02-16T17:35:54Z",
+                "colour": "#FF7037"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.534920553269862,
+                    42.924477954806406
+                ]
+            },
+            "properties": {
+                "id": 261,
+                "modifiedAt": "2024-02-16T17:36:12Z",
+                "type": "Piccolo",
+                "title": "Cestino 261",
+                "createdAt": "2024-02-16T17:36:11Z",
+                "colour": "#FF7037"
+            }
+        }
+    ]
+}
