@@ -80,6 +80,7 @@
             #sidebar.is-open {
                 transform: translateY(0); /* Completamente aperto */
                 box-shadow: 0 -2px 10px rgba(0,0,0,0.25); /* Ombra leggermente più pronunciata quando aperto */
+                overflow-y: auto; /* Abilita lo scroll per la sidebar quando aperta */
             }
 
             #mobile-sidebar-handle {
@@ -385,7 +386,8 @@ let clickOutsideListener = null;
 function setMobileSidebarState(isOpen) {
     if (isOpen) {
         sidebar.classList.add('is-open');
-        mapContainer.style.height = `calc(100vh - 80vh)`; // La mappa occupa 20vh
+        // Ho cambiato l'altezza della mappa a 20vh (100vh - 80vh della sidebar)
+        mapContainer.style.height = `20vh`; 
         if (isMobileView() && !clickOutsideListener) {
             clickOutsideListener = (event) => {
                 // Chiudi il menu solo se il click non è avvenuto sulla sidebar o sul handle
@@ -450,7 +452,7 @@ if (mobileSidebarHandle) {
         const sidebarHeight = sidebar.offsetHeight;
         const maxTranslateY = sidebarHeight - COLLAPSED_HEIGHT_PX;
 
-        // Determina se il menu deve aprirsi o chiudersi in base alla posizione attuale
+        // Determina se il menu deve aprirsi o chiudarsi in base alla posizione attuale
         // Se è più della metà strada verso l'alto, aprilo completamente
         if (currentTranslateY < maxTranslateY / 2) {
             setMobileSidebarState(true); // Scatta per aprire
