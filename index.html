@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mappa Interattiva Cestini</title>
+    <title>Cestini</title>
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js"></script>
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -73,7 +73,7 @@
                 border-radius: 12px 12px 0 0; /* Angoli arrotondati in alto per mobile */
                 padding: 0; /* Padding gestito internamente per mobile */
                 z-index: 1000; /* Assicura che sia sopra gli altri elementi */
-                overflow: hidden; /* Nasconde lo scrollbar quando è collassato */
+                overflow: hidden; /* Nasconde lo scrollbar quando è collassato, ma il contenuto è visibile */
                 transition: transform 0.3s ease-out; /* Transizione per l'apertura/chiusura */
             }
 
@@ -106,24 +106,37 @@
                 border-radius: 2px;
             }
 
-            /* Nasconde il contenuto scorrevole quando la sidebar non è aperta */
+            /* Modifiche qui: Rimuovi le proprietà che nascondono il contenuto */
             #sidebar-scrollable-content {
                 flex-grow: 1;
-                overflow-y: hidden; /* Nasconde lo scrollbar quando chiuso */
+                overflow-y: auto; /* Permette lo scroll del contenuto subito */
                 padding: 0 15px 15px 15px; /* Applica padding al contenuto scorrevole per mobile */
-                opacity: 0;
-                visibility: hidden;
-                max-height: 0; /* Collassa il contenuto */
-                transition: opacity 0.3s ease-out, visibility 0.3s ease-out, max-height 0.3s ease-out;
+                /* Rimuovi queste linee per rendere il contenuto visibile e scorrevole fin dall'inizio del trascinamento */
+                /* opacity: 0; */
+                /* visibility: hidden; */
+                /* max-height: 0; */
+                /* transition: opacity 0.3s ease-out, visibility 0.3s ease-out, max-height 0.3s ease-out; */
+                transition: transform 0.3s ease-out; /* Mantiene la transizione se necessaria per altre proprietà */
             }
 
-            /* Mostra e abilita lo scroll del contenuto quando la sidebar è aperta */
-            #sidebar.is-open #sidebar-scrollable-content {
-                overflow-y: auto; /* Abilita lo scrollbar quando aperto */
+            /* Rimuovi completamente questa regola, non è più necessaria.
+               Il contenuto sarà visibile e scorrevole non appena il menu si apre
+               grazie alle modifiche sopra. */
+            /* #sidebar.is-open #sidebar-scrollable-content {
+                overflow-y: auto;
                 opacity: 1;
                 visibility: visible;
-                max-height: 100vh; /* Permette al contenuto di assumere l'altezza naturale (o quasi) per scroll fluido */
-            }
+                max-height: 100vh;
+            } */
+        }
+        
+        ::-webkit-scrollbar {
+            display: none; /* Chrome, Safari, Opera */
+        }
+        
+        html, body {
+            -ms-overflow-style: none;  /* Internet Explorer e Edge legacy */
+            scrollbar-width: none;     /* Firefox */
         }
 
         /* Nasconde il handle e assicura visibilità del contenuto su desktop */
