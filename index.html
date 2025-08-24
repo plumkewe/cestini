@@ -311,7 +311,7 @@ fetch('cestini.geojson')
             map.addLayer({
                 id: bidoniVSquareLayerId, type: 'symbol', source: layerId,
                 filter: ['==', 'type', 'Bidoni-V'],
-                layout: { 'icon-image': 'square-icon', 'icon-size': 0.6, 'icon-allow-overlap': true, 'icon-anchor': 'center' },
+                layout: { 'icon-image': 'square-icon', 'icon-size': 0.3, 'icon-allow-overlap': true, 'icon-anchor': 'center' },
                 paint: { 'icon-color': ['to-color', ['get', 'colour']] }
             });
             map.addSource(userLocationLayerId, { type: 'geojson', data: { type: 'FeatureCollection', features: [] } });
@@ -379,7 +379,14 @@ function generateFilters(data) {
             cb.value = type;
             cb.checked = true;
             cb.className = 'h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500';
-            cb.addEventListener('change', () => updateFilters(idSuffix));
+            cb.addEventListener('change', () => {
+                const counterpartSuffix = idSuffix === 'desktop' ? 'mobile' : 'desktop';
+                const counterpartCheckbox = document.getElementById(`${id}-${counterpartSuffix}`);
+                if (counterpartCheckbox) {
+                    counterpartCheckbox.checked = cb.checked;
+                }
+                updateFilters();
+            });
             const span = document.createElement('span');
             span.textContent = type.charAt(0).toUpperCase() + type.slice(1);
             span.className = 'text-gray-700';
@@ -393,8 +400,8 @@ function generateFilters(data) {
 }
 
 
-function updateFilters(idSuffix) {
-    const selector = `#filters-${idSuffix} input[type="checkbox"]`;
+function updateFilters() {
+    const selector = '#filters-desktop input[type="checkbox"]';
     const checked = Array.from(document.querySelectorAll(selector))
         .filter(cb => cb.checked)
         .map(cb => cb.value);
@@ -452,6 +459,12 @@ document.getElementById('center-button-mobile').addEventListener('click', center
 document.getElementById('screenshot-button-desktop').addEventListener('click', captureScreenshot);
 document.getElementById('screenshot-button-mobile').addEventListener('click', captureScreenshot);
 
+function getActiveFilterValues() {
+    const selector = '#filters-desktop input[type="checkbox"]';
+    return Array.from(document.querySelectorAll(selector))
+        .filter(cb => cb.checked)
+        .map(cb => cb.value);
+}
 
 function calculateDistance(lat1, lon1, lat2, lon2) {
     const R = 6371;
@@ -462,11 +475,20 @@ function calculateDistance(lat1, lon1, lat2, lon2) {
     return R * c;
 }
 
-function findClosestPoint(userLng, userLat) {
+function findClosestPoint(userLng, userLat, activeFilters) {
     if (!fullGeojsonData || !fullGeojsonData.features.length) return null;
+    
+    const filteredFeatures = fullGeojsonData.features.filter(feature => 
+        activeFilters.includes(feature.properties.type)
+    );
+
+    if (filteredFeatures.length === 0) {
+        return null; // Nessun punto corrisponde ai filtri
+    }
+
     let closest = null;
     let minDistance = Infinity;
-    fullGeojsonData.features.forEach(feature => {
+    filteredFeatures.forEach(feature => {
         const coords = feature.geometry.coordinates;
         const distance = calculateDistance(userLat, userLng, coords[1], coords[0]);
         if (distance < minDistance) {
@@ -511,8 +533,10 @@ function handleLocateMe() {
                 map.getSource(userLocationLayerId).setData({ type: 'FeatureCollection', features: [{ type: 'Feature', geometry: { type: 'Point', coordinates: userLngLat }, properties: { description: 'La tua posizione', isUserLocation: true } }] });
                 map.flyTo({ center: userLngLat, zoom: 15 });
 
-                const result = findClosestPoint(longitude, latitude);
-                let detailsHtml = '<p>Nessun punto trovato.</p>';
+                const activeFilters = getActiveFilterValues();
+                const result = findClosestPoint(longitude, latitude, activeFilters);
+                
+                let detailsHtml;
                 if (result) {
                     const { feature, distance } = result;
                     closestFeatureCoords = feature.geometry.coordinates;
@@ -523,6 +547,9 @@ function handleLocateMe() {
                     bounds.extend(userLngLat);
                     bounds.extend(closestFeatureCoords);
                     map.fitBounds(bounds, { padding: 100, maxZoom: 16 });
+                } else {
+                    detailsHtml = '<p>Nessun punto trovato con i filtri attuali.</p>';
+                     map.getSource(closestPointLayerId).setData({ type: 'FeatureCollection', features: [] });
                 }
                 
                 closestPointDetailsDesktop.innerHTML = detailsHtml;
