@@ -8,8 +8,6 @@
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-    <!-- Includiamo Heroicons per le icone moderne -->
-    <script src="https://cdn.jsdelivr.net/npm/@heroicons/react@1.0.6/dist/index.min.js"></script>
 
     <style>
         /* Stili Desktop (default) */
@@ -44,24 +42,24 @@
 
         /* Stili Popup Mapbox Moderni */
         .mapboxgl-popup {
-            max-width: 300px; /* Aumentiamo leggermente la larghezza massima */
+            max-width: 300px;
         }
         .mapboxgl-popup-content {
             text-align: left;
-            font-size: 15px; /* Aumentiamo la dimensione del font */
-            padding: 20px; /* Aumentiamo il padding */
-            border-radius: 12px; /* Angoli più arrotondati */
-            box-shadow: 0 4px 20px rgba(0,0,0,0.15); /* Ombra più pronunciata */
-            border: none; /* Rimuoviamo il bordo di default */
+            font-size: 15px;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            border: none;
             background-color: #ffffff;
             position: relative;
         }
         .mapboxgl-popup-content h3 {
             margin: 0 0 10px 0;
-            font-size: 1.2rem; /* Titolo più grande */
-            font-weight: 700; /* Più spesso */
+            font-size: 1.2rem;
+            font-weight: 700;
             color: #333;
-            border-bottom: 1px solid #eee; /* Separatore sotto il titolo */
+            border-bottom: 1px solid #eee;
             padding-bottom: 10px;
         }
         .mapboxgl-popup-content p {
@@ -89,17 +87,17 @@
             justify-content: center;
             padding: 8px 15px;
             margin-top: 15px;
-            background-color: #4f46e5; /* Tailwind indigo-600 */
+            background-color: #4f46e5;
             color: white;
             font-weight: 600;
             border-radius: 8px;
             text-decoration: none;
             transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-            box-shadow: 0 2px 8px rgba(79, 70, 229, 0.3); /* Ombra colorata */
-            gap: 8px; /* Spazio tra icona e testo */
+            box-shadow: 0 2px 8px rgba(79, 70, 229, 0.3);
+            gap: 8px;
         }
         .popup-link-button:hover {
-            background-color: #4338ca; /* Tailwind indigo-700 */
+            background-color: #4338ca;
             box-shadow: 0 4px 12px rgba(79, 70, 229, 0.4);
         }
         .popup-link-button svg {
@@ -130,18 +128,18 @@
                 bottom: 0;
                 left: 0;
                 width: 100%;
-                height: 85vh; /* Aumentata leggermente per più spazio */
+                height: 85vh;
                 max-height: 85vh;
                 transform: translateY(calc(85vh - 60px));
                 box-shadow: 0 -4px 12px rgba(0,0,0,0.1);
-                border-radius: 24px 24px 0 0; /* Angoli più moderni */
+                border-radius: 24px 24px 0 0;
                 padding: 0;
                 z-index: 1000;
-                overflow: hidden;
+                overflow: hidden; /* Il contenitore sidebar non scrolla, lo fanno i suoi figli */
                 transition: transform 0.3s ease-out;
-                background-color: #f8f9fa; /* Sfondo leggermente grigio */
-                display: flex; /* Assicurati che sia flex per column layout */
-                flex-direction: column; /* Colonna per i contenuti interni */
+                background-color: #f8f9fa;
+                display: flex;
+                flex-direction: column;
             }
 
             #sidebar.is-open {
@@ -196,28 +194,29 @@
                 transition: all 0.2s ease-in-out;
             }
             .tab-button.active {
-                color: #4f46e5; /* Colore primario */
+                color: #4f46e5;
                 border-bottom-color: #4f46e5;
             }
 
             /* Contenuto delle schede */
             .tab-content {
                 display: none; /* Nascosto di default */
-                flex-grow: 1;
-                /* Rimosso overflow-y: auto qui per gestirlo dinamicamente o su #filters-mobile */
+                flex-grow: 1; /* Occupano lo spazio rimanente */
                 padding: 20px;
-                overflow-y: auto; /* Aggiunto qui per rendere scrollabile il contenuto della scheda */
+                flex-direction: column;
+                background-color: #f8f9fa; /* Assicura che la tab abbia sempre lo stesso sfondo della sidebar */
+                overflow-y: hidden; /* Di default nascosto, lo attiva .active */
             }
             .tab-content.active {
-                display: flex; /* Usiamo flex per il layout interno e flex-direction: column se necessario */
-                flex-direction: column;
+                display: flex; /* Visibile quando attivo */
+                overflow-y: auto; /* Attiva lo scorrimento per la tab attiva */
             }
 
-            /* Stile specifico per i filtri mobile per renderli scrollabili */
+            /* Stile specifico per i filtri mobile - gestito dal parent .tab-content.active */
             #filters-mobile {
-                overflow-y: auto; /* Rende la sezione dei filtri scrollabile */
-                flex-grow: 1; /* Permette al contenitore di occupare lo spazio disponibile */
+                flex-grow: 1; /* Permette ai filtri di occupare lo spazio disponibile */
                 padding-right: 5px; /* Spazio per la scrollbar se visibile */
+                /* Rimosso overflow-y: auto qui, il genitore .tab-content.active lo gestisce */
             }
 
             /* Stile specifico per i pulsanti di azione */
@@ -226,7 +225,7 @@
                 grid-template-columns: 1fr 1fr;
                 gap: 16px;
                 margin-top: 24px;
-                flex-shrink: 0; /* Impedisce al grid di rimpicciolirsi */
+                flex-shrink: 0;
             }
             .action-button {
                 display: flex;
@@ -328,7 +327,8 @@
                     <span>Centra Mappa</span>
                 </button>
                 <button id="screenshot-button-mobile" class="action-button">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                     <!-- Icona corretta per lo screenshot (camera) -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
                     <span>Screenshot</span>
                 </button>
             </div>
@@ -416,7 +416,7 @@ fetch('cestini.geojson')
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
                             </svg>
-                            <span>Google Maps</span>
+                            <span>Apri su Google Maps</span>
                         </a>`;
                 new mapboxgl.Popup().setLngLat(coords).setHTML(html).addTo(map);
             });
@@ -635,7 +635,7 @@ function handleLocateMe() {
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
                                         </svg>
-                                        <span>Google Maps</span>
+                                        <span>Apri su Google Maps</span>
                                     </a>`;
 
                     map.getSource(closestPointLayerId).setData({ type: 'FeatureCollection', features: [{ type: 'Feature', geometry: { type: 'Point', coordinates: closestFeatureCoords }, properties: { description: 'Punto più vicino', isClosestPoint: true, ...feature.properties } }] });
@@ -705,13 +705,13 @@ function isMobileView() { return window.innerWidth <= MOBILE_BREAKPOINT; }
 function setMobileSidebarState(isOpen) {
     if (isOpen) {
         sidebar.classList.add('is-open');
-        mapContainer.style.height = `15vh`;
+        mapContainer.style.height = `15vh`; // Mappa più piccola quando il menu è aperto
     } else {
         sidebar.classList.remove('is-open');
-        mapContainer.style.height = `calc(100vh - ${COLLAPSED_HEIGHT_PX}px)`;
+        mapContainer.style.height = `calc(100vh - ${COLLAPSED_HEIGHT_PX}px)`; // Mappa più grande quando il menu è chiuso
     }
     map.resize();
-    updateFiltersScrollability(); // Chiamata per aggiornare la scorrevolezza dei filtri
+    updateTabContentScrollability(); // Chiamata per aggiornare la scorrevolezza dei contenuti
 }
 
 function getSidebarCurrentTranslateY() {
@@ -719,34 +719,44 @@ function getSidebarCurrentTranslateY() {
     return new DOMMatrixReadOnly(transform).m42;
 }
 
-// Funzione per aggiornare la scorrevolezza dei filtri
-function updateFiltersScrollability() {
-    if (!isMobileView()) return; // Applica solo in vista mobile
-
-    const filtersMobileContainer = document.getElementById('filters-mobile');
-    const tabContentFiltri = document.getElementById('tab-content-filtri');
-    const tabContentCerca = document.getElementById('tab-content-cerca');
-
-    if (tabContentFiltri && tabContentFiltri.classList.contains('active')) {
-        // Se la tab "Filtri" è attiva
-        const headerHeight = mobileSidebarHeader.offsetHeight;
-        const tabsHeight = document.getElementById('mobile-tabs').offsetHeight;
-        const h2Height = tabContentFiltri.querySelector('h2').offsetHeight;
-        const padding = 20 * 2; // padding-top e padding-bottom del tab-content
-
-        // Calcola l'altezza disponibile per i filtri
-        // Questa altezza sarà l'altezza della sidebar meno l'altezza dell'header, dei tabs, del titolo H2 e del padding del tab-content
-        filtersMobileContainer.style.maxHeight = `calc(${sidebar.offsetHeight}px - ${headerHeight}px - ${tabsHeight}px - ${h2Height}px - ${padding}px)`;
-        filtersMobileContainer.style.overflowY = 'auto'; // Rendi scorrevole
-    } else if (tabContentCerca && tabContentCerca.classList.contains('active')) {
-        // Se la tab "Cerca" è attiva, assicurati che i filtri non siano scrollabili
-        filtersMobileContainer.style.maxHeight = ''; // Rimuovi l'altezza massima
-        filtersMobileContainer.style.overflowY = 'hidden'; // Nascondi la scrollbar
-    } else {
-        // Nascondi la scrollbar per le altre tab non attive
-        filtersMobileContainer.style.maxHeight = '';
-        filtersMobileContainer.style.overflowY = 'hidden';
+// Funzione per aggiornare la scorrevolezza dei contenuti delle tab
+function updateTabContentScrollability() {
+    if (!isMobileView()) {
+        // Reset per desktop se per qualche motivo c'erano scrollbar attive
+        document.querySelectorAll('.tab-content').forEach(content => {
+            content.style.maxHeight = '';
+            content.style.overflowY = 'hidden';
+            // Assicura che l'overflow di #filters-mobile sia anch'esso resettato
+            if (content.id === 'tab-content-filtri') {
+                document.getElementById('filters-mobile').style.overflowY = '';
+            }
+        });
+        return;
     }
+
+    document.querySelectorAll('.tab-content').forEach(content => {
+        if (content.classList.contains('active')) {
+            // L'overflow e maxHeight sono gestiti direttamente nel CSS per .tab-content.active
+            // Non è necessario impostare maxHeight o overflowY qui, a meno che non ci siano
+            // elementi interni che devono avere overflow:auto specifico.
+            // Se #filters-mobile è l'unico elemento che deve scrollare nella tab filtri,
+            // allora gli si può dare flex-grow:1 e overflow-y:auto
+            
+            // Per la tab "Cerca" o "Filtri", l'elemento .tab-content.active ora gestisce il suo overflow
+            // e flex-grow:1 gli permette di prendere lo spazio verticale disponibile.
+            // Non impostiamo maxHeight qui per non creare conflitti con flexbox.
+            content.style.maxHeight = ''; // Rimuovi qualsiasi maxHeight precedente
+            // content.style.overflowY = 'auto'; // Già impostato nel CSS per .tab-content.active
+
+            // Se filters-mobile deve avere uno scrollbar interno e non il suo parent .tab-content-filtri
+            // allora la logica precedente di maxHeight e overflow su filtersMobileContainer aveva più senso.
+            // Per adesso, l'approccio è che .tab-content.active è l'elemento scrollabile.
+            // Questo gestisce sia la tab cerca che la tab filtri in modo uniforme.
+        } else {
+            content.style.maxHeight = '';
+            content.style.overflowY = 'hidden';
+        }
+    });
 }
 
 
@@ -769,8 +779,10 @@ if (mobileSidebarHeader) {
         newTransformY = Math.min(Math.max(0, newTransformY), maxTranslateY);
         sidebar.style.transform = `translateY(${newTransformY}px)`;
 
-        // Aggiorna la scorrevolezza dei filtri durante il trascinamento
-        updateFiltersScrollability();
+        // Con il nuovo approccio CSS, updateTabContentScrollability non è strettamente
+        // necessario ad ogni 'touchmove' se flexbox gestisce l'altezza.
+        // Tuttavia, chiamarla assicura che qualsiasi stato residuo venga resettato.
+        // updateTabContentScrollability(); 
         
         e.preventDefault();
     }, { passive: false });
@@ -782,14 +794,14 @@ if (mobileSidebarHeader) {
         const currentTranslateY = getSidebarCurrentTranslateY();
         const maxTranslateY = sidebar.offsetHeight - COLLAPSED_HEIGHT_PX;
         setMobileSidebarState(currentTranslateY < maxTranslateY / 2);
-        updateFiltersScrollability(); // Aggiorna dopo il rilascio
+        updateTabContentScrollability(); // Aggiorna dopo il rilascio
     });
 
     mobileSidebarHeader.addEventListener('click', (event) => {
         if (!isMobileView() || isDragging) return;
         const isOpen = sidebar.classList.contains('is-open');
         setMobileSidebarState(!isOpen);
-        updateFiltersScrollability(); // Aggiorna dopo il click
+        updateTabContentScrollability(); // Aggiorna dopo il click
     });
 }
 
@@ -805,14 +817,14 @@ document.querySelectorAll('.tab-button').forEach(button => {
                 content.classList.add('active');
             }
         });
-        updateFiltersScrollability(); // Chiamata per aggiornare la scorrevolezza dei filtri al cambio di tab
+        updateTabContentScrollability(); // Chiamata per aggiornare la scorrevolezza dei contenuti al cambio di tab
     });
 });
 
 window.addEventListener('load', () => { 
     if (isMobileView()) {
         setMobileSidebarState(false);
-        updateFiltersScrollability(); // Chiamata iniziale al caricamento
+        updateTabContentScrollability(); // Chiamata iniziale al caricamento
     }
 });
 window.addEventListener('resize', () => {
@@ -821,11 +833,23 @@ window.addEventListener('resize', () => {
         sidebar.style.transform = '';
         mapContainer.style.height = '100%';
         map.resize();
-        document.getElementById('filters-mobile').style.maxHeight = ''; // Reset per desktop
-        document.getElementById('filters-mobile').style.overflowY = 'hidden'; // Reset per desktop
+        // Reset scrollability per desktop
+        document.querySelectorAll('.tab-content').forEach(content => {
+            content.style.maxHeight = '';
+            content.style.overflowY = 'hidden';
+        });
+        document.getElementById('filters-mobile').style.overflowY = 'hidden'; // Anche qui reset
     } else {
-        setMobileSidebarState(false);
-        updateFiltersScrollability(); // Chiamata al ridimensionamento
+        // Quando la sidebar è completamente chiusa (nella posizione collassata), anche la mappa è grande
+        const currentTranslateY = getSidebarCurrentTranslateY();
+        const maxTranslateY = sidebar.offsetHeight - COLLAPSED_HEIGHT_PX;
+        if (currentTranslateY >= maxTranslateY - 5) { // Tolleranza per il float
+            mapContainer.style.height = `calc(100vh - ${COLLAPSED_HEIGHT_PX}px)`;
+        } else {
+            mapContainer.style.height = `15vh`; // Mappa più piccola se la sidebar è almeno parzialmente aperta
+        }
+        map.resize();
+        updateTabContentScrollability(); // Chiamata al ridimensionamento
     }
 });
 </script>
