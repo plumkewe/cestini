@@ -4846,22 +4846,6 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    10.5182605,
-                    42.9274801
-                ]
-            },
-            "properties": {
-                "id": 272,
-                "type": "Bidoni-V",
-                "title": "Bidone 11",
-                "colour": "#000000"
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     10.5182495,
                     42.9274531
                 ]

@@ -8,6 +8,8 @@
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <!-- Includiamo Heroicons per le icone moderne -->
+    <script src="https://cdn.jsdelivr.net/npm/@heroicons/react@1.0.6/dist/index.min.js"></script>
 
     <style>
         /* Stili Desktop (default) */
@@ -40,11 +42,70 @@
             flex-direction: column;
         }
 
-        /* Stili Popup Mapbox */
-        .mapboxgl-popup { max-width: 250px; }
-        .mapboxgl-popup-content { text-align: left; font-size: 14px; padding: 15px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.15); }
-        .mapboxgl-popup-content h3 { margin: 0 0 5px 0; font-size: 16px; color: #333; }
-        .mapboxgl-popup-content p { margin: 0; }
+        /* Stili Popup Mapbox Moderni */
+        .mapboxgl-popup {
+            max-width: 300px; /* Aumentiamo leggermente la larghezza massima */
+        }
+        .mapboxgl-popup-content {
+            text-align: left;
+            font-size: 15px; /* Aumentiamo la dimensione del font */
+            padding: 20px; /* Aumentiamo il padding */
+            border-radius: 12px; /* Angoli più arrotondati */
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15); /* Ombra più pronunciata */
+            border: none; /* Rimuoviamo il bordo di default */
+            background-color: #ffffff;
+            position: relative;
+        }
+        .mapboxgl-popup-content h3 {
+            margin: 0 0 10px 0;
+            font-size: 1.2rem; /* Titolo più grande */
+            font-weight: 700; /* Più spesso */
+            color: #333;
+            border-bottom: 1px solid #eee; /* Separatore sotto il titolo */
+            padding-bottom: 10px;
+        }
+        .mapboxgl-popup-content p {
+            margin: 0 0 8px 0;
+            color: #555;
+            line-height: 1.5;
+        }
+        .mapboxgl-popup-content p:last-of-type {
+            margin-bottom: 0;
+        }
+        .mapboxgl-popup-close-button {
+            top: 10px;
+            right: 10px;
+            font-size: 20px;
+            color: #888;
+            transition: color 0.2s;
+        }
+        .mapboxgl-popup-close-button:hover {
+            color: #333;
+        }
+
+        .popup-link-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px 15px;
+            margin-top: 15px;
+            background-color: #4f46e5; /* Tailwind indigo-600 */
+            color: white;
+            font-weight: 600;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            box-shadow: 0 2px 8px rgba(79, 70, 229, 0.3); /* Ombra colorata */
+            gap: 8px; /* Spazio tra icona e testo */
+        }
+        .popup-link-button:hover {
+            background-color: #4338ca; /* Tailwind indigo-700 */
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.4);
+        }
+        .popup-link-button svg {
+            width: 18px;
+            height: 18px;
+        }
         
         ::-webkit-scrollbar { display: none; }
         html, body { -ms-overflow-style: none; scrollbar-width: none; }
@@ -79,6 +140,8 @@
                 overflow: hidden;
                 transition: transform 0.3s ease-out;
                 background-color: #f8f9fa; /* Sfondo leggermente grigio */
+                display: flex; /* Assicurati che sia flex per column layout */
+                flex-direction: column; /* Colonna per i contenuti interni */
             }
 
             #sidebar.is-open {
@@ -141,11 +204,20 @@
             .tab-content {
                 display: none; /* Nascosto di default */
                 flex-grow: 1;
-                overflow-y: auto;
+                /* Rimosso overflow-y: auto qui per gestirlo dinamicamente o su #filters-mobile */
                 padding: 20px;
+                overflow-y: auto; /* Aggiunto qui per rendere scrollabile il contenuto della scheda */
             }
             .tab-content.active {
-                display: block; /* Visibile quando attivo */
+                display: flex; /* Usiamo flex per il layout interno e flex-direction: column se necessario */
+                flex-direction: column;
+            }
+
+            /* Stile specifico per i filtri mobile per renderli scrollabili */
+            #filters-mobile {
+                overflow-y: auto; /* Rende la sezione dei filtri scrollabile */
+                flex-grow: 1; /* Permette al contenitore di occupare lo spazio disponibile */
+                padding-right: 5px; /* Spazio per la scrollbar se visibile */
             }
 
             /* Stile specifico per i pulsanti di azione */
@@ -154,6 +226,7 @@
                 grid-template-columns: 1fr 1fr;
                 gap: 16px;
                 margin-top: 24px;
+                flex-shrink: 0; /* Impedisce al grid di rimpicciolirsi */
             }
             .action-button {
                 display: flex;
@@ -255,7 +328,7 @@
                     <span>Centra Mappa</span>
                 </button>
                 <button id="screenshot-button-mobile" class="action-button">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
                     <span>Screenshot</span>
                 </button>
             </div>
@@ -328,12 +401,23 @@ fetch('cestini.geojson')
             map.on('click', [layerId, bidoniVSquareLayerId, userLocationLayerId, closestPointLayerId], (e) => {
                 const coords = e.features[0].geometry.coordinates.slice();
                 const props = e.features[0].properties;
+                const lat = coords[1];
+                const lng = coords[0];
+                const googleMapsLink = `https://www.google.com/maps/search/${lat},${lng}`;
+
                 let html = `<h3 class="font-bold capitalize">${props.type || 'Dettagli'}</h3><div class="mt-2 space-y-1">`;
                 for (const k in props) {
                     if (k === 'colour' || typeof props[k] === 'boolean' || k === 'isUserLocation' || k === 'isClosestPoint') continue;
                     html += `<p><strong>${k.charAt(0).toUpperCase() + k.slice(1)}:</strong> ${props[k]}</p>`;
                 }
-                html += '</div>';
+                html += `</div>
+                        <a href="${googleMapsLink}" target="_blank" class="popup-link-button">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                            </svg>
+                            <span>Google Maps</span>
+                        </a>`;
                 new mapboxgl.Popup().setLngLat(coords).setHTML(html).addTo(map);
             });
 
@@ -540,8 +624,20 @@ function handleLocateMe() {
                 if (result) {
                     const { feature, distance } = result;
                     closestFeatureCoords = feature.geometry.coordinates;
+                    const lat = closestFeatureCoords[1];
+                    const lng = closestFeatureCoords[0];
+                    const googleMapsLink = `https://www.google.com/maps/search/${lat},${lng}`;
+
                     detailsHtml = `<p><strong>Tipo:</strong> ${feature.properties.type || 'N/A'}</p><p><strong>Distanza:</strong> ${distance.toFixed(2)} km</p>`;
                     if (feature.properties.name) detailsHtml += `<p><strong>Nome:</strong> ${feature.properties.name}</p>`;
+                    detailsHtml += `<a href="${googleMapsLink}" target="_blank" class="popup-link-button mt-4">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                        </svg>
+                                        <span>Google Maps</span>
+                                    </a>`;
+
                     map.getSource(closestPointLayerId).setData({ type: 'FeatureCollection', features: [{ type: 'Feature', geometry: { type: 'Point', coordinates: closestFeatureCoords }, properties: { description: 'Punto più vicino', isClosestPoint: true, ...feature.properties } }] });
                     const bounds = new mapboxgl.LngLatBounds();
                     bounds.extend(userLngLat);
@@ -601,7 +697,7 @@ const sidebar = document.getElementById('sidebar');
 const mobileSidebarHeader = document.getElementById('mobile-sidebar-header');
 const mapContainer = document.getElementById('map');
 const MOBILE_BREAKPOINT = 768;
-const COLLAPSED_HEIGHT_PX = 60;
+const COLLAPSED_HEIGHT_PX = 60; // Altezza della sidebar quando è chiusa/collassata
 let isDragging = false, startY = 0, initialTranslateY = 0;
 
 function isMobileView() { return window.innerWidth <= MOBILE_BREAKPOINT; }
@@ -615,12 +711,44 @@ function setMobileSidebarState(isOpen) {
         mapContainer.style.height = `calc(100vh - ${COLLAPSED_HEIGHT_PX}px)`;
     }
     map.resize();
+    updateFiltersScrollability(); // Chiamata per aggiornare la scorrevolezza dei filtri
 }
 
 function getSidebarCurrentTranslateY() {
     const transform = getComputedStyle(sidebar).transform;
     return new DOMMatrixReadOnly(transform).m42;
 }
+
+// Funzione per aggiornare la scorrevolezza dei filtri
+function updateFiltersScrollability() {
+    if (!isMobileView()) return; // Applica solo in vista mobile
+
+    const filtersMobileContainer = document.getElementById('filters-mobile');
+    const tabContentFiltri = document.getElementById('tab-content-filtri');
+    const tabContentCerca = document.getElementById('tab-content-cerca');
+
+    if (tabContentFiltri && tabContentFiltri.classList.contains('active')) {
+        // Se la tab "Filtri" è attiva
+        const headerHeight = mobileSidebarHeader.offsetHeight;
+        const tabsHeight = document.getElementById('mobile-tabs').offsetHeight;
+        const h2Height = tabContentFiltri.querySelector('h2').offsetHeight;
+        const padding = 20 * 2; // padding-top e padding-bottom del tab-content
+
+        // Calcola l'altezza disponibile per i filtri
+        // Questa altezza sarà l'altezza della sidebar meno l'altezza dell'header, dei tabs, del titolo H2 e del padding del tab-content
+        filtersMobileContainer.style.maxHeight = `calc(${sidebar.offsetHeight}px - ${headerHeight}px - ${tabsHeight}px - ${h2Height}px - ${padding}px)`;
+        filtersMobileContainer.style.overflowY = 'auto'; // Rendi scorrevole
+    } else if (tabContentCerca && tabContentCerca.classList.contains('active')) {
+        // Se la tab "Cerca" è attiva, assicurati che i filtri non siano scrollabili
+        filtersMobileContainer.style.maxHeight = ''; // Rimuovi l'altezza massima
+        filtersMobileContainer.style.overflowY = 'hidden'; // Nascondi la scrollbar
+    } else {
+        // Nascondi la scrollbar per le altre tab non attive
+        filtersMobileContainer.style.maxHeight = '';
+        filtersMobileContainer.style.overflowY = 'hidden';
+    }
+}
+
 
 if (mobileSidebarHeader) {
     mobileSidebarHeader.addEventListener('touchstart', (e) => {
@@ -640,6 +768,10 @@ if (mobileSidebarHeader) {
         const maxTranslateY = sidebar.offsetHeight - COLLAPSED_HEIGHT_PX;
         newTransformY = Math.min(Math.max(0, newTransformY), maxTranslateY);
         sidebar.style.transform = `translateY(${newTransformY}px)`;
+
+        // Aggiorna la scorrevolezza dei filtri durante il trascinamento
+        updateFiltersScrollability();
+        
         e.preventDefault();
     }, { passive: false });
 
@@ -650,12 +782,14 @@ if (mobileSidebarHeader) {
         const currentTranslateY = getSidebarCurrentTranslateY();
         const maxTranslateY = sidebar.offsetHeight - COLLAPSED_HEIGHT_PX;
         setMobileSidebarState(currentTranslateY < maxTranslateY / 2);
+        updateFiltersScrollability(); // Aggiorna dopo il rilascio
     });
 
     mobileSidebarHeader.addEventListener('click', (event) => {
         if (!isMobileView() || isDragging) return;
         const isOpen = sidebar.classList.contains('is-open');
         setMobileSidebarState(!isOpen);
+        updateFiltersScrollability(); // Aggiorna dopo il click
     });
 }
 
@@ -671,18 +805,27 @@ document.querySelectorAll('.tab-button').forEach(button => {
                 content.classList.add('active');
             }
         });
+        updateFiltersScrollability(); // Chiamata per aggiornare la scorrevolezza dei filtri al cambio di tab
     });
 });
 
-window.addEventListener('load', () => { if (isMobileView()) setMobileSidebarState(false); });
+window.addEventListener('load', () => { 
+    if (isMobileView()) {
+        setMobileSidebarState(false);
+        updateFiltersScrollability(); // Chiamata iniziale al caricamento
+    }
+});
 window.addEventListener('resize', () => {
     if (!isMobileView()) {
         sidebar.classList.remove('is-open');
         sidebar.style.transform = '';
         mapContainer.style.height = '100%';
         map.resize();
+        document.getElementById('filters-mobile').style.maxHeight = ''; // Reset per desktop
+        document.getElementById('filters-mobile').style.overflowY = 'hidden'; // Reset per desktop
     } else {
         setMobileSidebarState(false);
+        updateFiltersScrollability(); // Chiamata al ridimensionamento
     }
 });
 </script>
