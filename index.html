@@ -128,9 +128,9 @@
                 bottom: 0;
                 left: 0;
                 width: 100%;
-                height: 85vh;
+                height: 85vh; /* Altezza massima della sidebar */
                 max-height: 85vh;
-                transform: translateY(calc(85vh - 60px));
+                transform: translateY(calc(85vh - 60px)); /* Posizione iniziale collassata */
                 box-shadow: 0 -4px 12px rgba(0,0,0,0.1);
                 border-radius: 24px 24px 0 0;
                 padding: 0;
@@ -150,14 +150,14 @@
             #mobile-sidebar-container {
                 display: flex;
                 flex-direction: column;
-                height: 100%;
+                height: 100%; /* Permette ai figli di usare altezza basata su questa */
             }
 
             /* Intestazione con handle e titolo */
             #mobile-sidebar-header {
                 padding: 12px 20px;
                 text-align: center;
-                flex-shrink: 0;
+                flex-shrink: 0; /* Non si restringe */
                 cursor: grab;
                 touch-action: none;
             }
@@ -181,7 +181,7 @@
                 display: flex;
                 justify-content: center;
                 border-bottom: 1px solid #e5e7eb;
-                flex-shrink: 0;
+                flex-shrink: 0; /* Non si restringe */
                 padding: 0 20px;
             }
             .tab-button {
@@ -198,25 +198,26 @@
                 border-bottom-color: #4f46e5;
             }
 
-            /* Contenuto delle schede */
+            /* Contenuto delle schede: deve occupare lo spazio rimanente e essere scorrevole */
             .tab-content {
                 display: none; /* Nascosto di default */
                 flex-grow: 1; /* Occupano lo spazio rimanente */
                 padding: 20px;
                 flex-direction: column;
-                background-color: #f8f9fa; /* Assicura che la tab abbia sempre lo stesso sfondo della sidebar */
-                overflow-y: hidden; /* Di default nascosto, lo attiva .active */
+                background-color: #f8f9fa;
+                overflow-y: hidden; /* Di default nascosto */
+                /* max-height verrà impostato via JS per calcolare lo spazio rimanente */
             }
             .tab-content.active {
                 display: flex; /* Visibile quando attivo */
                 overflow-y: auto; /* Attiva lo scorrimento per la tab attiva */
+                -webkit-overflow-scrolling: touch; /* Migliora lo scorrimento su iOS */
             }
 
-            /* Stile specifico per i filtri mobile - gestito dal parent .tab-content.active */
+            /* Stile specifico per i filtri mobile - flex-grow per riempire lo spazio */
             #filters-mobile {
                 flex-grow: 1; /* Permette ai filtri di occupare lo spazio disponibile */
                 padding-right: 5px; /* Spazio per la scrollbar se visibile */
-                /* Rimosso overflow-y: auto qui, il genitore .tab-content.active lo gestisce */
             }
 
             /* Stile specifico per i pulsanti di azione */
@@ -225,7 +226,7 @@
                 grid-template-columns: 1fr 1fr;
                 gap: 16px;
                 margin-top: 24px;
-                flex-shrink: 0;
+                flex-shrink: 0; /* Impedisce ai pulsanti di restringersi */
             }
             .action-button {
                 display: flex;
@@ -416,7 +417,7 @@ fetch('cestini.geojson')
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
                             </svg>
-                            <span>Apri su Google Maps</span>
+                            <span>Google Maps</span>
                         </a>`;
                 new mapboxgl.Popup().setLngLat(coords).setHTML(html).addTo(map);
             });
@@ -635,7 +636,7 @@ function handleLocateMe() {
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
                                         </svg>
-                                        <span>Apri su Google Maps</span>
+                                        <span>Google Maps</span>
                                     </a>`;
 
                     map.getSource(closestPointLayerId).setData({ type: 'FeatureCollection', features: [{ type: 'Feature', geometry: { type: 'Point', coordinates: closestFeatureCoords }, properties: { description: 'Punto più vicino', isClosestPoint: true, ...feature.properties } }] });
@@ -716,44 +717,42 @@ function setMobileSidebarState(isOpen) {
 
 function getSidebarCurrentTranslateY() {
     const transform = getComputedStyle(sidebar).transform;
-    return new DOMMatrixReadOnly(transform).m42;
+    // La matrice 2D ha il valore di traslazione Y in m42 (indice 5 dell'array FlatArray)
+    return parseFloat(new DOMMatrixReadOnly(transform).m42);
 }
 
 // Funzione per aggiornare la scorrevolezza dei contenuti delle tab
 function updateTabContentScrollability() {
     if (!isMobileView()) {
-        // Reset per desktop se per qualche motivo c'erano scrollbar attive
+        // Reset per desktop
         document.querySelectorAll('.tab-content').forEach(content => {
             content.style.maxHeight = '';
             content.style.overflowY = 'hidden';
-            // Assicura che l'overflow di #filters-mobile sia anch'esso resettato
-            if (content.id === 'tab-content-filtri') {
-                document.getElementById('filters-mobile').style.overflowY = '';
-            }
         });
+        document.getElementById('filters-mobile').style.overflowY = 'hidden';
         return;
     }
 
+    // Calcola l'altezza disponibile per i contenuti scorrevoli
+    // Sottrai l'altezza dell'header e della navigazione a schede
+    const sidebarHeight = sidebar.clientHeight;
+    const headerHeight = mobileSidebarHeader.offsetHeight;
+    const tabsHeight = document.getElementById('mobile-tabs').offsetHeight;
+    const availableHeight = sidebarHeight - headerHeight - tabsHeight - 40; // 40px di padding extra
+
     document.querySelectorAll('.tab-content').forEach(content => {
         if (content.classList.contains('active')) {
-            // L'overflow e maxHeight sono gestiti direttamente nel CSS per .tab-content.active
-            // Non è necessario impostare maxHeight o overflowY qui, a meno che non ci siano
-            // elementi interni che devono avere overflow:auto specifico.
-            // Se #filters-mobile è l'unico elemento che deve scrollare nella tab filtri,
-            // allora gli si può dare flex-grow:1 e overflow-y:auto
-            
-            // Per la tab "Cerca" o "Filtri", l'elemento .tab-content.active ora gestisce il suo overflow
-            // e flex-grow:1 gli permette di prendere lo spazio verticale disponibile.
-            // Non impostiamo maxHeight qui per non creare conflitti con flexbox.
-            content.style.maxHeight = ''; // Rimuovi qualsiasi maxHeight precedente
-            // content.style.overflowY = 'auto'; // Già impostato nel CSS per .tab-content.active
-
-            // Se filters-mobile deve avere uno scrollbar interno e non il suo parent .tab-content-filtri
-            // allora la logica precedente di maxHeight e overflow su filtersMobileContainer aveva più senso.
-            // Per adesso, l'approccio è che .tab-content.active è l'elemento scrollabile.
-            // Questo gestisce sia la tab cerca che la tab filtri in modo uniforme.
+            content.style.maxHeight = `${availableHeight}px`;
+            content.style.overflowY = 'auto';
+            // Assicurati che anche filters-mobile possa scrollare se è nella tab attiva
+            if (content.id === 'tab-content-filtri') {
+                 // Potrebbe essere necessario applicare max-height e overflow-y anche qui se filters-mobile non è flex-grow
+                 // Nel CSS attuale, filters-mobile ha flex-grow: 1, quindi dovrebbe ereditare lo scorrimento dal suo genitore .tab-content.active
+                 // Se non scrolla, potresti voler impostare un'altezza fissa o max-height qui.
+                 // Per ora, ci affidiamo a flex-grow e overflow-y: auto sul genitore.
+            }
         } else {
-            content.style.maxHeight = '';
+            content.style.maxHeight = ''; // Rimuovi max-height per le tab non attive
             content.style.overflowY = 'hidden';
         }
     });
@@ -778,11 +777,9 @@ if (mobileSidebarHeader) {
         const maxTranslateY = sidebar.offsetHeight - COLLAPSED_HEIGHT_PX;
         newTransformY = Math.min(Math.max(0, newTransformY), maxTranslateY);
         sidebar.style.transform = `translateY(${newTransformY}px)`;
-
-        // Con il nuovo approccio CSS, updateTabContentScrollability non è strettamente
-        // necessario ad ogni 'touchmove' se flexbox gestisce l'altezza.
-        // Tuttavia, chiamarla assicura che qualsiasi stato residuo venga resettato.
-        // updateTabContentScrollability(); 
+        
+        // Aggiorna lo scrollability durante il trascinamento per mostrare che il contenuto può scorrere
+        updateTabContentScrollability(); 
         
         e.preventDefault();
     }, { passive: false });
@@ -793,17 +790,34 @@ if (mobileSidebarHeader) {
         sidebar.style.transition = 'transform 0.3s ease-out';
         const currentTranslateY = getSidebarCurrentTranslateY();
         const maxTranslateY = sidebar.offsetHeight - COLLAPSED_HEIGHT_PX;
-        setMobileSidebarState(currentTranslateY < maxTranslateY / 2);
+
+        // Determina se la sidebar deve essere completamente aperta o collassata
+        // La soglia è un terzo dell'altezza tra la posizione aperta e quella collassata
+        const openThreshold = maxTranslateY / 3; 
+
+        if (currentTranslateY < openThreshold) {
+            // Se trascinato abbastanza in alto, apri completamente
+            setMobileSidebarState(true);
+        } else {
+            // Altrimenti, torna alla posizione collassata
+            setMobileSidebarState(false);
+        }
         updateTabContentScrollability(); // Aggiorna dopo il rilascio
     });
 
     mobileSidebarHeader.addEventListener('click', (event) => {
-        if (!isMobileView() || isDragging) return;
+        if (!isMobileView()) return; // Non bloccare il click se non è mobile
+        // Previeni l'evento click dopo un trascinamento, altrimenti potrebbe innescare un toggle non desiderato
+        if (isDragging) {
+            isDragging = false; // Reset per il prossimo evento
+            return;
+        }
         const isOpen = sidebar.classList.contains('is-open');
         setMobileSidebarState(!isOpen);
         updateTabContentScrollability(); // Aggiorna dopo il click
     });
 }
+
 
 // Gestione Tabs Mobile
 document.querySelectorAll('.tab-button').forEach(button => {
@@ -845,8 +859,16 @@ window.addEventListener('resize', () => {
         const maxTranslateY = sidebar.offsetHeight - COLLAPSED_HEIGHT_PX;
         if (currentTranslateY >= maxTranslateY - 5) { // Tolleranza per il float
             mapContainer.style.height = `calc(100vh - ${COLLAPSED_HEIGHT_PX}px)`;
+            sidebar.style.transform = `translateY(${maxTranslateY}px)`; // Assicura che sia ben collassata
+        } else if (currentTranslateY <= 5) { // Tolleranza per il float (completamente aperta)
+            mapContainer.style.height = `15vh`;
+            sidebar.style.transform = `translateY(0px)`; // Assicura che sia ben aperta
         } else {
-            mapContainer.style.height = `15vh`; // Mappa più piccola se la sidebar è almeno parzialmente aperta
+            // Se si trova in uno stato intermedio, mantieni l'altezza della mappa in base allo stato attuale
+            // o ripristina a una delle due posizioni principali.
+            // Per semplicità, la rimettiamo nello stato collassato in caso di resize in stato intermedio.
+            mapContainer.style.height = `calc(100vh - ${COLLAPSED_HEIGHT_PX}px)`;
+            sidebar.style.transform = `translateY(${maxTranslateY}px)`;
         }
         map.resize();
         updateTabContentScrollability(); // Chiamata al ridimensionamento
