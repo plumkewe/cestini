@@ -4680,6 +4680,886 @@
                 "createdAt": "2024-02-16T17:36:11Z",
                 "colour": "#FF7037"
             }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.5301927,
+                    42.9288816
+                ]
+            },
+            "properties": {
+                "id": 262,
+                "type": "Bidoni-V",
+                "title": "Bidone 1",
+                "colour": "#000000"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.5226671,
+                    42.9265772
+                ]
+            },
+            "properties": {
+                "id": 263,
+                "type": "Bidoni-V",
+                "title": "Bidone 2",
+                "colour": "#000000"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.5237832,
+                    42.926667
+                ]
+            },
+            "properties": {
+                "id": 264,
+                "type": "Bidoni-V",
+                "title": "Bidone 3",
+                "colour": "#000000"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.5249909,
+                    42.9267326
+                ]
+            },
+            "properties": {
+                "id": 265,
+                "type": "Bidoni-V",
+                "title": "Bidone 4",
+                "colour": "#000000"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.5252359,
+                    42.9268524
+                ]
+            },
+            "properties": {
+                "id": 266,
+                "type": "Bidoni-V",
+                "title": "Bidone 5",
+                "colour": "#000000"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.5242945,
+                    42.930725
+                ]
+            },
+            "properties": {
+                "id": 267,
+                "type": "Bidoni-V",
+                "title": "Bidone 6",
+                "colour": "#000000"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.523462,
+                    42.9310642
+                ]
+            },
+            "properties": {
+                "id": 268,
+                "type": "Bidoni-V",
+                "title": "Bidone 7",
+                "colour": "#000000"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.5236964,
+                    42.9313858
+                ]
+            },
+            "properties": {
+                "id": 269,
+                "type": "Bidoni-V",
+                "title": "Bidone 8",
+                "colour": "#000000"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.5205971,
+                    42.9283722
+                ]
+            },
+            "properties": {
+                "id": 270,
+                "type": "Bidoni-V",
+                "title": "Bidone 9",
+                "colour": "#000000"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.5188208,
+                    42.9288315
+                ]
+            },
+            "properties": {
+                "id": 271,
+                "type": "Bidoni-V",
+                "title": "Bidone 10",
+                "colour": "#000000"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.5182605,
+                    42.9274801
+                ]
+            },
+            "properties": {
+                "id": 272,
+                "type": "Bidoni-V",
+                "title": "Bidone 11",
+                "colour": "#000000"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.5182495,
+                    42.9274531
+                ]
+            },
+            "properties": {
+                "id": 273,
+                "type": "Bidoni-V",
+                "title": "Bidone 12",
+                "colour": "#000000"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.5188419,
+                    42.9267961
+                ]
+            },
+            "properties": {
+                "id": 274,
+                "type": "Bidoni-V",
+                "title": "Bidone 13",
+                "colour": "#000000"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.5194477,
+                    42.9260994
+                ]
+            },
+            "properties": {
+                "id": 275,
+                "type": "Bidoni-V",
+                "title": "Bidone 14",
+                "colour": "#000000"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.5200962,
+                    42.9268526
+                ]
+            },
+            "properties": {
+                "id": 276,
+                "type": "Bidoni-V",
+                "title": "Bidone 15",
+                "colour": "#000000"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.5207124,
+                    42.9261706
+                ]
+            },
+            "properties": {
+                "id": 277,
+                "type": "Bidoni-V",
+                "title": "Bidone 16",
+                "colour": "#000000"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.5210212,
+                    42.9270709
+                ]
+            },
+            "properties": {
+                "id": 278,
+                "type": "Bidoni-V",
+                "title": "Bidone 17",
+                "colour": "#000000"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.5226707,
+                    42.9282261
+                ]
+            },
+            "properties": {
+                "id": 279,
+                "type": "Bidoni-V",
+                "title": "Bidone 18",
+                "colour": "#000000"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.5287483,
+                    42.9230696
+                ]
+            },
+            "properties": {
+                "id": 280,
+                "type": "Bidoni-V",
+                "title": "Bidone 19",
+                "colour": "#000000"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.5405346,
+                    42.9223888
+                ]
+            },
+            "properties": {
+                "id": 281,
+                "type": "Bidoni-V",
+                "title": "Bidone 20",
+                "colour": "#000000"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.5394724,
+                    42.9240659
+                ]
+            },
+            "properties": {
+                "id": 282,
+                "type": "Bidoni-V",
+                "title": "Bidone 21",
+                "colour": "#000000"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.5362464,
+                    42.9244447
+                ]
+            },
+            "properties": {
+                "id": 283,
+                "type": "Bidoni-V",
+                "title": "Bidone 22",
+                "colour": "#000000"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.5330667,
+                    42.9240286
+                ]
+            },
+            "properties": {
+                "id": 284,
+                "type": "Bidoni-V",
+                "title": "Bidone 23",
+                "colour": "#000000"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.5348892,
+                    42.9223898
+                ]
+            },
+            "properties": {
+                "id": 285,
+                "type": "Bidoni-V",
+                "title": "Bidone 24",
+                "colour": "#000000"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.5360865,
+                    42.921833
+                ]
+            },
+            "properties": {
+                "id": 286,
+                "type": "Bidoni-V",
+                "title": "Bidone 25",
+                "colour": "#000000"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.5284526,
+                    42.921378
+                ]
+            },
+            "properties": {
+                "id": 287,
+                "type": "Bidoni-V",
+                "title": "Bidone 26",
+                "colour": "#000000"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.5278595,
+                    42.9263314
+                ]
+            },
+            "properties": {
+                "id": 288,
+                "type": "Bidoni-V",
+                "title": "Bidone 27",
+                "colour": "#000000"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.526217,
+                    42.9255326
+                ]
+            },
+            "properties": {
+                "id": 289,
+                "type": "Bidoni-V",
+                "title": "Bidone 28",
+                "colour": "#000000"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.5271262,
+                    42.9242081
+                ]
+            },
+            "properties": {
+                "id": 290,
+                "type": "Bidoni-V",
+                "title": "Bidone 29",
+                "colour": "#000000"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.5269241,
+                    42.924072
+                ]
+            },
+            "properties": {
+                "id": 291,
+                "type": "Bidoni-V",
+                "title": "Bidone 30",
+                "colour": "#000000"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.5256926,
+                    42.923433
+                ]
+            },
+            "properties": {
+                "id": 292,
+                "type": "Bidoni-V",
+                "title": "Bidone 31",
+                "colour": "#000000"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.5238982,
+                    42.9283629
+                ]
+            },
+            "properties": {
+                "id": 293,
+                "type": "Bidoni-V",
+                "title": "Bidone 32",
+                "colour": "#000000"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.5239066,
+                    42.928928
+                ]
+            },
+            "properties": {
+                "id": 294,
+                "type": "Bidoni-V",
+                "title": "Bidone 33",
+                "colour": "#000000"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.5215556,
+                    42.930005
+                ]
+            },
+            "properties": {
+                "id": 295,
+                "type": "Bidoni-V",
+                "title": "Bidone 34",
+                "colour": "#000000"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.5216039,
+                    42.9276375
+                ]
+            },
+            "properties": {
+                "id": 296,
+                "type": "Bidoni-V",
+                "title": "Bidone 35",
+                "colour": "#000000"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.5207543,
+                    42.9274884
+                ]
+            },
+            "properties": {
+                "id": 297,
+                "type": "Bidoni-V",
+                "title": "Bidone 36",
+                "colour": "#000000"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.5220099,
+                    42.9255107
+                ]
+            },
+            "properties": {
+                "id": 298,
+                "type": "Bidoni-V",
+                "title": "Bidone 37",
+                "colour": "#000000"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.522946,
+                    42.9262015
+                ]
+            },
+            "properties": {
+                "id": 299,
+                "type": "Bidoni-V",
+                "title": "Bidone 38",
+                "colour": "#000000"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.5227143,
+                    42.9245179
+                ]
+            },
+            "properties": {
+                "id": 300,
+                "type": "Bidoni-V",
+                "title": "Bidone 39",
+                "colour": "#000000"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.5225058,
+                    42.9237048
+                ]
+            },
+            "properties": {
+                "id": 301,
+                "type": "Bidoni-V",
+                "title": "Bidone 40",
+                "colour": "#000000"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.5253352,
+                    42.9225013
+                ]
+            },
+            "properties": {
+                "id": 302,
+                "type": "Bidoni-V",
+                "title": "Bidone 41",
+                "colour": "#000000"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.5314362,
+                    42.9215455
+                ]
+            },
+            "properties": {
+                "id": 303,
+                "type": "Bidoni-V",
+                "title": "Bidone 42",
+                "colour": "#000000"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.5299741,
+                    42.9236667
+                ]
+            },
+            "properties": {
+                "id": 304,
+                "type": "Bidoni-V",
+                "title": "Bidone 43",
+                "colour": "#000000"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.5289652,
+                    42.9259708
+                ]
+            },
+            "properties": {
+                "id": 305,
+                "type": "Bidoni-V",
+                "title": "Bidone 44",
+                "colour": "#000000"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.526158,
+                    42.9253609
+                ]
+            },
+            "properties": {
+                "id": 306,
+                "type": "Bidoni-V",
+                "title": "Bidone 45",
+                "colour": "#000000"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.5259048,
+                    42.9251655
+                ]
+            },
+            "properties": {
+                "id": 307,
+                "type": "Bidoni-V",
+                "title": "Bidone 46",
+                "colour": "#000000"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.5263638,
+                    42.9267863
+                ]
+            },
+            "properties": {
+                "id": 308,
+                "type": "Bidoni-V",
+                "title": "Bidone 47",
+                "colour": "#000000"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.5275309,
+                    42.9279738
+                ]
+            },
+            "properties": {
+                "id": 309,
+                "type": "Bidoni-V",
+                "title": "Bidone 48",
+                "colour": "#000000"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.53013,
+                    42.9280136
+                ]
+            },
+            "properties": {
+                "id": 310,
+                "type": "Bidoni-V",
+                "title": "Bidone 49",
+                "colour": "#000000"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.5322325,
+                    42.9278827
+                ]
+            },
+            "properties": {
+                "id": 311,
+                "type": "Bidoni-V",
+                "title": "Bidone 50",
+                "colour": "#000000"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.532781,
+                    42.9254751
+                ]
+            },
+            "properties": {
+                "id": 312,
+                "type": "Bidoni-V",
+                "title": "Bidone 51",
+                "colour": "#000000"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.5310946,
+                    42.9255696
+                ]
+            },
+            "properties": {
+                "id": 313,
+                "type": "Bidoni-V",
+                "title": "Bidone 52",
+                "colour": "#000000"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.5316853,
+                    42.9261345
+                ]
+            },
+            "properties": {
+                "id": 314,
+                "type": "Bidoni-V",
+                "title": "Bidone 53",
+                "colour": "#000000"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.5313645,
+                    42.9250467
+                ]
+            },
+            "properties": {
+                "id": 315,
+                "type": "Bidoni-V",
+                "title": "Bidone 54",
+                "colour": "#000000"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.5318335,
+                    42.9245591
+                ]
+            },
+            "properties": {
+                "id": 316,
+                "type": "Bidoni-V",
+                "title": "Bidone 55",
+                "colour": "#000000"
+            }
         }
     ]
 }
