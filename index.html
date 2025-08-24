@@ -15,192 +15,256 @@
             margin: 0;
             padding: 0;
             font-family: 'Inter', sans-serif;
-            display: flex; /* La sidebar è a destra della mappa */
+            display: flex;
             height: 100vh;
-            overflow: hidden; /* Evita lo scroll indesiderato */
-            -webkit-user-select: none; /* Chrome, Safari, Opera */
-            -moz-user-select: none;    /* Firefox */
-            -ms-user-select: none;     /* Internet Explorer / Edge legacy */
-            user-select: none;         /* Standard */
+            overflow: hidden;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         #map {
-            flex-grow: 1; /* La mappa occupa tutto lo spazio disponibile */
+            flex-grow: 1;
             height: 100%;
-            width: 100%; /* Inizialmente occupa tutta la larghezza rimanente */
+            width: 100%;
         }
         #sidebar {
-            width: 320px; /* Larghezza fissa per desktop */
-            flex-shrink: 0; /* Impedisce che la sidebar si restringa */
-            background: #f8f9fa;
-            padding: 20px; /* Padding originale per desktop */
-            overflow-y: auto; /* Permette lo scroll del contenuto se in eccesso */
-            box-shadow: -2px 0 5px rgba(0,0,0,0.1); /* Ombra a sinistra */
+            width: 320px;
+            flex-shrink: 0;
+            background: #ffffff;
+            padding: 20px;
+            overflow-y: auto;
+            box-shadow: -2px 0 5px rgba(0,0,0,0.1);
             z-index: 10;
-            border-radius: 12px 0 0 12px; /* Angoli arrotondati in alto a destra per desktop */
-            transition: all 0.3s ease-out; /* Transizione per proprietà che potrebbero cambiare */
-            display: flex; /* Per layout interno della sidebar */
+            display: flex;
             flex-direction: column;
         }
 
-        /* Stili Popup Mapbox (rimangono uguali) */
+        /* Stili Popup Mapbox */
         .mapboxgl-popup { max-width: 250px; }
         .mapboxgl-popup-content { text-align: left; font-size: 14px; padding: 15px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.15); }
         .mapboxgl-popup-content h3 { margin: 0 0 5px 0; font-size: 16px; color: #333; }
         .mapboxgl-popup-content p { margin: 0; }
+        
+        ::-webkit-scrollbar { display: none; }
+        html, body { -ms-overflow-style: none; scrollbar-width: none; }
 
-        /* Overrides specifici per Mobile */
+        /* Stili per nascondere temporaneamente i controlli Mapbox */
+        .mapboxgl-ctrl-hide-for-screenshot { display: none !important; }
+
+        /* --- Inizio Stili Mobile --- */
         @media (max-width: 768px) {
             body {
-                flex-direction: column; /* Impila mappa e sidebar verticalmente */
-                position: relative; /* Per posizionamento fisso della sidebar */
+                flex-direction: column;
+                position: relative;
             }
 
             #map {
-                /* Altezza iniziale della mappa per lasciare spazio al handle del menu (60px) */
                 height: calc(100vh - 60px);
-                transition: height 0.3s ease-out; /* Transizione fluida per l'altezza della mappa */
+                transition: height 0.3s ease-out;
             }
 
             #sidebar {
-                position: fixed; /* Posizione fissa in basso */
+                position: fixed;
                 bottom: 0;
                 left: 0;
-                width: 100%; /* Larghezza piena per mobile */
-                height: 80vh; /* Altezza massima quando completamente aperto (80% del viewport) */
-                max-height: 80vh; /* Assicura che non superi questa altezza */
-                transform: translateY(calc(80vh - 60px)); /* Nascondi inizialmente la maggior parte, lascia 60px visibili */
-                box-shadow: 0 -2px 10px rgba(0,0,0,0.15); /* Ombra in alto per separare dalla mappa */
-                border-radius: 38.5px 38.5px 0 0; /* Angoli arrotondati in alto per mobile */
-                padding: 0; /* Padding gestito internamente per mobile */
-                z-index: 1000; /* Assicura che sia sopra gli altri elementi */
-                overflow: hidden; /* Nasconde lo scrollbar quando è collassato, ma il contenuto è visibile */
-                transition: transform 0.3s ease-out; /* Transizione per l'apertura/chiusura */
+                width: 100%;
+                height: 85vh; /* Aumentata leggermente per più spazio */
+                max-height: 85vh;
+                transform: translateY(calc(85vh - 60px));
+                box-shadow: 0 -4px 12px rgba(0,0,0,0.1);
+                border-radius: 24px 24px 0 0; /* Angoli più moderni */
+                padding: 0;
+                z-index: 1000;
+                overflow: hidden;
+                transition: transform 0.3s ease-out;
+                background-color: #f8f9fa; /* Sfondo leggermente grigio */
             }
 
             #sidebar.is-open {
-                transform: translateY(0); /* Completamente aperto */
-                box-shadow: 0 -2px 10px rgba(0,0,0,0.25); /* Ombra leggermente più pronunciata quando aperto */
-                overflow-y: auto; /* Abilita lo scroll per la sidebar quando aperta */
+                transform: translateY(0);
             }
 
-            #mobile-sidebar-handle {
-                width: 100%;
-                height: 60px; /* Altezza visibile del handle quando il menu è chiuso */
-                background-color: #f8f9fa;
-                border-radius: 38.5px 38.5px 0 0;
+            /* Contenitore principale della sidebar mobile */
+            #mobile-sidebar-container {
                 display: flex;
                 flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                flex-shrink: 0; /* Impedisce che si riduca */
-                position: relative;
-                z-index: 1001; /* Assicurati che sia sopra il contenuto scorrevole */
-                cursor: grab; /* Indica che è trascinabile */
-                touch-action: none; /* Previene azioni touch predefinite del browser */
+                height: 100%;
             }
 
-            #mobile-sidebar-handle::before {
-                content: '';
+            /* Intestazione con handle e titolo */
+            #mobile-sidebar-header {
+                padding: 12px 20px;
+                text-align: center;
+                flex-shrink: 0;
+                cursor: grab;
+                touch-action: none;
+            }
+            
+            #mobile-sidebar-header .handle {
                 width: 40px;
                 height: 4px;
                 background-color: #ccc;
                 border-radius: 2px;
+                margin: 0 auto 8px;
             }
 
-            /* Contenuto scorrevole per mobile */
-            #sidebar-scrollable-content {
-                flex-grow: 1; /* Permette alla sezione di crescere e occupare lo spazio disponibile */
-                overflow-y: auto; /* Abilita lo scroll per questa sezione */
-                padding: 0 15px 15px 15px; /* Applica padding al contenuto scorrevole per mobile */
+            #mobile-sidebar-header .title {
+                font-size: 1.1rem;
+                font-weight: 600;
+                color: #333;
             }
 
-            /* Sezione delle azioni (bottoni) fissa in fondo per mobile */
-            #sidebar-actions {
-                flex-shrink: 0; /* Impedisce alla sezione azioni di restringersi */
-                padding: 15px; /* Padding per i bottoni */
-                background: #f8f9fa; /* Assicurati che abbia lo stesso sfondo della sidebar */
-                box-shadow: 0 -2px 5px rgba(0,0,0,0.05); /* Leggera ombra sopra per separare */
-                border-radius: 0 0 12px 12px; /* Angoli arrotondati in basso */
-                position: sticky; /* Rende la sezione "appiccicosa" */
-                bottom: 0; /* La attacca al fondo del suo contenitore */
-                z-index: 1002; /* Assicurati che sia sopra il contenuto scorrevole */
+            /* Navigazione a schede (Tabs) */
+            #mobile-tabs {
+                display: flex;
+                justify-content: center;
+                border-bottom: 1px solid #e5e7eb;
+                flex-shrink: 0;
+                padding: 0 20px;
+            }
+            .tab-button {
+                padding: 12px 16px;
+                font-size: 0.9rem;
+                font-weight: 500;
+                color: #6b7280;
+                border-bottom: 2px solid transparent;
+                cursor: pointer;
+                transition: all 0.2s ease-in-out;
+            }
+            .tab-button.active {
+                color: #4f46e5; /* Colore primario */
+                border-bottom-color: #4f46e5;
+            }
+
+            /* Contenuto delle schede */
+            .tab-content {
+                display: none; /* Nascosto di default */
+                flex-grow: 1;
+                overflow-y: auto;
+                padding: 20px;
+            }
+            .tab-content.active {
+                display: block; /* Visibile quando attivo */
+            }
+
+            /* Stile specifico per i pulsanti di azione */
+            #mobile-actions-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 16px;
+                margin-top: 24px;
+            }
+            .action-button {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                padding: 16px 8px;
+                background-color: #ffffff;
+                border-radius: 12px;
+                border: 1px solid #e5e7eb;
+                text-align: center;
+                font-size: 0.85rem;
+                font-weight: 500;
+                color: #374151;
+                transition: all 0.2s ease-in-out;
+                box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            }
+            .action-button:hover {
+                background-color: #f3f4f6;
+                border-color: #d1d5db;
+            }
+            .action-button svg {
+                width: 24px;
+                height: 24px;
+                margin-bottom: 8px;
+                color: #4f46e5;
+            }
+
+            /* Nascondi la versione desktop nella vista mobile */
+            #desktop-sidebar-content {
+                display: none;
             }
         }
-        
-        ::-webkit-scrollbar {
-            display: none; /* Chrome, Safari, Opera */
-        }
-        
-        html, body {
-            -ms-overflow-style: none;  /* Internet Explorer e Edge legacy */
-            scrollbar-width: none;     /* Firefox */
-        }
 
-        /* Nasconde il handle e assicura visibilità del contenuto su desktop */
+        /* --- Fine Stili Mobile --- */
+
+        /* Nascondi la versione mobile nella vista desktop */
         @media (min-width: 769px) {
-            #mobile-sidebar-handle {
-                display: none; /* Nasconde il handle su desktop */
+            #mobile-sidebar-container {
+                display: none;
             }
-            #sidebar-scrollable-content {
-                opacity: 1;
-                visibility: visible;
-                max-height: none; /* Reset per desktop */
-                overflow-y: auto; /* Abilita scrollbar per desktop */
-                padding: 0; /* Reset padding specifico per mobile dal contenuto su desktop */
-            }
-            #sidebar-actions {
-                position: static; /* Rimuovi sticky positioning su desktop */
-                box-shadow: none; /* Rimuovi ombra su desktop */
-                border-radius: 0; /* Rimuovi angoli arrotondati su desktop */
-                padding: 0; /* Il padding generale della sidebar gestirà questo */
-            }
-        }
-
-        /* Stili per nascondere temporaneamente i controlli Mapbox */
-        .mapboxgl-ctrl-hide-for-screenshot {
-            display: none !important;
         }
     </style>
 </head>
 <body>
 <div id="sidebar">
-    <!-- Handle per mobile (visibile solo su mobile) -->
-    <div id="mobile-sidebar-handle"></div>
-
-    <!-- Wrapper per il contenuto principale della sidebar -->
-    <div class="flex flex-col flex-grow">
-        <!-- Sezione informativa iniziale -->
-        <div class="p-4 md:p-0"> <!-- Aggiungi padding su mobile, resetta per desktop con md:p-0 se sidebar ha già padding -->
+    <!-- Contenuto per Desktop -->
+    <div id="desktop-sidebar-content" class="flex flex-col flex-grow">
+        <div class="p-4 md:p-0">
             <h1 class="text-2xl font-bold text-gray-800">Mappa Cestini</h1>
             <p class="text-sm text-gray-600">Filtra e interagisci con i punti sulla mappa.</p>
         </div>
-
-        <!-- Il contenuto della sidebar ora è diviso in sezioni -->
-        <!-- Questa è la sezione scorrevole per i filtri -->
-        <div id="sidebar-scrollable-content" class="flex-grow md:p-0">
-            <div id="filter-container">
-                <h2 class="text-lg font-semibold text-gray-700 mb-3 border-b pb-2">Filtra per tipo</h2>
-                <div id="filters" class="space-y-2"><div class="text-center text-gray-500 p-4"><p>Caricamento filtri...</p></div></div>
+        <div class="flex-grow">
+            <div id="filter-container-desktop">
+                <h2 class="text-lg font-semibold text-gray-700 my-3 border-b pb-2">Filtra per tipo</h2>
+                <div id="filters-desktop" class="space-y-2"></div>
             </div>
-
             <div class="mt-8">
                 <h2 class="text-lg font-semibold text-gray-700 mb-3 border-b pb-2">La tua posizione</h2>
-                <button id="locate-me-button" class="w-full bg-indigo-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-indigo-700 transition duration-300 shadow-md">Trova la mia posizione</button>
-                <div id="closest-point-info" class="mt-4 p-4 bg-gray-100 rounded-lg shadow-sm hidden">
+                <button id="locate-me-button-desktop" class="w-full bg-indigo-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-indigo-700 transition duration-300 shadow-md">Trova la mia posizione</button>
+                <div id="closest-point-info-desktop" class="mt-4 p-4 bg-gray-100 rounded-lg shadow-sm hidden">
                     <h3 class="text-md font-bold text-gray-800 mb-2">Punto più vicino:</h3>
-                    <div id="closest-point-details" class="text-sm text-gray-700 space-y-1">
-                        <!-- Dettagli del punto più vicino verranno inseriti qui -->
-                    </div>
-                    <button id="get-directions-button" class="w-full mt-4 bg-purple-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-purple-700 transition duration-300 shadow-md">Ottieni indicazioni</button>
+                    <div id="closest-point-details-desktop" class="text-sm text-gray-700 space-y-1"></div>
                 </div>
             </div>
         </div>
-
-        <!-- Questa è la sezione per i bottoni, che rimarrà fissa in fondo su mobile -->
-        <div id="sidebar-actions" class="space-y-3">
+        <div class="space-y-3 mt-8">
             <h2 class="text-lg font-semibold text-gray-700 mb-3 border-b pb-2">Azioni</h2>
-            <button id="center-button" class="w-full bg-blue-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-700 transition duration-300 shadow-md">Centra sui punti visibili</button>
-            <button id="screenshot-button" class="w-full bg-green-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-700 transition duration-300 shadow-md">Cattura Screenshot</button>
+            <button id="center-button-desktop" class="w-full bg-blue-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-700 transition duration-300 shadow-md">Centra sui punti visibili</button>
+            <button id="screenshot-button-desktop" class="w-full bg-green-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-700 transition duration-300 shadow-md">Cattura Screenshot</button>
+        </div>
+    </div>
+
+    <!-- Contenuto per Mobile -->
+    <div id="mobile-sidebar-container">
+        <div id="mobile-sidebar-header">
+            <div class="handle"></div>
+            <div class="title">Esplora la Mappa</div>
+        </div>
+        <div id="mobile-tabs">
+            <button class="tab-button active" data-tab="cerca">Cerca</button>
+            <button class="tab-button" data-tab="filtri">Filtri</button>
+        </div>
+        
+        <!-- Contenuto Scheda Cerca -->
+        <div id="tab-content-cerca" class="tab-content active">
+            <h2 class="text-lg font-semibold text-gray-700 mb-4">Trova il punto più vicino</h2>
+            <button id="locate-me-button-mobile" class="w-full bg-indigo-600 text-white font-bold py-3 px-4 rounded-lg hover:bg-indigo-700 transition duration-300 shadow-lg flex items-center justify-center space-x-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                <span>Trova la mia posizione</span>
+            </button>
+            <div id="closest-point-info-mobile" class="mt-6 p-4 bg-white rounded-lg shadow-sm hidden border border-gray-200">
+                <h3 class="text-md font-bold text-gray-800 mb-2">Punto più vicino:</h3>
+                <div id="closest-point-details-mobile" class="text-sm text-gray-700 space-y-1"></div>
+            </div>
+            <div id="mobile-actions-grid">
+                <button id="center-button-mobile" class="action-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
+                    <span>Centra Mappa</span>
+                </button>
+                <button id="screenshot-button-mobile" class="action-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                    <span>Screenshot</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Contenuto Scheda Filtri -->
+        <div id="tab-content-filtri" class="tab-content">
+             <h2 class="text-lg font-semibold text-gray-700 mb-3">Filtra per tipo</h2>
+             <div id="filters-mobile" class="space-y-2"></div>
         </div>
     </div>
 </div>
@@ -218,107 +282,49 @@ const map = new mapboxgl.Map({
 map.addControl(new mapboxgl.NavigationControl());
 
 const layerId = 'cestini-layer';
-const bidoniVSquareLayerId = 'bidoni-v-square-layer'; // Nuovo ID per il layer dei bidoni-V quadrati
-const userLocationLayerId = 'user-location-layer'; // ID per il layer della posizione utente
-const closestPointLayerId = 'closest-point-layer'; // ID per il layer del punto più vicino
+const bidoniVSquareLayerId = 'bidoni-v-square-layer';
+const userLocationLayerId = 'user-location-layer';
+const closestPointLayerId = 'closest-point-layer';
 
-// Variabile globale per memorizzare i dati GeoJSON completi
 let fullGeojsonData = null;
-let userLngLat = null; // Memorizza la posizione attuale dell'utente
-let closestFeatureCoords = null; // Memorizza le coordinate del punto più vicino selezionato
+let userLngLat = null;
+let closestFeatureCoords = null;
+let isLocationFound = false;
 
-// Data URL per un'icona quadrata SVG che può essere colorata
 const squareSvgString = `<svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="0" width="24" height="24" fill="currentColor"/></svg>`;
 const squareImage = new Image(24, 24);
 squareImage.src = 'data:image/svg+xml;base64,' + btoa(squareSvgString);
 
-// Carica il GeoJSON
 fetch('cestini.geojson')
     .then(res => res.json())
     .then(data => {
-        fullGeojsonData = data; // Memorizza i dati completi globalmente
+        fullGeojsonData = data;
         map.on('load', () => {
-            // Aggiungi l'icona quadrata alla mappa
             map.addImage('square-icon', squareImage);
-
             map.addSource(layerId, { type: 'geojson', data });
 
-            // Layer per tutti i cerchi ECCETTO 'Bidoni-V'
             map.addLayer({
-                id: layerId,
-                type: 'circle',
-                source: layerId,
-                filter: ['!=', 'type', 'Bidoni-V'], // Escludi i Bidoni-V da questo layer
-                paint: {
-                    'circle-radius': 5, // punti più piccoli
-                    'circle-color': [
-                        'to-color',
-                        ['get', 'colour'] // prende il valore dalla proprietà "colour"
-                    ],
-                    'circle-stroke-width': 1,
-                    'circle-stroke-color': '#333'
-                }
-            });
-
-            // Nuovo layer per 'Bidoni-V' come quadrati
-            map.addLayer({
-                id: bidoniVSquareLayerId,
-                type: 'symbol',
-                source: layerId,
-                filter: ['==', 'type', 'Bidoni-V'], // Solo i Bidoni-V per questo layer
-                layout: {
-                    'icon-image': 'square-icon', // Usa l'icona quadrata personalizzata
-                    'icon-size': 0.6, // Rendi l'icona leggermente più grande (es. 0.6 della dimensione originale di 24px)
-                    'icon-allow-overlap': true, // Permetti alle icone di sovrapporsi
-                    'icon-anchor': 'center' // Centra l'icona sulla coordinata
-                },
-                paint: {
-                    'icon-color': ['to-color', ['get', 'colour']] // Usa la proprietà 'colour' per la tinta
-                }
-            });
-
-            // Layer per la posizione dell'utente (inizialmente vuoto)
-            map.addSource(userLocationLayerId, {
-                type: 'geojson',
-                data: {
-                    type: 'FeatureCollection',
-                    features: []
-                }
+                id: layerId, type: 'circle', source: layerId,
+                filter: ['!=', 'type', 'Bidoni-V'],
+                paint: { 'circle-radius': 5, 'circle-color': ['to-color', ['get', 'colour']], 'circle-stroke-width': 1, 'circle-stroke-color': '#333' }
             });
             map.addLayer({
-                id: userLocationLayerId,
-                type: 'circle',
-                source: userLocationLayerId,
-                paint: {
-                    'circle-radius': 8,
-                    'circle-color': '#007cbf',
-                    'circle-stroke-width': 2,
-                    'circle-stroke-color': '#ffffff'
-                }
+                id: bidoniVSquareLayerId, type: 'symbol', source: layerId,
+                filter: ['==', 'type', 'Bidoni-V'],
+                layout: { 'icon-image': 'square-icon', 'icon-size': 0.6, 'icon-allow-overlap': true, 'icon-anchor': 'center' },
+                paint: { 'icon-color': ['to-color', ['get', 'colour']] }
             });
-
-            // Layer per evidenziare il punto più vicino (inizialmente vuoto)
-            map.addSource(closestPointLayerId, {
-                type: 'geojson',
-                data: {
-                    type: 'FeatureCollection',
-                    features: []
-                }
-            });
+            map.addSource(userLocationLayerId, { type: 'geojson', data: { type: 'FeatureCollection', features: [] } });
             map.addLayer({
-                id: closestPointLayerId,
-                type: 'circle', // Useremo un cerchio più grande e distinto
-                source: closestPointLayerId,
-                paint: {
-                    'circle-radius': 12,
-                    'circle-color': '#ff0000', // Colore rosso per evidenziare
-                    'circle-stroke-width': 3,
-                    'circle-stroke-color': '#ffffff',
-                    'circle-opacity': 0.8
-                }
+                id: userLocationLayerId, type: 'circle', source: userLocationLayerId,
+                paint: { 'circle-radius': 8, 'circle-color': '#007cbf', 'circle-stroke-width': 2, 'circle-stroke-color': '#ffffff' }
+            });
+            map.addSource(closestPointLayerId, { type: 'geojson', data: { type: 'FeatureCollection', features: [] } });
+            map.addLayer({
+                id: closestPointLayerId, type: 'circle', source: closestPointLayerId,
+                paint: { 'circle-radius': 12, 'circle-color': '#ff0000', 'circle-stroke-width': 3, 'circle-stroke-color': '#ffffff', 'circle-opacity': 0.8 }
             });
 
-            // Popup su click - ora gestisce tutti i layer rilevanti
             map.on('click', [layerId, bidoniVSquareLayerId, userLocationLayerId, closestPointLayerId], (e) => {
                 const coords = e.features[0].geometry.coordinates.slice();
                 const props = e.features[0].properties;
@@ -331,7 +337,6 @@ fetch('cestini.geojson')
                 new mapboxgl.Popup().setLngLat(coords).setHTML(html).addTo(map);
             });
 
-            // Cambia cursore su hover - ora gestisce tutti i layer rilevanti
             map.on('mouseenter', [layerId, bidoniVSquareLayerId, userLocationLayerId, closestPointLayerId], () => { map.getCanvas().style.cursor = 'pointer'; });
             map.on('mouseleave', [layerId, bidoniVSquareLayerId, userLocationLayerId, closestPointLayerId], () => { map.getCanvas().style.cursor = ''; });
 
@@ -340,345 +345,272 @@ fetch('cestini.geojson')
     })
     .catch(err => {
         console.error('Errore caricamento GeoJSON:', err);
-        document.getElementById('filters').innerHTML = '<p class="text-red-500">Errore caricamento dati.</p>';
+        document.getElementById('filters-desktop').innerHTML = '<p class="text-red-500">Errore caricamento dati.</p>';
+        document.getElementById('filters-mobile').innerHTML = '<p class="text-red-500">Errore caricamento dati.</p>';
     });
 
 function generateFilters(data) {
     const features = data.features;
     const types = new Set(features.map(f => f.properties?.type).filter(type => type != null));
-    const container = document.getElementById('filters');
-    container.innerHTML = '';
+    const desktopContainer = document.getElementById('filters-desktop');
+    const mobileContainer = document.getElementById('filters-mobile');
+    
+    desktopContainer.innerHTML = '';
+    mobileContainer.innerHTML = '';
+
     if (!types.size) {
-        container.innerHTML = '<p class="text-gray-500">Nessun attributo "type" trovato.</p>';
+        const errorMsg = '<p class="text-gray-500">Nessun attributo "type" trovato.</p>';
+        desktopContainer.innerHTML = errorMsg;
+        mobileContainer.innerHTML = errorMsg;
         return;
     }
-    Array.from(types).sort().forEach(type => {
+    
+    const sortedTypes = Array.from(types).sort();
+
+    sortedTypes.forEach(type => {
         const id = `filter-${type.replace(/\s+/g, '-')}`;
-        const label = document.createElement('label');
-        label.htmlFor = id;
-        label.className = 'flex items-center space-x-3 p-2 rounded-md hover:bg-gray-200 cursor-pointer';
-
-        const cb = document.createElement('input');
-        cb.type = 'checkbox';
-        cb.id = id;
-        cb.value = type;
-        cb.checked = true;
-        cb.className = 'h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500';
-        cb.addEventListener('change', updateFilters);
-
-        const span = document.createElement('span');
-        span.textContent = type.charAt(0).toUpperCase() + type.slice(1);
-        span.className = 'text-gray-700';
-
-        label.appendChild(cb);
-        label.appendChild(span);
-        container.appendChild(label);
+        const createFilterElement = (idSuffix) => {
+            const label = document.createElement('label');
+            label.htmlFor = `${id}-${idSuffix}`;
+            label.className = 'flex items-center space-x-3 p-2 rounded-md hover:bg-gray-200 cursor-pointer';
+            const cb = document.createElement('input');
+            cb.type = 'checkbox';
+            cb.id = `${id}-${idSuffix}`;
+            cb.value = type;
+            cb.checked = true;
+            cb.className = 'h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500';
+            cb.addEventListener('change', () => updateFilters(idSuffix));
+            const span = document.createElement('span');
+            span.textContent = type.charAt(0).toUpperCase() + type.slice(1);
+            span.className = 'text-gray-700';
+            label.appendChild(cb);
+            label.appendChild(span);
+            return label;
+        };
+        desktopContainer.appendChild(createFilterElement('desktop'));
+        mobileContainer.appendChild(createFilterElement('mobile'));
     });
 }
 
-function updateFilters() {
-    const checked = Array.from(document.querySelectorAll('#filters input[type="checkbox"]'))
+
+function updateFilters(idSuffix) {
+    const selector = `#filters-${idSuffix} input[type="checkbox"]`;
+    const checked = Array.from(document.querySelectorAll(selector))
         .filter(cb => cb.checked)
         .map(cb => cb.value);
 
-    // Filtro per i cerchi (tutti i tipi TRANNE 'Bidoni-V')
     let circleFilter;
     if (!checked.length) {
-        circleFilter = ['==', 'type', '']; // Nascondi tutti i cerchi
+        circleFilter = ['==', 'type', ''];
     } else {
         const filteredChecked = checked.filter(type => type !== 'Bidoni-V');
         if (filteredChecked.length > 0) {
             circleFilter = ['all', ['!=', 'type', 'Bidoni-V'], ['in', 'type', ...filteredChecked]];
         } else {
-            circleFilter = ['==', 'type', '']; // Nessun tipo non-'Bidoni-V' selezionato, nascondi tutti i cerchi
+            circleFilter = ['==', 'type', ''];
         }
     }
     map.setFilter(layerId, circleFilter);
 
-    // Filtro per i quadrati (solo 'Bidoni-V')
     let squareFilter;
     if (checked.includes('Bidoni-V')) {
-        squareFilter = ['==', 'type', 'Bidoni-V']; // Mostra i quadrati Bidoni-V
+        squareFilter = ['==', 'type', 'Bidoni-V'];
     } else {
-        squareFilter = ['==', 'type', '']; // Nascondi i quadrati Bidoni-V
+        squareFilter = ['==', 'type', ''];
     }
     map.setFilter(bidoniVSquareLayerId, squareFilter);
 }
 
-document.getElementById('center-button').addEventListener('click', () => {
-    // Questo pulsante ora centra sui punti VISIBILI renderizzati di ENTRAMBI i layer
+
+function centerMapOnVisiblePoints() {
     const features = map.queryRenderedFeatures({ layers: [layerId, bidoniVSquareLayerId] });
     if (!features.length) { return; }
     const bounds = new mapboxgl.LngLatBounds();
     features.forEach(f => bounds.extend(f.geometry.coordinates));
     map.fitBounds(bounds, { padding: 80, maxZoom: 16 });
-});
-
-
-// Funzione per calcolare la distanza Haversine tra due punti (in km)
-function calculateDistance(lat1, lon1, lat2, lon2) {
-    const R = 6371; // Raggio della Terra in chilometri
-    const dLat = (lat2 - lat1) * Math.PI / 180;
-    const dLon = (lon2 - lon1) * Math.PI / 180;
-    const a =
-        Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-        Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
-        Math.sin(dLon / 2) * Math.sin(dLon / 2);
-    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-    const distance = R * c; // Distanza in km
-    return distance;
 }
 
-// Funzione per trovare il punto più vicino all'utente
-function findClosestPoint(userLng, userLat) {
-    if (!fullGeojsonData || !fullGeojsonData.features.length) {
-        console.warn('Dati GeoJSON non disponibili per trovare il punto più vicino.');
-        return null;
-    }
+function captureScreenshot() {
+    hideMapControls();
+    setTimeout(() => {
+        html2canvas(document.getElementById('map'), { useCORS: true, allowTaint: true, backgroundColor: null })
+            .then(canvas => {
+                const link = document.createElement('a');
+                link.download = 'mappa-cestini-screenshot.png';
+                link.href = canvas.toDataURL('image/png');
+                link.click();
+                showMapControls();
+            }).catch(error => {
+                console.error('Errore screenshot:', error);
+                showMapControls();
+            });
+    }, 100);
+}
 
+document.getElementById('center-button-desktop').addEventListener('click', centerMapOnVisiblePoints);
+document.getElementById('center-button-mobile').addEventListener('click', centerMapOnVisiblePoints);
+document.getElementById('screenshot-button-desktop').addEventListener('click', captureScreenshot);
+document.getElementById('screenshot-button-mobile').addEventListener('click', captureScreenshot);
+
+
+function calculateDistance(lat1, lon1, lat2, lon2) {
+    const R = 6371;
+    const dLat = (lat2 - lat1) * Math.PI / 180;
+    const dLon = (lon2 - lon1) * Math.PI / 180;
+    const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) + Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) * Math.sin(dLon / 2) * Math.sin(dLon / 2);
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    return R * c;
+}
+
+function findClosestPoint(userLng, userLat) {
+    if (!fullGeojsonData || !fullGeojsonData.features.length) return null;
     let closest = null;
     let minDistance = Infinity;
-
     fullGeojsonData.features.forEach(feature => {
         const coords = feature.geometry.coordinates;
         const distance = calculateDistance(userLat, userLng, coords[1], coords[0]);
-
         if (distance < minDistance) {
             minDistance = distance;
             closest = feature;
         }
     });
-
-    if (closest) {
-        return { feature: closest, distance: minDistance };
-    }
-    return null;
+    return closest ? { feature: closest, distance: minDistance } : null;
 }
 
-// Elementi DOM per la gestione della posizione utente e punto più vicino
-const locateMeButton = document.getElementById('locate-me-button');
-const closestPointInfo = document.getElementById('closest-point-info');
-const closestPointDetails = document.getElementById('closest-point-details');
-const getDirectionsButton = document.getElementById('get-directions-button');
+function handleLocateMe() {
+    const locateMeButtonDesktop = document.getElementById('locate-me-button-desktop');
+    const locateMeButtonMobile = document.getElementById('locate-me-button-mobile').querySelector('span');
+    const closestPointInfoDesktop = document.getElementById('closest-point-info-desktop');
+    const closestPointDetailsDesktop = document.getElementById('closest-point-details-desktop');
+    const closestPointInfoMobile = document.getElementById('closest-point-info-mobile');
+    const closestPointDetailsMobile = document.getElementById('closest-point-details-mobile');
 
-locateMeButton.addEventListener('click', () => {
+    if (isLocationFound) {
+        locateMeButtonDesktop.textContent = 'Trova la mia posizione';
+        locateMeButtonMobile.textContent = 'Trova la mia posizione';
+        isLocationFound = false;
+        closestPointInfoDesktop.classList.add('hidden');
+        closestPointInfoMobile.classList.add('hidden');
+        map.getSource(userLocationLayerId).setData({ type: 'FeatureCollection', features: [] });
+        map.getSource(closestPointLayerId).setData({ type: 'FeatureCollection', features: [] });
+        userLngLat = null;
+        closestFeatureCoords = null;
+        return;
+    }
+
     if (navigator.geolocation) {
-        locateMeButton.textContent = 'Ricerca posizione...';
-        locateMeButton.disabled = true;
+        locateMeButtonDesktop.textContent = 'Ricerca...';
+        locateMeButtonMobile.textContent = 'Ricerca...';
+        locateMeButtonDesktop.disabled = true;
+        document.getElementById('locate-me-button-mobile').disabled = true;
+
         navigator.geolocation.getCurrentPosition(
             (position) => {
                 const { latitude, longitude } = position.coords;
                 userLngLat = [longitude, latitude];
-                console.log('Posizione utente:', userLngLat);
-
-                // Aggiorna la sorgente della posizione utente sulla mappa
-                map.getSource(userLocationLayerId).setData({
-                    type: 'FeatureCollection',
-                    features: [{
-                        type: 'Feature',
-                        geometry: {
-                            type: 'Point',
-                            coordinates: userLngLat
-                        },
-                        properties: {
-                            description: 'La tua posizione',
-                            isUserLocation: true
-                        }
-                    }]
-                });
-
-                // Centra la mappa sulla posizione dell'utente
+                map.getSource(userLocationLayerId).setData({ type: 'FeatureCollection', features: [{ type: 'Feature', geometry: { type: 'Point', coordinates: userLngLat }, properties: { description: 'La tua posizione', isUserLocation: true } }] });
                 map.flyTo({ center: userLngLat, zoom: 15 });
 
-                // Trova il punto più vicino
                 const result = findClosestPoint(longitude, latitude);
+                let detailsHtml = '<p>Nessun punto trovato.</p>';
                 if (result) {
                     const { feature, distance } = result;
                     closestFeatureCoords = feature.geometry.coordinates;
-                    console.log('Punto più vicino:', feature.properties.type, 'a', distance.toFixed(2), 'km');
-
-                    // Aggiorna la sidebar con i dettagli del punto più vicino
-                    let detailsHtml = `<p><strong>Tipo:</strong> ${feature.properties.type || 'N/A'}</p>`;
-                    detailsHtml += `<p><strong>Distanza:</strong> ${distance.toFixed(2)} km</p>`;
-                    // Aggiungi altre proprietà se presenti e significative
+                    detailsHtml = `<p><strong>Tipo:</strong> ${feature.properties.type || 'N/A'}</p><p><strong>Distanza:</strong> ${distance.toFixed(2)} km</p>`;
                     if (feature.properties.name) detailsHtml += `<p><strong>Nome:</strong> ${feature.properties.name}</p>`;
-                    closestPointDetails.innerHTML = detailsHtml;
-                    closestPointInfo.classList.remove('hidden');
-
-                    // Aggiorna la sorgente del punto più vicino sulla mappa
-                    map.getSource(closestPointLayerId).setData({
-                        type: 'FeatureCollection',
-                        features: [{
-                            type: 'Feature',
-                            geometry: {
-                                type: 'Point',
-                                coordinates: closestFeatureCoords
-                            },
-                            properties: {
-                                description: 'Punto più vicino',
-                                isClosestPoint: true,
-                                ...feature.properties // Copia le proprietà originali
-                            }
-                        }]
-                    });
-
-                    // Centra la mappa per includere sia l'utente che il punto più vicino
+                    map.getSource(closestPointLayerId).setData({ type: 'FeatureCollection', features: [{ type: 'Feature', geometry: { type: 'Point', coordinates: closestFeatureCoords }, properties: { description: 'Punto più vicino', isClosestPoint: true, ...feature.properties } }] });
                     const bounds = new mapboxgl.LngLatBounds();
                     bounds.extend(userLngLat);
                     bounds.extend(closestFeatureCoords);
                     map.fitBounds(bounds, { padding: 100, maxZoom: 16 });
-
-                } else {
-                    closestPointDetails.innerHTML = '<p>Nessun punto cestino/bidone trovato.</p>';
-                    closestPointInfo.classList.remove('hidden');
                 }
-                locateMeButton.textContent = 'Trova la mia posizione';
-                locateMeButton.disabled = false;
+                
+                closestPointDetailsDesktop.innerHTML = detailsHtml;
+                closestPointInfoDesktop.classList.remove('hidden');
+                closestPointDetailsMobile.innerHTML = detailsHtml;
+                closestPointInfoMobile.classList.remove('hidden');
+
+                locateMeButtonDesktop.textContent = 'Trovane un altro';
+                locateMeButtonMobile.textContent = 'Trovane un altro';
+                isLocationFound = true;
             },
             (error) => {
                 console.error('Errore geolocalizzazione:', error);
-                closestPointDetails.innerHTML = `<p class="text-red-500">Errore geolocalizzazione: ${error.message}. Assicurati di aver concesso i permessi.</p>`;
-                closestPointInfo.classList.remove('hidden');
-                locateMeButton.textContent = 'Trova la mia posizione';
-                locateMeButton.disabled = false;
+                const errorHtml = `<p class="text-red-500">Errore: ${error.message}.</p>`;
+                closestPointDetailsDesktop.innerHTML = errorHtml;
+                closestPointInfoDesktop.classList.remove('hidden');
+                closestPointDetailsMobile.innerHTML = errorHtml;
+                closestPointInfoMobile.classList.remove('hidden');
+                locateMeButtonDesktop.textContent = 'Trova la mia posizione';
+                locateMeButtonMobile.textContent = 'Trova la mia posizione';
+                isLocationFound = false;
             },
             { enableHighAccuracy: true, timeout: 5000, maximumAge: 0 }
         );
     } else {
-        console.error('Geolocalizzazione non supportata dal browser.');
-        closestPointDetails.innerHTML = '<p class="text-red-500">Il tuo browser non supporta la geolocalizzazione.</p>';
-        closestPointInfo.classList.remove('hidden');
+        const errorHtml = '<p class="text-red-500">Geolocalizzazione non supportata.</p>';
+        closestPointDetailsDesktop.innerHTML = errorHtml;
+        closestPointInfoDesktop.classList.remove('hidden');
+        closestPointDetailsMobile.innerHTML = errorHtml;
+        closestPointInfoMobile.classList.remove('hidden');
     }
-});
+    locateMeButtonDesktop.disabled = false;
+    document.getElementById('locate-me-button-mobile').disabled = false;
+}
 
-getDirectionsButton.addEventListener('click', () => {
-    if (userLngLat && closestFeatureCoords) {
-        // Genera un URL per le indicazioni usando Mapbox
-        const directionsUrl = `https://www.mapbox.com/directions/v5/mapbox/driving/${userLngLat[0]},${userLngLat[1]};${closestFeatureCoords[0]},${closestFeatureCoords[1]}?geometries=polyline&overview=full&steps=true&access_token=${mapboxgl.accessToken}`;
-        window.open(directionsUrl, '_blank');
-    } else {
-        console.warn('Posizione utente o punto più vicino non disponibili per le indicazioni.');
-        // Potresti voler mostrare un messaggio all'utente
-    }
-});
+document.getElementById('locate-me-button-desktop').addEventListener('click', handleLocateMe);
+document.getElementById('locate-me-button-mobile').addEventListener('click', handleLocateMe);
 
-
-/**
- * Nasconde temporaneamente i controlli UI di Mapbox (zoom, bussola, attribuzione).
- */
 function hideMapControls() {
-    const controls = document.querySelectorAll('.mapboxgl-ctrl, .mapboxgl-canvas-container .mapboxgl-ctrl-bottom-left');
-    controls.forEach(control => {
-        control.classList.add('mapboxgl-ctrl-hide-for-screenshot');
-    });
+    document.querySelectorAll('.mapboxgl-ctrl, .mapboxgl-canvas-container .mapboxgl-ctrl-bottom-left').forEach(c => c.classList.add('mapboxgl-ctrl-hide-for-screenshot'));
 }
 
-/**
- * Ripristina la visibilità dei controlli UI di Mapbox.
- */
 function showMapControls() {
-    const controls = document.querySelectorAll('.mapboxgl-ctrl, .mapboxgl-canvas-container .mapboxgl-ctrl-bottom-left');
-    controls.forEach(control => {
-        control.classList.remove('mapboxgl-ctrl-hide-for-screenshot');
-    });
+    document.querySelectorAll('.mapboxgl-ctrl, .mapboxgl-canvas-container .mapboxgl-ctrl-bottom-left').forEach(c => c.classList.remove('mapboxgl-ctrl-hide-for-screenshot'));
 }
 
-document.getElementById('screenshot-button').addEventListener('click', async () => {
-    hideMapControls(); // Nascondi i controlli prima dello screenshot
-
-    setTimeout(() => {
-        html2canvas(document.getElementById('map'), {
-            useCORS: true,
-            allowTaint: true,
-            backgroundColor: null // Mantiene lo sfondo trasparente se non c'è colore Mapbox
-        }).then(canvas => {
-            const link = document.createElement('a');
-            link.download = 'mappa-cestini-screenshot.png'; // Nome file più generico
-            link.href = canvas.toDataURL('image/png');
-            link.click();
-
-            showMapControls(); // Ripristina i controlli dopo lo screenshot
-        }).catch(error => {
-            console.error('Errore durante la cattura dello screenshot:', error);
-            showMapControls(); // Assicurati di ripristinare i controlli anche in caso di errore
-        });
-    }, 100); // Breve ritardo per la renderizzazione del DOM dopo aver nascosto i controlli
-});
-
-
-// Logica per il menu mobile: apertura/chiusura con un tap/drag sul handle e click fuori
+// Logica per il menu mobile
 const sidebar = document.getElementById('sidebar');
-const mobileSidebarHandle = document.getElementById('mobile-sidebar-handle');
+const mobileSidebarHeader = document.getElementById('mobile-sidebar-header');
 const mapContainer = document.getElementById('map');
-
 const MOBILE_BREAKPOINT = 768;
-const COLLAPSED_HEIGHT_PX = 60; // Altezza del handle visibile quando collassato
+const COLLAPSED_HEIGHT_PX = 60;
+let isDragging = false, startY = 0, initialTranslateY = 0;
 
-let isDragging = false;
-let startY = 0;
-let initialTranslateY = 0; // La trasformazione Y al momento dell'inizio del drag
-
-function isMobileView() {
-    return window.innerWidth <= MOBILE_BREAKPOINT;
-}
-
-let clickOutsideListener = null;
+function isMobileView() { return window.innerWidth <= MOBILE_BREAKPOINT; }
 
 function setMobileSidebarState(isOpen) {
     if (isOpen) {
         sidebar.classList.add('is-open');
-        // Ho cambiato l'altezza della mappa a 20vh (100vh - 80vh della sidebar)
-        mapContainer.style.height = `20vh`; 
-        if (isMobileView() && !clickOutsideListener) {
-            clickOutsideListener = (event) => {
-                // Chiudi il menu solo se il click non è avvenuto sulla sidebar o sul handle
-                if (!sidebar.contains(event.target) && event.target !== mobileSidebarHandle) {
-                    setMobileSidebarState(false);
-                }
-            };
-            document.addEventListener('click', clickOutsideListener);
-        }
+        mapContainer.style.height = `15vh`;
     } else {
         sidebar.classList.remove('is-open');
         mapContainer.style.height = `calc(100vh - ${COLLAPSED_HEIGHT_PX}px)`;
-        if (clickOutsideListener) {
-            document.removeEventListener('click', clickOutsideListener);
-            clickOutsideListener = null;
-        }
     }
     map.resize();
 }
 
-// Funzione per ottenere la trasformazione Y corrente della sidebar
 function getSidebarCurrentTranslateY() {
     const transform = getComputedStyle(sidebar).transform;
-    const matrix = new DOMMatrixReadOnly(transform);
-    return matrix.m42; // m42 è il componente di traslazione Y
+    return new DOMMatrixReadOnly(transform).m42;
 }
 
-
-// Eventi per il trascinamento (drag) del menu mobile
-if (mobileSidebarHandle) {
-    mobileSidebarHandle.addEventListener('touchstart', (e) => {
+if (mobileSidebarHeader) {
+    mobileSidebarHeader.addEventListener('touchstart', (e) => {
         if (!isMobileView()) return;
         isDragging = true;
         startY = e.touches[0].clientY;
         initialTranslateY = getSidebarCurrentTranslateY();
-        sidebar.style.transition = 'none'; // Disabilita la transizione durante il drag
-        e.preventDefault(); // Impedisce lo scroll della pagina
+        sidebar.style.transition = 'none';
+        e.preventDefault();
     }, { passive: false });
 
     document.addEventListener('touchmove', (e) => {
         if (!isDragging || !isMobileView()) return;
-
         const currentTouchY = e.touches[0].clientY;
         let dy = currentTouchY - startY;
         let newTransformY = initialTranslateY + dy;
-
-        // Limita il movimento: 0px (completamente aperto) a (altezza sidebar - altezza handle)
-        const sidebarHeight = sidebar.offsetHeight;
-        const maxTranslateY = sidebarHeight - COLLAPSED_HEIGHT_PX;
-
+        const maxTranslateY = sidebar.offsetHeight - COLLAPSED_HEIGHT_PX;
         newTransformY = Math.min(Math.max(0, newTransformY), maxTranslateY);
         sidebar.style.transform = `translateY(${newTransformY}px)`;
         e.preventDefault();
@@ -687,56 +619,43 @@ if (mobileSidebarHandle) {
     document.addEventListener('touchend', () => {
         if (!isDragging || !isMobileView()) return;
         isDragging = false;
-        sidebar.style.transition = 'transform 0.3s ease-out'; // Riabilita la transizione
-
+        sidebar.style.transition = 'transform 0.3s ease-out';
         const currentTranslateY = getSidebarCurrentTranslateY();
-        const sidebarHeight = sidebar.offsetHeight;
-        const maxTranslateY = sidebarHeight - COLLAPSED_HEIGHT_PX;
-
-        // Determina se il menu deve aprirsi o chiudarsi in base alla posizione attuale
-        // Se è più della metà strada verso l'alto, aprilo completamente
-        if (currentTranslateY < maxTranslateY / 2) {
-            setMobileSidebarState(true); // Scatta per aprire
-        } else {
-            setMobileSidebarState(false); // Scatta per chiudere
-        }
+        const maxTranslateY = sidebar.offsetHeight - COLLAPSED_HEIGHT_PX;
+        setMobileSidebarState(currentTranslateY < maxTranslateY / 2);
     });
 
-    // Anche il click semplice sull'handle deve aprire/chiudere il menu
-    mobileSidebarHandle.addEventListener('click', (event) => {
-        if (!isMobileView()) return;
-        event.stopPropagation(); // Impedisce che il click attivi il listener di "click outside"
+    mobileSidebarHeader.addEventListener('click', (event) => {
+        if (!isMobileView() || isDragging) return;
         const isOpen = sidebar.classList.contains('is-open');
-        // Se si sta trascinando, il click non deve interferire (solo touchend gestirà)
-        if (!isDragging) {
-            setMobileSidebarState(!isOpen);
-        }
+        setMobileSidebarState(!isOpen);
     });
 }
 
-
-// Inizializza lo stato del menu mobile al caricamento della pagina se siamo su mobile
-window.addEventListener('load', () => {
-    if (isMobileView()) {
-        setMobileSidebarState(false); // Assicurati che parta chiuso su mobile
-    }
+// Gestione Tabs Mobile
+document.querySelectorAll('.tab-button').forEach(button => {
+    button.addEventListener('click', () => {
+        const tab = button.dataset.tab;
+        document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+        document.querySelectorAll('.tab-content').forEach(content => {
+            content.classList.remove('active');
+            if (content.id === `tab-content-${tab}`) {
+                content.classList.add('active');
+            }
+        });
+    });
 });
 
-// Listener per il ridimensionamento della finestra per adattare il layout
+window.addEventListener('load', () => { if (isMobileView()) setMobileSidebarState(false); });
 window.addEventListener('resize', () => {
     if (!isMobileView()) {
-        // Quando si ridimensiona in modalità desktop
-        sidebar.classList.remove('is-open'); // Rimuovi la classe open del mobile
-        sidebar.style.transform = ''; // Reset della trasformazione mobile
-        mapContainer.style.height = '100%'; // Ripristina l'altezza completa della mappa
-        if (clickOutsideListener) { // Rimuovi il listener se si passa a desktop
-            document.removeEventListener('click', clickOutsideListener);
-            clickOutsideListener = null;
-        }
-        map.resize(); // Ridimensiona la mappa dopo il cambio di layout
+        sidebar.classList.remove('is-open');
+        sidebar.style.transform = '';
+        mapContainer.style.height = '100%';
+        map.resize();
     } else {
-        // Quando si ridimensiona in modalità mobile
-        setMobileSidebarState(false); // Collassa il menu e regola l'altezza della mappa
+        setMobileSidebarState(false);
     }
 });
 </script>
