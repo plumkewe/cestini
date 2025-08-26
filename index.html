@@ -273,7 +273,6 @@
 </head>
 <body>
 <div id="sidebar">
-    <!-- Contenuto per Desktop -->
     <div id="desktop-sidebar-content" class="flex flex-col flex-grow">
         <div class="p-4 md:p-0">
             <h1 class="text-2xl font-bold text-gray-800">Mappa Cestini</h1>
@@ -282,6 +281,7 @@
         <div class="flex-grow">
             <div id="filter-container-desktop">
                 <h2 class="text-lg font-semibold text-gray-700 my-3 border-b pb-2">Filtra per tipo</h2>
+                <div id="total-count-desktop" class="text-sm font-semibold text-gray-600 my-2"></div>
                 <div id="filters-desktop" class="space-y-2"></div>
             </div>
             <div class="mt-8">
@@ -300,7 +300,6 @@
         </div>
     </div>
 
-    <!-- Contenuto per Mobile -->
     <div id="mobile-sidebar-container">
         <div id="mobile-sidebar-header">
             <div class="handle"></div>
@@ -311,7 +310,6 @@
             <button class="tab-button" data-tab="filtri">Filtri</button>
         </div>
         
-        <!-- Contenuto Scheda Cerca -->
         <div id="tab-content-cerca" class="tab-content active">
             <h2 class="text-lg font-semibold text-gray-700 mb-4">Trova il punto più vicino</h2>
             <button id="locate-me-button-mobile" class="w-full bg-indigo-600 text-white font-bold py-3 px-4 rounded-lg hover:bg-indigo-700 transition duration-300 shadow-lg flex items-center justify-center space-x-2">
@@ -328,16 +326,15 @@
                     <span>Centra Mappa</span>
                 </button>
                 <button id="screenshot-button-mobile" class="action-button">
-                     <!-- Icona corretta per lo screenshot (camera) -->
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
                     <span>Screenshot</span>
                 </button>
             </div>
         </div>
 
-        <!-- Contenuto Scheda Filtri -->
         <div id="tab-content-filtri" class="tab-content">
              <h2 class="text-lg font-semibold text-gray-700 mb-3">Filtra per tipo</h2>
+             <div id="total-count-mobile" class="text-sm font-semibold text-gray-600 mb-2"></div>
              <div id="filters-mobile" class="space-y-2"></div>
         </div>
     </div>
@@ -364,6 +361,7 @@ let fullGeojsonData = null;
 let userLngLat = null;
 let closestFeatureCoords = null;
 let isLocationFound = false;
+let typeCounts = {}; // NEW: To store counts for each type
 
 const squareSvgString = `<svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="0" width="24" height="24" fill="currentColor"/></svg>`;
 const squareImage = new Image(24, 24);
@@ -373,6 +371,15 @@ fetch('cestini.geojson')
     .then(res => res.json())
     .then(data => {
         fullGeojsonData = data;
+
+        // NEW: Calculate counts for each type
+        data.features.forEach(feature => {
+            const type = feature.properties.type;
+            if (type) {
+                typeCounts[type] = (typeCounts[type] || 0) + 1;
+            }
+        });
+
         map.on('load', () => {
             map.addImage('square-icon', squareImage);
             map.addSource(layerId, { type: 'geojson', data });
@@ -404,12 +411,17 @@ fetch('cestini.geojson')
                 const props = e.features[0].properties;
                 const lat = coords[1];
                 const lng = coords[0];
-                const googleMapsLink = `https://www.google.com/maps/search/${lat},${lng}`;
+                const googleMapsLink = `https://maps.google.com/?q=${lat},${lng}`;
 
                 let html = `<h3 class="font-bold capitalize">${props.type || 'Dettagli'}</h3><div class="mt-2 space-y-1">`;
                 for (const k in props) {
                     if (k === 'colour' || typeof props[k] === 'boolean' || k === 'isUserLocation' || k === 'isClosestPoint') continue;
-                    html += `<p><strong>${k.charAt(0).toUpperCase() + k.slice(1)}:</strong> ${props[k]}</p>`;
+                    // MODIFIED: Make the type clickable
+                    if (k === 'type') {
+                        html += `<p><strong>${k.charAt(0).toUpperCase() + k.slice(1)}:</strong> <a href="#" class="text-indigo-600 hover:underline popup-filter-link" data-type="${props[k]}">${props[k]}</a></p>`;
+                    } else {
+                        html += `<p><strong>${k.charAt(0).toUpperCase() + k.slice(1)}:</strong> ${props[k]}</p>`;
+                    }
                 }
                 html += `</div>
                         <a href="${googleMapsLink}" target="_blank" class="popup-link-button">
@@ -454,6 +466,8 @@ function generateFilters(data) {
 
     sortedTypes.forEach(type => {
         const id = `filter-${type.replace(/\s+/g, '-')}`;
+        const count = typeCounts[type] || 0; // Get the pre-calculated count
+
         const createFilterElement = (idSuffix) => {
             const label = document.createElement('label');
             label.htmlFor = `${id}-${idSuffix}`;
@@ -473,7 +487,8 @@ function generateFilters(data) {
                 updateFilters();
             });
             const span = document.createElement('span');
-            span.textContent = type.charAt(0).toUpperCase() + type.slice(1);
+            // MODIFIED: Display name and count
+            span.textContent = `${type.charAt(0).toUpperCase() + type.slice(1)} (${count})`;
             span.className = 'text-gray-700';
             label.appendChild(cb);
             label.appendChild(span);
@@ -482,14 +497,27 @@ function generateFilters(data) {
         desktopContainer.appendChild(createFilterElement('desktop'));
         mobileContainer.appendChild(createFilterElement('mobile'));
     });
+    updateFilters(); // Initial call to set counts
 }
 
+// NEW: Function to update the total visible count display
+function updateTotalCount(checkedTypes) {
+    const totalVisible = checkedTypes.reduce((sum, type) => sum + (typeCounts[type] || 0), 0);
+    const totalCountDesktop = document.getElementById('total-count-desktop');
+    const totalCountMobile = document.getElementById('total-count-mobile');
+    const text = `Totale visibile: ${totalVisible}`;
+    if (totalCountDesktop) totalCountDesktop.textContent = text;
+    if (totalCountMobile) totalCountMobile.textContent = text;
+}
 
 function updateFilters() {
     const selector = '#filters-desktop input[type="checkbox"]';
     const checked = Array.from(document.querySelectorAll(selector))
         .filter(cb => cb.checked)
         .map(cb => cb.value);
+
+    // NEW: Update the total count display
+    updateTotalCount(checked);
 
     let circleFilter;
     if (!checked.length) {
@@ -512,7 +540,6 @@ function updateFilters() {
     }
     map.setFilter(bidoniVSquareLayerId, squareFilter);
 }
-
 
 function centerMapOnVisiblePoints() {
     const features = map.queryRenderedFeatures({ layers: [layerId, bidoniVSquareLayerId] });
@@ -627,7 +654,7 @@ function handleLocateMe() {
                     closestFeatureCoords = feature.geometry.coordinates;
                     const lat = closestFeatureCoords[1];
                     const lng = closestFeatureCoords[0];
-                    const googleMapsLink = `https://www.google.com/maps/search/${lat},${lng}`;
+                    const googleMapsLink = `https://maps.google.com/?q=${lat},${lng}`;
 
                     detailsHtml = `<p><strong>Tipo:</strong> ${feature.properties.type || 'N/A'}</p><p><strong>Distanza:</strong> ${distance.toFixed(2)} km</p>`;
                     if (feature.properties.name) detailsHtml += `<p><strong>Nome:</strong> ${feature.properties.name}</p>`;
@@ -717,24 +744,18 @@ function setMobileSidebarState(isOpen) {
 
 function getSidebarCurrentTranslateY() {
     const transform = getComputedStyle(sidebar).transform;
-    // La matrice 2D ha il valore di traslazione Y in m42 (indice 5 dell'array FlatArray)
     return parseFloat(new DOMMatrixReadOnly(transform).m42);
 }
 
-// Funzione per aggiornare la scorrevolezza dei contenuti delle tab
 function updateTabContentScrollability() {
     if (!isMobileView()) {
-        // Reset per desktop
         document.querySelectorAll('.tab-content').forEach(content => {
             content.style.maxHeight = '';
             content.style.overflowY = 'hidden';
         });
-        document.getElementById('filters-mobile').style.overflowY = 'hidden';
         return;
     }
 
-    // Calcola l'altezza disponibile per i contenuti scorrevoli
-    // Sottrai l'altezza dell'header e della navigazione a schede
     const sidebarHeight = sidebar.clientHeight;
     const headerHeight = mobileSidebarHeader.offsetHeight;
     const tabsHeight = document.getElementById('mobile-tabs').offsetHeight;
@@ -744,15 +765,8 @@ function updateTabContentScrollability() {
         if (content.classList.contains('active')) {
             content.style.maxHeight = `${availableHeight}px`;
             content.style.overflowY = 'auto';
-            // Assicurati che anche filters-mobile possa scrollare se è nella tab attiva
-            if (content.id === 'tab-content-filtri') {
-                 // Potrebbe essere necessario applicare max-height e overflow-y anche qui se filters-mobile non è flex-grow
-                 // Nel CSS attuale, filters-mobile ha flex-grow: 1, quindi dovrebbe ereditare lo scorrimento dal suo genitore .tab-content.active
-                 // Se non scrolla, potresti voler impostare un'altezza fissa o max-height qui.
-                 // Per ora, ci affidiamo a flex-grow e overflow-y: auto sul genitore.
-            }
         } else {
-            content.style.maxHeight = ''; // Rimuovi max-height per le tab non attive
+            content.style.maxHeight = '';
             content.style.overflowY = 'hidden';
         }
     });
@@ -777,10 +791,7 @@ if (mobileSidebarHeader) {
         const maxTranslateY = sidebar.offsetHeight - COLLAPSED_HEIGHT_PX;
         newTransformY = Math.min(Math.max(0, newTransformY), maxTranslateY);
         sidebar.style.transform = `translateY(${newTransformY}px)`;
-        
-        // Aggiorna lo scrollability durante il trascinamento per mostrare che il contenuto può scorrere
         updateTabContentScrollability(); 
-        
         e.preventDefault();
     }, { passive: false });
 
@@ -790,34 +801,27 @@ if (mobileSidebarHeader) {
         sidebar.style.transition = 'transform 0.3s ease-out';
         const currentTranslateY = getSidebarCurrentTranslateY();
         const maxTranslateY = sidebar.offsetHeight - COLLAPSED_HEIGHT_PX;
-
-        // Determina se la sidebar deve essere completamente aperta o collassata
-        // La soglia è un terzo dell'altezza tra la posizione aperta e quella collassata
         const openThreshold = maxTranslateY / 3; 
 
         if (currentTranslateY < openThreshold) {
-            // Se trascinato abbastanza in alto, apri completamente
             setMobileSidebarState(true);
         } else {
-            // Altrimenti, torna alla posizione collassata
             setMobileSidebarState(false);
         }
-        updateTabContentScrollability(); // Aggiorna dopo il rilascio
+        updateTabContentScrollability();
     });
 
     mobileSidebarHeader.addEventListener('click', (event) => {
-        if (!isMobileView()) return; // Non bloccare il click se non è mobile
-        // Previeni l'evento click dopo un trascinamento, altrimenti potrebbe innescare un toggle non desiderato
+        if (!isMobileView()) return;
         if (isDragging) {
-            isDragging = false; // Reset per il prossimo evento
+            isDragging = false; 
             return;
         }
         const isOpen = sidebar.classList.contains('is-open');
         setMobileSidebarState(!isOpen);
-        updateTabContentScrollability(); // Aggiorna dopo il click
+        updateTabContentScrollability();
     });
 }
-
 
 // Gestione Tabs Mobile
 document.querySelectorAll('.tab-button').forEach(button => {
@@ -831,14 +835,79 @@ document.querySelectorAll('.tab-button').forEach(button => {
                 content.classList.add('active');
             }
         });
-        updateTabContentScrollability(); // Chiamata per aggiornare la scorrevolezza dei contenuti al cambio di tab
+        updateTabContentScrollability();
     });
 });
+
+// NEW: Swipe navigation for mobile tabs
+function setupSwipeNavigation() {
+    const container = document.getElementById('mobile-sidebar-container');
+    const tabs = document.querySelectorAll('.tab-button');
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    container.addEventListener('touchstart', e => {
+        if (e.target.closest('.tab-content')) {
+            touchStartX = e.changedTouches[0].screenX;
+        }
+    }, { passive: true });
+
+    container.addEventListener('touchend', e => {
+        if (!e.target.closest('.tab-content')) return;
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+    }, { passive: true });
+
+    function handleSwipe() {
+        const swipeThreshold = 50; // min pixels for swipe
+        const deltaX = touchEndX - touchStartX;
+        const currentActiveButton = document.querySelector('.tab-button.active');
+        const currentIndex = Array.from(tabs).indexOf(currentActiveButton);
+
+        if (deltaX > swipeThreshold) { // Swipe Right
+            if (currentIndex > 0) {
+                tabs[currentIndex - 1].click();
+            }
+        } else if (deltaX < -swipeThreshold) { // Swipe Left
+            if (currentIndex < tabs.length - 1) {
+                tabs[currentIndex + 1].click();
+            }
+        }
+    }
+}
+setupSwipeNavigation();
+
+// NEW: Event listener for filtering from popup
+document.body.addEventListener('click', function(e) {
+    if (e.target.classList.contains('popup-filter-link')) {
+        e.preventDefault();
+        const typeToFilter = e.target.dataset.type;
+        if (!typeToFilter) return;
+
+        const allCheckboxes = document.querySelectorAll('#filters-desktop input[type="checkbox"], #filters-mobile input[type="checkbox"]');
+        allCheckboxes.forEach(cb => {
+            cb.checked = (cb.value === typeToFilter);
+        });
+
+        updateFilters();
+
+        const popups = document.querySelectorAll('.mapboxgl-popup');
+        popups.forEach(p => p.remove());
+
+        if (isMobileView()) {
+            document.querySelector('.tab-button[data-tab="filtri"]').click();
+            if (!sidebar.classList.contains('is-open')) {
+                setMobileSidebarState(true);
+            }
+        }
+    }
+});
+
 
 window.addEventListener('load', () => { 
     if (isMobileView()) {
         setMobileSidebarState(false);
-        updateTabContentScrollability(); // Chiamata iniziale al caricamento
+        updateTabContentScrollability();
     }
 });
 window.addEventListener('resize', () => {
@@ -847,31 +916,25 @@ window.addEventListener('resize', () => {
         sidebar.style.transform = '';
         mapContainer.style.height = '100%';
         map.resize();
-        // Reset scrollability per desktop
         document.querySelectorAll('.tab-content').forEach(content => {
             content.style.maxHeight = '';
             content.style.overflowY = 'hidden';
         });
-        document.getElementById('filters-mobile').style.overflowY = 'hidden'; // Anche qui reset
     } else {
-        // Quando la sidebar è completamente chiusa (nella posizione collassata), anche la mappa è grande
         const currentTranslateY = getSidebarCurrentTranslateY();
         const maxTranslateY = sidebar.offsetHeight - COLLAPSED_HEIGHT_PX;
-        if (currentTranslateY >= maxTranslateY - 5) { // Tolleranza per il float
+        if (currentTranslateY >= maxTranslateY - 5) { 
             mapContainer.style.height = `calc(100vh - ${COLLAPSED_HEIGHT_PX}px)`;
-            sidebar.style.transform = `translateY(${maxTranslateY}px)`; // Assicura che sia ben collassata
-        } else if (currentTranslateY <= 5) { // Tolleranza per il float (completamente aperta)
+            sidebar.style.transform = `translateY(${maxTranslateY}px)`;
+        } else if (currentTranslateY <= 5) {
             mapContainer.style.height = `15vh`;
-            sidebar.style.transform = `translateY(0px)`; // Assicura che sia ben aperta
+            sidebar.style.transform = `translateY(0px)`;
         } else {
-            // Se si trova in uno stato intermedio, mantieni l'altezza della mappa in base allo stato attuale
-            // o ripristina a una delle due posizioni principali.
-            // Per semplicità, la rimettiamo nello stato collassato in caso di resize in stato intermedio.
             mapContainer.style.height = `calc(100vh - ${COLLAPSED_HEIGHT_PX}px)`;
             sidebar.style.transform = `translateY(${maxTranslateY}px)`;
         }
         map.resize();
-        updateTabContentScrollability(); // Chiamata al ridimensionamento
+        updateTabContentScrollability();
     }
 });
 </script>
